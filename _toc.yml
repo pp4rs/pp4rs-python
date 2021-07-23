@@ -1,0 +1,25 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts: 
+  - caption: Prologue
+    chapters:
+    - file: markdown.md
+    - file: notebooks.ipynb
+
+  - caption: Basics
+    chapters:
+    - file: notebooks/basics/notebooks.ipynb
+
+  - caption: Advanced
+    chapters:
+    # here i show how to have chapter split into multiple files
+    - file: notebooks/advanced/advanced.md
+      sections:
+      - file: notebooks/advanced/notebooks.ipynb
+      - file: notebooks/advanced/notebooks_2.ipynb
+
+
