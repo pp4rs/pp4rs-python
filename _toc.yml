@@ -17,7 +17,7 @@ parts:
   - caption: Advanced
     chapters:
     # here i show how to have chapter split into multiple files
-    - file: notebooks/advanced/advanced.md
+    - file: notebooks/numpy/00-intro.ipynb
       sections:
       - file: notebooks/advanced/notebooks.ipynb
       - file: notebooks/advanced/notebooks_2.ipynb
