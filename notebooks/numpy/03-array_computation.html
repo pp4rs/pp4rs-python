@@ -1,0 +1,964 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computation on Arrays - Universal Functions &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Aggregate Functions" href="04-computation_aggregations.html" />
+    <link rel="prev" title="Working with Numpy Arrays" href="02-using_arrays.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Prologue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/numpy/03-array_computation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/03-array_computation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/numpy/03-array_computation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slowness-of-loops">
+   Slowness of loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introducting-ufuncs">
+   Introducting UFuncs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-s-ufuncs">
+   Numpy’s UFuncs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#absolute-value">
+     Absolute Value
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponents-and-logarithms">
+     Exponents and Logarithms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-useful-ufuncs-are-living-in-scipy">
+     Some useful UFuncs are living in Scipy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-ufunc-features">
+   ‘Advanced’ UFunc Features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-output">
+     Specifying output
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggregation">
+     Aggregation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outer-products">
+     Outer products
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   Challenge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-info-on-ufuncs">
+   Additional Info on ufuncs:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="computation-on-arrays-universal-functions">
+<h1>Computation on Arrays - Universal Functions<a class="headerlink" href="#computation-on-arrays-universal-functions" title="Permalink to this headline">¶</a></h1>
+<p>We should now feel relatively comfortable creating and array and then indexing and slicing it as we need.</p>
+<p>Next, we turn to doing computation on arrays. NumPy implements most of the standard computations we need to perform on arrays using <em>universal functions,</em> or ufuncs for short. NumPy’s ufuncs are optimized using vectorized operations so are in general extremely fast - and we should always try and use them rather than writing our own method.</p>
+<p>Let’s get started exploring the world of ufuncs by loading NumPy into our notebook</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="slowness-of-loops">
+<h2>Slowness of loops<a class="headerlink" href="#slowness-of-loops" title="Permalink to this headline">¶</a></h2>
+<p>Python’s default implementation of some operations is quite slow, mostly due to the fact that its a dynamic, interpreted language. This means that types are flexible so at each operation a series of type checks and other things need to be done, implying operations are generally not compiled to efficient machine code.</p>
+<p>This manifests itself when many small operations have to be repeated: like in a loop that would do the same thing to each element of an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_reciprocals</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span>
+        
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">compute_reciprocals</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.33333333, 0.14285714, 0.25      , 0.5       , 0.2       ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> compute_reciprocals(big_array)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5 s ± 35.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The bottleneck here is the type checking and function dispatches that the Python engine is performing at each cycle of the loop: each time it examines the objects type, and looks for the correct function to use on that type.</p>
+</div>
+<div class="section" id="introducting-ufuncs">
+<h2>Introducting UFuncs<a class="headerlink" href="#introducting-ufuncs" title="Permalink to this headline">¶</a></h2>
+<p>NumPy provides a convenient interface into a statically typed, compiled routine. This can be accomplished by simply performing an operation on the array, which will then be applied to each element, and recall we know that each element of a numpy array must be of the same time; so we save time on all the type checking related slow downs.</p>
+<p>Here’s an example using a NumPy ufunc to perform the same operation as above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">compute_reciprocals</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.33333333 0.14285714 0.25       0.5        0.2       ]
+[0.33333333 0.14285714 0.25       0.5        0.2       ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> (1.0 / big_array)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.46 ms ± 90.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vectorized operations in NumPy are implemented via ufuncs, which offer the ability to quickly execute repeated operations on values in NumPy arrays.</p>
+<p>Ufuncs are extremely flexible – we can also operate between two arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.5       , 0.66666667, 0.75      , 0.8       ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And multidimensional arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  1,   2,   4],
+       [  8,  16,  32],
+       [ 64, 128, 256]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="numpy-s-ufuncs">
+<h2>Numpy’s UFuncs<a class="headerlink" href="#numpy-s-ufuncs" title="Permalink to this headline">¶</a></h2>
+<p>Numpy’s ufuncs make use of Python’s native arithmetic operators, so are easy to use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x     =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x + 5 =&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x - 5 =&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x * 2 =&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x / 2 =&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x // 2 =&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># floor division</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x     = [0 1 2 3 4 5 6 7 8 9]
+x + 5 = [ 5  6  7  8  9 10 11 12 13 14]
+x - 5 = [-5 -4 -3 -2 -1  0  1  2  3  4]
+x * 2 = [ 0  5 10 15 20 25 30 35 40 45]
+x / 2 = [0.  0.2 0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8]
+x // 2 = [0 0 0 0 0 1 1 1 1 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-x     = &quot;</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x ** 2 = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x % 2  = &quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-x     =  [ 0 -1 -2 -3 -4 -5 -6 -7 -8 -9]
+x ** 2 =  [    0     1    32   243  1024  3125  7776 16807 32768 59049]
+x % 2  =  [0 1 2 3 4 0 1 2 3 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ufuncs can be strung together as in any combination, and use the standard order of operations to execute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -1.  ,  -2.25,  -4.  ,  -6.25,  -9.  , -12.25, -16.  , -20.25,
+       -25.  , -30.25])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of these arithmetic operators are wrappers around specific NumPy functions, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>This table relates the arithmetic operator to the NumPy function:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Equivalent ufunc</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.add</span></code></p></td>
+<td><p>Addition (e.g., <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">2</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.subtract</span></code></p></td>
+<td><p>Subtraction (e.g., <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.negative</span></code></p></td>
+<td><p>Unary negation (e.g., <code class="docutils literal notranslate"><span class="pre">-2</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.multiply</span></code></p></td>
+<td><p>Multiplication (e.g., <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">6</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.divide</span></code></p></td>
+<td><p>Division (e.g., <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">1.5</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.floor_divide</span></code></p></td>
+<td><p>Floor division (e.g., <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">//</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.power</span></code></p></td>
+<td><p>Exponentiation (e.g., <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">8</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.mod</span></code></p></td>
+<td><p>Modulus/remainder (e.g., <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">%</span> <span class="pre">4</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Source: Jake VanderPlas (2016), Python Data Science Handbook Essential Tools for Working with Data, O’Reilly Media.</p>
+<div class="section" id="absolute-value">
+<h3>Absolute Value<a class="headerlink" href="#absolute-value" title="Permalink to this headline">¶</a></h3>
+<p>NumPy also plays well with Python’s native absolute value function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1, 0, 1, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1, 0, 1, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1, 0, 1, 2])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exponents-and-logarithms">
+<h3>Exponents and Logarithms<a class="headerlink" href="#exponents-and-logarithms" title="Permalink to this headline">¶</a></h3>
+<p>We often work with exponentials and logarithms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x     =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;e^x   =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2^x   =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3^x   =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x     = [1, 2, 3]
+e^x   = [ 2.71828183  7.3890561  20.08553692]
+2^x   = [2. 4. 8.]
+3^x   = [ 3  9 27]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x        =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ln(x)    =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;log2(x)  =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;log10(x) =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x        = [1, 2, 4, 10]
+ln(x)    = [0.         0.69314718 1.38629436 2.30258509]
+log2(x)  = [0.         1.         2.         3.32192809]
+log10(x) = [0.         0.30103    0.60205999 1.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>NumPy has specialized versions that are useful for maintaining precision with small valued inputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exp(x) - 1 =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;log(1 + x) =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exp(x) - 1 = [0.         0.0010005  0.01005017 0.10517092]
+log(1 + x) = [0.         0.0009995  0.00995033 0.09531018]
+</pre></div>
+</div>
+</div>
+</div>
+<p>There’s also a bunch of trigonometric functions, but these are less common in our work so we skip over them.</p>
+</div>
+<div class="section" id="some-useful-ufuncs-are-living-in-scipy">
+<h3>Some useful UFuncs are living in Scipy<a class="headerlink" href="#some-useful-ufuncs-are-living-in-scipy" title="Permalink to this headline">¶</a></h3>
+<p>The SciPy module (that we discuss further later) has some additional ufuncs that are more specialized in nature. (This may be suggested by how we import them!)</p>
+<p>Here’ some useful ones for stats:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error function (integral of Gaussian)</span>
+<span class="c1"># its complement, and its inverse</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;erf(x)  =&quot;</span><span class="p">,</span> <span class="n">special</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;erfc(x) =&quot;</span><span class="p">,</span> <span class="n">special</span><span class="o">.</span><span class="n">erfc</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;erfinv(x) =&quot;</span><span class="p">,</span> <span class="n">special</span><span class="o">.</span><span class="n">erfinv</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>erf(x)  = [0.         0.32862676 0.67780119 0.84270079]
+erfc(x) = [1.         0.67137324 0.32219881 0.15729921]
+erfinv(x) = [0.         0.27246271 0.73286908        inf]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-ufunc-features">
+<h2>‘Advanced’ UFunc Features<a class="headerlink" href="#advanced-ufunc-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="specifying-output">
+<h3>Specifying output<a class="headerlink" href="#specifying-output" title="Permalink to this headline">¶</a></h3>
+<p>We are used to seeing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But we can achive the same result using the <code class="docutils literal notranslate"><span class="pre">out</span></code> argument, which is available in all ufuncs - provided we the location of the out argument exists beforehand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0. 10. 20. 30. 40.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>So why might we be interested in this feature?</p>
+<p>Notice that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">y</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.  0.  2.  0.  4.  0.  8.  0. 16.  0.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>is equivalent to : <code class="docutils literal notranslate"><span class="pre">y[::2]</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">**</span> <span class="pre">x</span></code>.</p>
+<p>If we perfom this operation on a large array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">big_array</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> np.power(2, big_array, out=y[::2])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>309 ms ± 8.92 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> y[::2] = 2 ** big_array
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>348 ms ± 7.71 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a huge difference in the timing, a factor of more than 5.</p>
+<p>What’s the difference? The latter executes 2 operations: First, it creates of a temporary array to hold the results of <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">x</span></code>. Second it copies those values into the y array.</p>
+</div>
+<div class="section" id="aggregation">
+<h3>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h3>
+<p>Some aggregates can be computed directly from an array when we want to reduce it using a particular operation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  3,  6, 10, 15])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  1,   2,   6,  24, 120])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="outer-products">
+<h3>Outer products<a class="headerlink" href="#outer-products" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4,  5],
+       [ 2,  4,  6,  8, 10],
+       [ 3,  6,  9, 12, 15],
+       [ 4,  8, 12, 16, 20],
+       [ 5, 10, 15, 20, 25]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge">
+<h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we have two firms in market operating under Cournot compeition.
+Let <span class="math notranslate nohighlight">\(q1\)</span> and <span class="math notranslate nohighlight">\(q2\)</span> denote the quantities produced by each firm respectively, and <span class="math notranslate nohighlight">\(Q=q1+q2\)</span>.</p>
+<p>Market demand can be either linear:</p>
+<div class="math notranslate nohighlight">
+\[
+P(Q) = a \times Q + b
+\]</div>
+<p>or be isoelastic:</p>
+<div class="math notranslate nohighlight">
+\[
+P(Q) = k Q^ {-\epsilon}
+\]</div>
+<p>Assume that marginal cost of production is <span class="math notranslate nohighlight">\(c\)</span> for both firms, and they can only produce integer valued outputs in the range <span class="math notranslate nohighlight">\(q_i \in [0,10]\)</span>.</p>
+<ol class="simple">
+<li><p>Write a function that returns the market price for the linear demand function for all possible market quantities. Return the price function as a matrix that can be indexed so that price[5,5] yields the market price when both firms produce 5 units of output</p></li>
+<li><p>Repeat 1. for the isoelastic case.</p></li>
+<li><p>Write a function that returns the profit for firm 1, for any combination of inputs for the either demand model.</p>
+<ol class="simple">
+<li><p>What is his profit when they both produce 5 units of output, when a = -3, b = 30 and c=1?</p></li>
+<li><p>What is his profit when they both produce 5 units of output, when k = -1, <span class="math notranslate nohighlight">\(\epsilon\)</span> = -3 and c=1?</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="additional-info-on-ufuncs">
+<h2>Additional Info on ufuncs:<a class="headerlink" href="#additional-info-on-ufuncs" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html">https://docs.scipy.org/doc/numpy/reference/ufuncs.html</a> for more ufuncs inside NumPy, and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/special.html">https://docs.scipy.org/doc/scipy/reference/special.html</a> for ufuncs in SciPy’s <code class="docutils literal notranslate"><span class="pre">special</span></code> module.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02-using_arrays.html" title="previous page">Working with Numpy Arrays</a>
+    <a class='right-next' id="next-link" href="04-computation_aggregations.html" title="next page">Aggregate Functions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

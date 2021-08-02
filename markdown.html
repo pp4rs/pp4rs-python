@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Markdown Files &#8212; My sample book</title>
+    <title>Markdown Files &#8212; Python for Economics and Business Research</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Content with notebooks" href="notebooks.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Welcome" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -74,7 +74,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -85,7 +85,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   Welcome
   </a>
  </li>
 </ul>
@@ -125,8 +125,8 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="notebooks/advanced/advanced.html">
-   Chapter Name
+  <a class="reference internal" href="notebooks/numpy/00-intro.html">
+   A Brief Introduction to NumPy
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -135,13 +135,48 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/advanced/notebooks.html">
-     Content with notebooks
+    <a class="reference internal" href="notebooks/numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/advanced/notebooks_2.html">
-     Content with notebooks
+    <a class="reference internal" href="notebooks/numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/09-sorting.html">
+     Sorting Values
     </a>
    </li>
   </ul>
@@ -203,11 +238,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkdown.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fmarkdown.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -333,7 +368,7 @@ this pattern:</p>
 <p>Again, roles will only work if <code class="docutils literal notranslate"><span class="pre">rolename</span></code> is a valid role’s name. For example,
 the <code class="docutils literal notranslate"><span class="pre">doc</span></code> role can be used to refer to another page in your book. You can
 refer directly to another page by its relative path. For example, the
-role syntax <code class="docutils literal notranslate"><span class="pre">{doc}`intro`</span></code> will result in: <a class="reference internal" href="intro.html"><span class="doc">Welcome to your Jupyter Book</span></a>.</p>
+role syntax <code class="docutils literal notranslate"><span class="pre">{doc}`intro`</span></code> will result in: <a class="reference internal" href="intro.html"><span class="doc">Welcome</span></a>.</p>
 <p>For more information on writing roles, see the
 <a class="reference external" href="https://myst-parser.readthedocs.io/">MyST documentation</a>.</p>
 </div>
@@ -410,7 +445,7 @@ see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyS
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to your Jupyter Book</a>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome</a>
     <a class='right-next' id="next-link" href="notebooks.html" title="next page">Content with notebooks</a>
 
         </div>
@@ -421,7 +456,7 @@ see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyS
     <div class="container">
       <p>
         
-          By The Jupyter Book Community<br/>
+          By Lachlan Deer and Julian Langer<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

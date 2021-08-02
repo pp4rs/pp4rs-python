@@ -1,0 +1,1183 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean Logic and Boolean Masks &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fancy Indexing" href="08-fancy_indexing.html" />
+    <link rel="prev" title="More Computation on Arrays: Broadcasting" href="06-computation_broadcasting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Prologue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/numpy/07-booleans.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/07-booleans.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/numpy/07-booleans.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-operators-as-ufuncs">
+   Comparison Operators as ufuncs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-boolean-arrays">
+   Working with Boolean Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#counting-entries">
+     Counting entries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-operators-and-data">
+     Boolean Operators and Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bitwise-logical-operators">
+   Bitwise logical operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-arrays-as-masks">
+   Boolean Arrays as Masks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-using-the-keywords-and-or-versus-the-operators">
+   Aside: Using the Keywords and/or Versus the Operators &amp;/|
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-useful-boolean-mask-operators">
+   Other Useful Boolean Mask operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   Challenge:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="boolean-logic-and-boolean-masks">
+<h1>Boolean Logic and Boolean Masks<a class="headerlink" href="#boolean-logic-and-boolean-masks" title="Permalink to this headline">¶</a></h1>
+<p>Often we want to examine and manipulate values within an array. We have previously seen how to do this using indexing and slicing, but this relies on us knowing the index that we want to extract.</p>
+<p>Boolean Masks are much more flexible. They use Boolean Logic to compute <code class="docutils literal notranslate"><span class="pre">True/False</span></code> on each element of an array, and then we can work with elements of an array which return either True or False. This means we can extract, modify, count, or otherwise manipulate values in an array based on some criterion.</p>
+<p>Let’s begin by importing NumPy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comparison-operators-as-ufuncs">
+<h2>Comparison Operators as ufuncs<a class="headerlink" href="#comparison-operators-as-ufuncs" title="Permalink to this headline">¶</a></h2>
+<p>When we first considered ufuncs we focussed on arithmetic operators. NumPy also implements comparison operators as element wise ufuncs. The results of these comparison operators are always arrays of type <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>.</p>
+<p>Six standard operations are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True, False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">!=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False,  True, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparison operators are implemented as ufuncs in NumPy; for example, when you write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">3</span></code>, internally NumPy uses <code class="docutils literal notranslate"><span class="pre">np.less(x,</span> <span class="pre">3)</span></code>.</p>
+<p>A summary of the comparison operators and their equivalent ufunc is shown here:</p>
+<p>| Operator	    | Equivalent ufunc    || Operator	   | Equivalent ufunc    |
+|—————|———————||—————|———————|
+|<code class="docutils literal notranslate"><span class="pre">==</span></code>         |<code class="docutils literal notranslate"><span class="pre">np.equal</span></code>         ||<code class="docutils literal notranslate"><span class="pre">!=</span></code>         |<code class="docutils literal notranslate"><span class="pre">np.not_equal</span></code>     |
+|<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>          |<code class="docutils literal notranslate"><span class="pre">np.less</span></code>          ||<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>         |<code class="docutils literal notranslate"><span class="pre">np.less_equal</span></code>    |
+|<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>          |<code class="docutils literal notranslate"><span class="pre">np.greater</span></code>       ||<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>         |<code class="docutils literal notranslate"><span class="pre">np.greater_equal</span></code> |</p>
+<p>Source: Jake VanderPlas (2016), Python Data Science Handbook Essential Tools for Working with Data, O’Reilly Media</p>
+<p>Just like how arithmetic ufuncs worked on multidimensional arrays, so do comparison operators:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># works in multi dimension arrays too</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 0, 3, 3],
+       [7, 9, 3, 5],
+       [2, 4, 7, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True,  True,  True,  True],
+       [False, False,  True,  True],
+       [ True,  True, False, False]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-boolean-arrays">
+<h2>Working with Boolean Arrays<a class="headerlink" href="#working-with-boolean-arrays" title="Permalink to this headline">¶</a></h2>
+<p>We can use Boolean Arrays to do a bunch of useful operations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5 0 3 3]
+ [7 9 3 5]
+ [2 4 7 6]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="counting-entries">
+<h3>Counting entries<a class="headerlink" href="#counting-entries" title="Permalink to this headline">¶</a></h3>
+<p>We can count non-zero elements</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can also be implemented using <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code> because <code class="docutils literal notranslate"><span class="pre">False</span></code> is interpreted as 0, and <code class="docutils literal notranslate"><span class="pre">True</span></code> is interpreted as 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>The benefit of sum() and other NumPy aggregation functions, is that summation can be done along rows or columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how many values less than 6 in each row?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 2, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how many values less than 6 in each col?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 2, 2, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>NumPy comes with built in functionality to check whether any or all values meet some condition:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are there any values greater than 8?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are there any values less than zero?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are all values less than 10?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are all values equal to 6?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">np.any</span></code> and <code class="docutils literal notranslate"><span class="pre">np.all</span></code> can also operate along a particular axis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are all values in each row less than 4?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are all values in each row less than 4?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python has built-in sum(), any(), and all() functions. These have a different syntax than the NumPy versions, and in fail or produce unintended results when used on multidimensional arrays.</p>
+<p>Be sure that you are using np.sum(), np.any(), and np.all() for these examples!</p>
+</div>
+<div class="section" id="boolean-operators-and-data">
+<h3>Boolean Operators and Data<a class="headerlink" href="#boolean-operators-and-data" title="Permalink to this headline">¶</a></h3>
+<p>Let’s use some of the Boolean operators we saw above to analyze some data. The file <code class="docutils literal notranslate"><span class="pre">../data/LAUST010000000000003.csv</span></code> contains monthly unemployment data for the state of Alabama from 2000 to 2016.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!head ../data/LAUST010000000000003.csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can import it using the I/O functionality we have acquired along the way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alabama</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;../data/LAUST010000000000003.csv&#39;</span><span class="p">,</span> 
+                            <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                            <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1829</span><span class="o">/</span><span class="mf">2446219879.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">alabama</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;../data/LAUST010000000000003.csv&#39;</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                             <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                             <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/numpy/lib/npyio.py</span> in <span class="ni">genfromtxt</span><span class="nt">(fname, dtype, comments, delimiter, skip_header, skip_footer, converters, missing_values, filling_values, usecols, names, excludelist, deletechars, replace_space, autostrip, case_sensitive, defaultfmt, unpack, usemask, loose, invalid_raise, max_rows, encoding, like)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1791</span>             <span class="n">fname</span> <span class="o">=</span> <span class="n">os_fspath</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1792</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1793</span>             <span class="n">fid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">_datasource</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1794</span>             <span class="n">fid_ctx</span> <span class="o">=</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">closing</span><span class="p">(</span><span class="n">fid</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/numpy/lib/_datasource.py</span> in <span class="ni">open</span><span class="nt">(path, mode, destpath, encoding, newline)</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span> 
+<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">DataSource</span><span class="p">(</span><span class="n">destpath</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">193</span>     <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="n">newline</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span> 
+<span class="g g-Whitespace">    </span><span class="mi">195</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/numpy/lib/_datasource.py</span> in <span class="ni">open</span><span class="nt">(self, path, mode, encoding, newline)</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span>             <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;bz2&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span>                 <span class="n">mode</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">530</span>             <span class="k">return</span> <span class="n">_file_openers</span><span class="p">[</span><span class="n">ext</span><span class="p">](</span><span class="n">found</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span>                                       <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="n">newline</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/LAUST010000000000003.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s first use an aggregate function to find the median unemployment rate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">median_ue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">alabama</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;median unemployment rate is:&#39;</span><span class="p">,</span> <span class="n">median_ue</span><span class="p">,</span> <span class="s1">&#39;percent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median unemployment rate is: 6.0 percent
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use Boolean Masks to find the number- and percentage of months where unemployment is above the median:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of months in the data:                 &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number months above median unemployment:      &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="n">median_ue</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage months above median unemployment:  &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="n">median_ue</span><span class="p">)</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of months in the data:                  204
+Number months above median unemployment:       107
+Percentage months above median unemployment:   0.524509803922
+</pre></div>
+</div>
+</div>
+</div>
+<p>And if we define:</p>
+<ul class="simple">
+<li><p>bad times as when uneployment is greater than 10 percent</p></li>
+<li><p>good times as when unemployment is less than 4</p></li>
+</ul>
+<p>we can find the percentage of months in good and bad times, respectively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage months in bad times:            &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage months in good times:           &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">alabama</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Percentage months in bad times:             0.112745098039
+Percentage months in good times:            0.0980392156863
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bitwise-logical-operators">
+<h2>Bitwise logical operators<a class="headerlink" href="#bitwise-logical-operators" title="Permalink to this headline">¶</a></h2>
+<p>What if we want to combine multiple conditions? We can do this using Python’s bitwise logic operators, &amp;, |, ^, and ~.  Just as how NumPy overloaded the standard arithmetic operators, <code class="docutils literal notranslate"><span class="pre">+,-,*,/</span></code>, NumPy overloads these operators with ufuncs that work element-wise on (usually Boolean) arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage months in good or bad times:            &quot;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">alabama</span> <span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage months simultaneously good and bad times:            &quot;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">alabama</span> <span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage months in usual times:            &quot;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="o">~</span><span class="p">((</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">alabama</span> <span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="p">))</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">alabama</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Percentage months in good or bad times:             0.210784313725
+Percentage months simultaneously good and bad times:             0.0
+Percentage months in usual times:             0.789215686275
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-arrays-as-masks">
+<h2>Boolean Arrays as Masks<a class="headerlink" href="#boolean-arrays-as-masks" title="Permalink to this headline">¶</a></h2>
+<p>A more powerful pattern is to use Boolean arrays as masks, to select particular subsets of the data themselves.</p>
+<p>Returning to our x array from before, suppose we want an array of all values in the array that are less than, say, 5:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 0, 3, 3],
+       [7, 9, 3, 5],
+       [2, 4, 7, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False,  True,  True,  True],
+       [False, False,  True, False],
+       [ True,  True, False, False]], dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 3, 3, 3, 2, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or using the unemployment data - what is the average unemployment rate in good, bad and usual times:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avg unemployment in good times:            &quot;</span><span class="p">,</span> 
+          <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">alabama</span><span class="p">[</span><span class="n">alabama</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">])</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avg unemployment in bad times:            &quot;</span><span class="p">,</span> 
+          <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">alabama</span><span class="p">[</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">])</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avg unemployment in usual times:            &quot;</span><span class="p">,</span> 
+          <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">alabama</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">alabama</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">alabama</span> <span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="p">)])</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Avg unemployment in good times:             3.78
+Avg unemployment in bad times:             10.9739130435
+Avg unemployment in usual times:             6.21739130435
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aside-using-the-keywords-and-or-versus-the-operators">
+<h2>Aside: Using the Keywords and/or Versus the Operators &amp;/|<a class="headerlink" href="#aside-using-the-keywords-and-or-versus-the-operators" title="Permalink to this headline">¶</a></h2>
+<p>Common point of confusion: difference between the keywords <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> vs the operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code></p>
+<p>The difference:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> gauge the truth or falsehood of entire object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> refer to bits within each object.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">|</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False,  True,  True], dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="ow">or</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-33-5d8e4f2e21c0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="ow">or</span> <span class="n">B</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False,  True,  True,  True, False, False], dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-35-3d24f1ffd63d&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="other-useful-boolean-mask-operators">
+<h2>Other Useful Boolean Mask operators<a class="headerlink" href="#other-useful-boolean-mask-operators" title="Permalink to this headline">¶</a></h2>
+<p>NumPy has many other useful built-in functions to extract data. Two that we can use often are <code class="docutils literal notranslate"><span class="pre">np.isin()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.where()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">np.isin()</span></code> creates a Boolean vector yielding <code class="docutils literal notranslate"><span class="pre">True</span></code> when a condition is met:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 0, 3, 3],
+       [7, 9, 3, 5],
+       [2, 4, 7, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oddnumber</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+
+<span class="n">is_odd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">oddnumber</span><span class="p">)</span>
+<span class="n">is_odd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True, False,  True,  True],
+       [ True,  True,  True,  True],
+       [False, False,  True, False]], dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_even</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">oddnumber</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">is_even</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False,  True, False, False],
+       [False, False, False, False],
+       [ True,  True, False,  True]], dtype=bool)
+</pre></div>
+</div>
+</div>
+</div>
+<p>NumPy’s <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> returns the indices where the np.isin() array is True:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 2, 2, 2]), array([1, 0, 1, 3]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_odd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 0, 0, 1, 1, 1, 1, 2]), array([0, 2, 3, 0, 1, 2, 3, 2]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which allows us to extract all the odd values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_odd</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 3, 3, 7, 9, 3, 5, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which could be refined to the unique elements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_odd</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 5, 7, 9])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge">
+<h2>Challenge:<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<p>Load in the ZRH weather data for the maximum, minimum and mean temperatures and dates [We’ve put the code to again import the dates below]</p>
+<p>Use Boolean Operators to find:</p>
+<ol class="simple">
+<li><p>The number of days where max temperature is 30 or avbove.</p></li>
+<li><p>The percentage of days where average temperature is 17 or below</p></li>
+<li><p>The highest minimum temperature, and the lowest maximum temperature on days where average temperature is 17 or below</p></li>
+<li><p>All dates where the the max temperature was at its hottest
+(HARD!. <em>Hint</em>: use <code class="docutils literal notranslate"><span class="pre">np.isin(array,</span> <span class="pre">condition)</span></code> to create a Boolean vector calles <code class="docutils literal notranslate"><span class="pre">index</span></code> that is <code class="docutils literal notranslate"><span class="pre">True</span></code> on the hottest days). Use array slicing on dates to extract the days where index is <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;../data/zrh_weather.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> 
+                        <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">str2date</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;../data/zrh_weather.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span>
+                      <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                     <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N days max greater than 30:            &quot;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">weather</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">30</span>  <span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N days avg less than 17:            &quot;</span><span class="p">,</span> 
+      <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">weather</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">17</span>  <span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">weather</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N days max greater than 30:             9
+N days avg less than 17:             0.274509803922
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cold_days</span> <span class="o">=</span> <span class="n">weather</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">17</span>
+
+<span class="c1"># highest min</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Highest minimum on a cold day:&quot;</span><span class="p">,</span> 
+            <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">weather</span><span class="p">[</span><span class="n">cold_days</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lowest max on a cold day:     &quot;</span><span class="p">,</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">weather</span><span class="p">[</span><span class="n">cold_days</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Highest minimum on a cold day: 13.0
+Lowest max on a cold day:      13.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">weather</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">weather</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">dates</span><span class="p">[</span><span class="n">index</span><span class="o">==</span><span class="kc">True</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;2017-07-06&#39;, &#39;2017-07-08&#39;],
+      dtype=&#39;&lt;U10&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># or, using where:</span>
+<span class="n">dates</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">index</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;2017-07-06&#39;, &#39;2017-07-08&#39;],
+      dtype=&#39;&lt;U10&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="06-computation_broadcasting.html" title="previous page">More Computation on Arrays: Broadcasting</a>
+    <a class='right-next' id="next-link" href="08-fancy_indexing.html" title="next page">Fancy Indexing</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
