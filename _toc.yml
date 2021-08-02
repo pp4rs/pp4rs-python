@@ -19,7 +19,15 @@ parts:
     # here i show how to have chapter split into multiple files
     - file: notebooks/numpy/00-intro.ipynb
       sections:
-      - file: notebooks/advanced/notebooks.ipynb
-      - file: notebooks/advanced/notebooks_2.ipynb
+      - file: notebooks/numpy/01-create_array.ipynb
+      - file: notebooks/numpy/02-using_arrays.ipynb
+      - file: notebooks/numpy/03-array_computation.ipynb
+      - file: notebooks/numpy/04-computation_aggregations.ipynb
+      - file: notebooks/numpy/05-io.ipynb
+      - file: notebooks/numpy/06-computation_broadcasting.ipynb
+      - file: notebooks/numpy/07-booleans.ipynb
+      - file: notebooks/numpy/08-fancy_indexing.ipynb
+      - file: notebooks/numpy/09-sorting.ipynb
+      
 
 
