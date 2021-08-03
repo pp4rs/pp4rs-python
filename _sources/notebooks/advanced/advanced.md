@@ -1,3 +1,0 @@
-# Chapter Name
-
-Here's my preamble into the content that will follow...

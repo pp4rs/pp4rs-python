@@ -24,7 +24,7 @@ alabama = np.genfromtxt('../data/LAUST010000000000003.csv',
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1829/2446219879.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1833/2446219879.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m alabama = np.genfromtxt('../data/LAUST010000000000003.csv', 
 [0m[1;32m      2[0m                             [0mdelimiter[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m [0mskip_header[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m                             usecols=(3))
