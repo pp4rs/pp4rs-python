@@ -14,7 +14,7 @@ parts:
     chapters:
     - file: notebooks/basics/notebooks.ipynb
 
-  - caption: Advanced
+  - caption: Python for Scientific Computing
     chapters:
     # here i show how to have chapter split into multiple files
     - file: notebooks/numpy/00-intro.ipynb
@@ -28,6 +28,3 @@ parts:
       - file: notebooks/numpy/07-booleans.ipynb
       - file: notebooks/numpy/08-fancy_indexing.ipynb
       - file: notebooks/numpy/09-sorting.ipynb
-      
-
-
