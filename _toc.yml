@@ -5,14 +5,15 @@ format: jb-book
 root: intro
 
 parts: 
-  - caption: Prologue
+  - caption: Introduction to Python
     chapters:
-    - file: markdown.md
-    - file: notebooks.ipynb
-
-  - caption: Basics
-    chapters:
-    - file: notebooks/basics/notebooks.ipynb
+    - file: notebooks/basics/01_booleans_numbers_strings.ipynb
+    - file: notebooks/basics/02-lists_tuples_dictionaries.ipynb
+    - file: notebooks/basics/03-loops_conditionals.ipynb
+    - file: notebooks/basics/04-functions_modules.ipynb
+    - file: notebooks/basics/05-files_directories.ipynb
+    - file: notebooks/basics/06-regular_expressions.ipynb 
+    - file: notebooks/basics/07-exercises.ipynb
 
   - caption: Python for Scientific Computing
     chapters:
