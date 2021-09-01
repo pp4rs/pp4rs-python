@@ -17,16 +17,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-mask = np.array([1, 0, 1, 0], dtype=bool)
-X[row[:, np.newaxis], mask] # for each row get the second and third column
+my_list = list(range(0, 11))
+print(my_list)
+my_list[11]
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mIndexError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1932/1713135762.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mmask[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m1[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m1[0m[0;34m,[0m [0;36m0[0m[0;34m][0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mbool[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mX[0m[0;34m[[0m[0mrow[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mnewaxis[0m[0;34m][0m[0;34m,[0m [0mmask[0m[0;34m][0m [0;31m# for each row get the second and third column[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/tmp/ipykernel_1663/2918673613.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mmy_list[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mrange[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;36m11[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mprint[0m[0;34m([0m[0mmy_list[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mmy_list[0m[0;34m[[0m[0;36m11[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;31mIndexError[0m: boolean index did not match indexed array along dimension 1; dimension is 5 but corresponding boolean dimension is 4
-IndexError: boolean index did not match indexed array along dimension 1; dimension is 5 but corresponding boolean dimension is 4
+[0;31mIndexError[0m: list index out of range
+IndexError: list index out of range
 

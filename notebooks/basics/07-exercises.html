@@ -1,0 +1,1569 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercises &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A Brief Introduction to NumPy" href="../numpy/00-intro.html" />
+    <link rel="prev" title="String nightmares: A brief tour into the world of regular expressions" href="06-regular_expressions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/basics/07-exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/basics/07-exercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/basics/07-exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-1">
+   Chapter 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numbers">
+     Numbers
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fahrenheit-to-celsius">
+       Fahrenheit to Celsius
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings">
+     Strings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-theory">
+       String theory
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       1)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       2)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       3)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       4)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       5)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       6)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       7)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       9)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-2">
+   Chapter 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operating-systems">
+       Operating Systems
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       1)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       2)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       3)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       4)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       5)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       6)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuples">
+     Tuples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#boring-but-necessary">
+       Boring but necessary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       1)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       2)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id17">
+       3)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dictionaries">
+     Dictionaries
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#explain-a-film-plot-badly">
+       Explain a Film Plot Badly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       1)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id19">
+       2)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id20">
+       3)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id21">
+       4)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       5)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-3">
+   Chapter 3
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#guess-a-number-from-lubovic">
+     Guess a number (from Lubovic)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#guess-a-number-2-0-from-lubovic">
+     Guess a number 2.0 (from Lubovic)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-vs-for">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       while
+      </span>
+     </code>
+     vs.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       for
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zip-and-dictionaries-from-lubovic">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       zip
+      </span>
+     </code>
+     and dictionaries (from Lubovic)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequences">
+     Sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comprehensions">
+     Comprehensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-4">
+   Chapter 4
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-and-running-functions">
+     Defining and running functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-as-objects">
+     Functions as objects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-handling-with-try-and-except">
+     Error handling with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       try
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       except
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modules">
+     Modules
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="chapter-1">
+<h2>Chapter 1<a class="headerlink" href="#chapter-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numbers">
+<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="fahrenheit-to-celsius">
+<h4>Fahrenheit to Celsius<a class="headerlink" href="#fahrenheit-to-celsius" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Create a variable <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> which stores the current temperature in Zurich in Fahrenheit (Google: “zurich temperature fahrenheit”).</p></li>
+<li><p>The formula to convert Fahrenheit to Celsius is: <span class="math notranslate nohighlight">\(C = (5/9)(F-32)\)</span>. Create a new variable <code class="docutils literal notranslate"><span class="pre">celsius</span></code> which converts Fahrenheit to Celsius using this formula.</p></li>
+<li><p>Print out the variable using the <code class="docutils literal notranslate"><span class="pre">print</span></code> function.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fahrenheit</span> <span class="o">=</span> <span class="mi">82</span> 
+<span class="n">celsius</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">fahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The temperature in Celsius is:&quot;</span><span class="p">,</span> <span class="n">celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature in Celsius is: 27.77777777777778
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="string-theory">
+<h4>String theory<a class="headerlink" href="#string-theory" title="Permalink to this headline">¶</a></h4>
+<p>Consider the (slightly altered) transcript of an xkcd comic:</p>
+<p><code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">Theory</span> <span class="pre">summarized:</span> <span class="pre">I</span> <span class="pre">just</span> <span class="pre">had</span> <span class="pre">an</span> <span class="pre">awesome</span> <span class="pre">idea.</span> <span class="pre">Suppose</span> <span class="pre">all</span> <span class="pre">matter</span> <span class="pre">and</span> <span class="pre">energy</span> <span class="pre">is</span> <span class="pre">made</span> <span class="pre">of</span> <span class="pre">tiny,</span> <span class="pre">vibrating</span> <span class="pre">&quot;strings&quot;.</span> <span class="pre">Okay</span> <span class="pre">...</span> <span class="pre">what</span> <span class="pre">would</span> <span class="pre">that</span> <span class="pre">imply?</span> <span class="pre">I</span> <span class="pre">dunno.</span></code></p>
+<ol class="simple">
+<li><p>Store this transcript as a string in the variable <code class="docutils literal notranslate"><span class="pre">xkcd</span></code>. Print it out using the <code class="docutils literal notranslate"><span class="pre">print</span></code> function.</p></li>
+<li><p>How long is the string in total?</p></li>
+<li><p>Extract the first character of the second word.</p></li>
+<li><p>Extract the first word, the second word and the last word separately using slicing and store them in the variables <code class="docutils literal notranslate"><span class="pre">xkcd_1</span></code>, <code class="docutils literal notranslate"><span class="pre">xkcd_2</span></code> and <code class="docutils literal notranslate"><span class="pre">xkcd_last</span></code>. Print out <code class="docutils literal notranslate"><span class="pre">xkcd_1</span></code> and <code class="docutils literal notranslate"><span class="pre">xkcd_2</span></code> together.</p></li>
+<li><p>How would the string read backwards?</p></li>
+<li><p>Count how often the word ‘I’ is used in this string.</p></li>
+<li><p>Split the string at every dot and store the resulting list in the variable <code class="docutils literal notranslate"><span class="pre">xkcd_list</span></code>. Print this list out.</p></li>
+<li><p>Join the strings in the list <code class="docutils literal notranslate"><span class="pre">xkcd_list</span></code> using the dot as a separator argument and assign them to a variable <code class="docutils literal notranslate"><span class="pre">xkcd_rejoined</span></code>. Print the variable out.</p></li>
+<li><p>Replace the word ‘strings’ with the word ‘ducks’ in <code class="docutils literal notranslate"><span class="pre">xkcd</span></code> and store the result in the variable <code class="docutils literal notranslate"><span class="pre">duck_theory</span></code>. Replace the word ‘String’ with the word ‘Duck’ in <code class="docutils literal notranslate"><span class="pre">duck_theory</span></code> and store the result again in the variable <code class="docutils literal notranslate"><span class="pre">duck_theory</span></code>. Print it out.</p></li>
+</ol>
+</div>
+<div class="section" id="id1">
+<h4>1)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;String Theory summarized: I just had an awesome idea. Suppose all matter and energy is made of tiny, &#39;</span>
+       <span class="s1">&#39;vibrating &quot;strings&quot;. Okay ... what would that imply? I dunno.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>2)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">xkcd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>162
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>3)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;T&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>4)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd_1</span> <span class="o">=</span> <span class="n">xkcd</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">xkcd_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd_2</span> <span class="o">=</span> <span class="n">xkcd</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xkcd_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Theory 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd_last</span> <span class="o">=</span> <span class="n">xkcd</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xkcd_last</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dunno
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">xkcd_1</span><span class="p">,</span> <span class="n">xkcd_2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String Theory 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd_combined</span> <span class="o">=</span> <span class="n">xkcd_1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">xkcd_2</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">xkcd_combined</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String Theory 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>5)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">xkcd</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.onnud I ?ylpmi taht dluow tahw ... yakO .&quot;sgnirts&quot; gnitarbiv ,ynit fo edam si ygrene dna rettam lla esoppuS .aedi emosewa na dah tsuj I :dezirammus yroehT gnirtS
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>6)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>7)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;String Theory summarized: I just had an awesome idea&#39;,
+ &#39; Suppose all matter and energy is made of tiny, vibrating &quot;strings&quot;&#39;,
+ &#39; Okay &#39;,
+ &#39;&#39;,
+ &#39;&#39;,
+ &#39; what would that imply? I dunno&#39;,
+ &#39;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xkcd_list</span> <span class="o">=</span> <span class="n">xkcd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">xkcd_rejoined</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">xkcd_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xkcd_rejoined</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>String Theory summarized: I just had an awesome idea. Suppose all matter and energy is made of tiny, vibrating &quot;strings&quot;. Okay ... what would that imply? I dunno.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>9)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duck_theory</span> <span class="o">=</span> <span class="n">xkcd</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;strings&#39;</span><span class="p">,</span> <span class="s1">&#39;ducks&#39;</span><span class="p">)</span>
+<span class="n">duck_theory</span> <span class="o">=</span> <span class="n">duck_theory</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;String&#39;</span><span class="p">,</span> <span class="s1">&#39;Duck&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">duck_theory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Duck Theory summarized: I just had an awesome idea. Suppose all matter and energy is made of tiny, vibrating &quot;ducks&quot;. Okay ... what would that imply? I dunno.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-2">
+<h2>Chapter 2<a class="headerlink" href="#chapter-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lists">
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="operating-systems">
+<h4>Operating Systems<a class="headerlink" href="#operating-systems" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Create a list of the ‘founding fathers’ of today’s existing operating systems / companies: Linus Torvalds, Bill Gates, and Steve Jobs. Call it <code class="docutils literal notranslate"><span class="pre">founders</span></code>. Print it out.</p></li>
+<li><p>You realize that Steve Jobs shouldn’t be on that list. Instead you want Steve Wozniak on the list. Change the list by removing Steve Jobs and adding Steve Wozniak. Print it out.</p></li>
+<li><p>Sort the list alphabetically.</p></li>
+<li><p>Create another list, <code class="docutils literal notranslate"><span class="pre">os_list</span></code>, with the names of the operating systems: <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Windows</span></code>, and <code class="docutils literal notranslate"><span class="pre">Linux</span></code>.</p></li>
+<li><p>Combine the two lists in a new list called <code class="docutils literal notranslate"><span class="pre">modern_pc</span></code>.</p></li>
+<li><p>How would you test whether <code class="docutils literal notranslate"><span class="pre">FreeBSD</span></code> is in <code class="docutils literal notranslate"><span class="pre">modern_pc</span></code>?</p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h4>1)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">founders</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Linus Torvalds&#39;</span><span class="p">,</span> <span class="s1">&#39;Bill Gates&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve Jobs&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">founders</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Linus Torvalds&#39;, &#39;Bill Gates&#39;, &#39;Steve Jobs&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>2)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">founders</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Steve Wozniak&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">founders</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Linus Torvalds&#39;, &#39;Bill Gates&#39;, &#39;Steve Wozniak&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h4>3)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">founders</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">founders</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Bill Gates&#39;, &#39;Linus Torvalds&#39;, &#39;Steve Wozniak&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">list</span><span class="o">.</span><span class="n">sort</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method_descriptor:
+
+sort(self, /, *, key=None, reverse=False)
+    Sort the list in ascending order and return None.
+    
+    The sort is in-place (i.e. the list itself is modified) and stable (i.e. the
+    order of two equal elements is maintained).
+    
+    If a key function is given, apply it once to each list item and sort them,
+    ascending or descending, according to their function values.
+    
+    The reverse flag can be set to sort in descending order.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>4)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;OS X&#39;</span><span class="p">,</span> <span class="s1">&#39;Windows&#39;</span><span class="p">,</span> <span class="s1">&#39;Linux&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>5)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modern_pc</span> <span class="o">=</span> <span class="n">founders</span> <span class="o">+</span> <span class="n">os_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">modern_pc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Bill Gates&#39;, &#39;Linus Torvalds&#39;, &#39;Steve Wozniak&#39;, &#39;OS X&#39;, &#39;Windows&#39;, &#39;Linux&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h4>6)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;FreeBSD&#39;</span> <span class="ow">in</span> <span class="n">modern_pc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tuples">
+<h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="boring-but-necessary">
+<h4>Boring but necessary<a class="headerlink" href="#boring-but-necessary" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Create a tuple which contains the name of your favorite band. Call it <code class="docutils literal notranslate"><span class="pre">my_favorite_band</span></code>. Check whether it is a tuple.</p></li>
+<li><p>Create a tuple called <code class="docutils literal notranslate"><span class="pre">record</span></code> which contains your name, your address and your email contact as elements. Use tuple unpacking to assign the three elements in this tuple to the variables <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">address</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="id15">
+<h4>1)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># you need the trailing comma</span>
+<span class="n">my_favorite_band</span> <span class="o">=</span> <span class="s1">&#39;The National&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h4>2)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Julian Langer&#39;</span><span class="p">,</span> <span class="s1">&#39;Langstrasse 81&#39;</span><span class="p">,</span> <span class="s1">&#39;julian.langer@econ.uzh.ch&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h4>3)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tuple unpacking</span>
+<span class="n">name</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">record</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Julian Langer
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="explain-a-film-plot-badly">
+<h4>Explain a Film Plot Badly<a class="headerlink" href="#explain-a-film-plot-badly" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>descriptions</strong> are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Teenager</span> <span class="pre">recruited</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">terrorist</span> <span class="pre">organization</span> <span class="pre">destroys</span> <span class="pre">govt</span> <span class="pre">facility</span> <span class="pre">killing</span> <span class="pre">thousands.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Professor</span> <span class="pre">has</span> <span class="pre">unusually</span> <span class="pre">productive</span> <span class="pre">sabbatical.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Paranoid</span> <span class="pre">billionaire</span> <span class="pre">afraid</span> <span class="pre">of</span> <span class="pre">immigrant.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rare</span> <span class="pre">endangered</span> <span class="pre">aquatic</span> <span class="pre">creature</span> <span class="pre">murdered</span> <span class="pre">by</span> <span class="pre">small</span> <span class="pre">town</span> <span class="pre">blue</span> <span class="pre">collar</span> <span class="pre">sheriff.</span></code></p></li>
+</ul>
+<p>The <strong>movies</strong> are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Batman</span> <span class="pre">v</span> <span class="pre">Superman</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Jaws</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Indiana</span> <span class="pre">Jones</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Star</span> <span class="pre">Wars</span></code></p></li>
+</ul>
+<ol class="simple">
+<li><p>Order movies and descriptions correctly and put them in a dictionary called <code class="docutils literal notranslate"><span class="pre">movie_descriptions</span></code>, where movie titles are used as keys.</p></li>
+<li><p>Print out the description for <code class="docutils literal notranslate"><span class="pre">Jaws</span></code>.</p></li>
+<li><p>We think there is a better description for <code class="docutils literal notranslate"><span class="pre">Star</span> <span class="pre">Wars</span></code>. Change it to the following: <code class="docutils literal notranslate"><span class="pre">Deadbeat</span> <span class="pre">dad</span> <span class="pre">tries</span> <span class="pre">to</span> <span class="pre">get</span> <span class="pre">his</span> <span class="pre">son</span> <span class="pre">to</span> <span class="pre">take</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">family</span> <span class="pre">business.</span></code></p></li>
+<li><p>Print out all movie titles and descriptions separately.</p></li>
+<li><p>Store all items from <code class="docutils literal notranslate"><span class="pre">movie_descriptions</span></code> in a list called <code class="docutils literal notranslate"><span class="pre">bad_descriptions</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="id18">
+<h4>1)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movie_descriptions</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Batman v Superman&#39;</span> <span class="p">:</span> <span class="s1">&#39;Paranoid billionaire afraid of immigrant.&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Jaws&#39;</span> <span class="p">:</span> <span class="s1">&#39;Rare endangered aquatic creature murdered by small town blue collar sheriff.&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Indiana Jones&#39;</span> <span class="p">:</span> <span class="s1">&#39;Professor has unusually productive sabbatical.&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Star Wars&#39;</span> <span class="p">:</span> <span class="s1">&#39;Teenager recruited to a terrorist organization destroys govt facility killing thousands.&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id19">
+<h4>2)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">movie_descriptions</span><span class="p">[</span><span class="s1">&#39;Jaws&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rare endangered aquatic creature murdered by small town blue collar sheriff.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h4>3)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movie_descriptions</span><span class="p">[</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Deadbeat dad tries to get his son to take over the family business.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">movie_descriptions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Batman v Superman&#39;: &#39;Paranoid billionaire afraid of immigrant.&#39;, &#39;Jaws&#39;: &#39;Rare endangered aquatic creature murdered by small town blue collar sheriff.&#39;, &#39;Indiana Jones&#39;: &#39;Professor has unusually productive sabbatical.&#39;, &#39;Star Wars&#39;: &#39;Deadbeat dad tries to get his son to take over the family business.&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id21">
+<h4>4)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">movie_descriptions</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Batman v Superman&#39;, &#39;Jaws&#39;, &#39;Indiana Jones&#39;, &#39;Star Wars&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">movie_descriptions</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([&#39;Paranoid billionaire afraid of immigrant.&#39;, &#39;Rare endangered aquatic creature murdered by small town blue collar sheriff.&#39;, &#39;Professor has unusually productive sabbatical.&#39;, &#39;Deadbeat dad tries to get his son to take over the family business.&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id22">
+<h4>5)<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bad_descriptions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">movie_descriptions</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bad_descriptions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Batman v Superman&#39;, &#39;Paranoid billionaire afraid of immigrant.&#39;), (&#39;Jaws&#39;, &#39;Rare endangered aquatic creature murdered by small town blue collar sheriff.&#39;), (&#39;Indiana Jones&#39;, &#39;Professor has unusually productive sabbatical.&#39;), (&#39;Star Wars&#39;, &#39;Deadbeat dad tries to get his son to take over the family business.&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, if you convert the items of the dictionary into a list, it becomes a list of 2-element tuples. Note that you need the <code class="docutils literal notranslate"><span class="pre">items</span></code> method here, otherwise the list would just contain the keys.</p>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-3">
+<h2>Chapter 3<a class="headerlink" href="#chapter-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="guess-a-number-from-lubovic">
+<h3>Guess a number (from Lubovic)<a class="headerlink" href="#guess-a-number-from-lubovic" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Create a variable <code class="docutils literal notranslate"><span class="pre">my_number</span></code> with your favorite number between 1 and 10.</p></li>
+<li><p>Create a second variable <code class="docutils literal notranslate"><span class="pre">guess</span></code> for which you can choose an arbitrary number between 1 and 10.</p></li>
+<li><p>Write an if-else structure which prints out <code class="docutils literal notranslate"><span class="pre">Too</span> <span class="pre">low.</span></code> if the guess is lower than your favorite number, <code class="docutils literal notranslate"><span class="pre">Too</span> <span class="pre">high</span></code> if the guess is higher than your favorite number and <code class="docutils literal notranslate"><span class="pre">Just</span> <span class="pre">right.</span></code> if it is exactly equal to your favorite number.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_number</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">my_number</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Too low.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">my_number</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Too high.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just right!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Too low.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="guess-a-number-2-0-from-lubovic">
+<h3>Guess a number 2.0 (from Lubovic)<a class="headerlink" href="#guess-a-number-2-0-from-lubovic" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Create a variable <code class="docutils literal notranslate"><span class="pre">my_number</span></code> with your favorite number between 1 and 20.</p></li>
+<li><p>Write a while loop which prompts the reader to input a number between 1 and 20 and store it as <code class="docutils literal notranslate"><span class="pre">my_guess</span></code>. At each iteration the while loop should evaluate whether the guess is still <code class="docutils literal notranslate"><span class="pre">False</span></code>. Moreover, if the number is too low, Python should print this out and similarly for the case where the number is too high. When the correct number is entered, Python should print out <code class="docutils literal notranslate"><span class="pre">Found</span> <span class="pre">it!</span></code> and exit the loop.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_number</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">while</span> <span class="n">guess</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">my_guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please enter a number between 1 and 20:&#39;</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">my_guess</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">my_guess</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Out of range.&#39;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    
+    <span class="k">if</span> <span class="n">my_guess</span> <span class="o">&gt;</span> <span class="n">my_number</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Guess is too high!&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">my_guess</span> <span class="o">&lt;</span> <span class="n">my_number</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Guess is too low!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found it!&#39;</span><span class="p">)</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1722</span><span class="o">/</span><span class="mf">1184762823.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="n">guess</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">my_guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please enter a number between 1 and 20:&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">my_guess</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">my_guess</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while-vs-for">
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code> vs. <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#while-vs-for" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Write down your favorite line from a song and store it in a string called <code class="docutils literal notranslate"><span class="pre">my_line</span></code>.</p></li>
+<li><p>Split the string into single words and store the results in a list called <code class="docutils literal notranslate"><span class="pre">lyrics_list</span></code>.</p></li>
+<li><p>Write a while loop and a for loop which iterate through the list and reconstruct the original string.</p></li>
+<li><p>After the end of the loop, the line should be printed out again.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_line</span> <span class="o">=</span> <span class="s2">&quot;We don&#39;t need no education.&quot;</span>
+<span class="n">lyrics_list</span> <span class="o">=</span> <span class="n">my_line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lyrics_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;We&#39;, &quot;don&#39;t&quot;, &#39;need&#39;, &#39;no&#39;, &#39;education.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">lyrics</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">while</span> <span class="n">current</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lyrics_list</span><span class="p">):</span> 
+    <span class="n">lyrics</span> <span class="o">=</span> <span class="n">lyrics</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">lyrics_list</span><span class="p">[</span><span class="n">current</span><span class="p">]</span>
+    <span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lyrics</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> We
+ We don&#39;t
+ We don&#39;t need
+ We don&#39;t need no
+ We don&#39;t need no education.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lyrics</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">lyrics_list</span><span class="p">:</span>
+    <span class="n">lyrics</span> <span class="o">=</span> <span class="n">lyrics</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">word</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lyrics</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> We
+ We don&#39;t
+ We don&#39;t need
+ We don&#39;t need no
+ We don&#39;t need no education.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="zip-and-dictionaries-from-lubovic">
+<h3><code class="docutils literal notranslate"><span class="pre">zip</span></code> and dictionaries (from Lubovic)<a class="headerlink" href="#zip-and-dictionaries-from-lubovic" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">zip</span></code> to make a dictionary called <code class="docutils literal notranslate"><span class="pre">movies</span></code> that pairs these lists: <code class="docutils literal notranslate"><span class="pre">titles</span> <span class="pre">=</span> <span class="pre">['Creature</span> <span class="pre">of</span> <span class="pre">Habit',</span> <span class="pre">'Crewel</span> <span class="pre">Fate']</span></code> and <code class="docutils literal notranslate"><span class="pre">plots</span> <span class="pre">=</span> <span class="pre">['A</span> <span class="pre">nun</span> <span class="pre">turns</span> <span class="pre">into</span> <span class="pre">a</span> <span class="pre">monster',</span> <span class="pre">'A</span> <span class="pre">haunted</span> <span class="pre">yarn</span> <span class="pre">shop']</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Creature of Habit&#39;</span><span class="p">,</span> <span class="s1">&#39;Crewel Fate&#39;</span><span class="p">]</span>
+<span class="n">plots</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A nun turns into a monster&#39;</span><span class="p">,</span> <span class="s1">&#39;A haunted yarn shop&#39;</span><span class="p">]</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">plot</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">plots</span><span class="p">):</span> 
+    <span class="n">movies</span><span class="p">[</span><span class="n">title</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Creature of Habit&#39;: &#39;A nun turns into a monster&#39;, &#39;Crewel Fate&#39;: &#39;A haunted yarn shop&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sequences">
+<h3>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Use a for-loop to print the values from +5 to -5.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+4
+3
+2
+1
+0
+-1
+-2
+-3
+-4
+-5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comprehensions">
+<h3>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">number_list</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 16, 25, 49, 64, 100, 121, 169, 196, 256, 289, 361, 400]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-4">
+<h2>Chapter 4<a class="headerlink" href="#chapter-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defining-and-running-functions">
+<h3>Defining and running functions<a class="headerlink" href="#defining-and-running-functions" title="Permalink to this headline">¶</a></h3>
+<p>Assume the following constant elasticity of substitution (CES) utility function: <span class="math notranslate nohighlight">\(U(x, y) = \frac{x^\delta}{\delta} + \frac{y^\delta}{\delta}\)</span> with <span class="math notranslate nohighlight">\(\delta &lt; 1\)</span> and <span class="math notranslate nohighlight">\(\delta \neq 0\)</span>.</p>
+<ol class="simple">
+<li><p>Define the function <code class="docutils literal notranslate"><span class="pre">ces_utility</span></code> and call it with <span class="math notranslate nohighlight">\(x = 1, y = 2, \delta = -1\)</span>.</p></li>
+<li><p>Call the function using positional and keyword arguments.</p></li>
+<li><p>Define a default parameter for <span class="math notranslate nohighlight">\(\delta = 0.5\)</span> and call the function with it.</p></li>
+<li><p>Document the function. What does it do? What are its inputs and outputs.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ces_utility</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span> 
+    <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">delta</span><span class="p">)</span><span class="o">/</span><span class="n">delta</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="n">delta</span><span class="p">)</span><span class="o">/</span><span class="n">delta</span>
+    <span class="k">return</span> <span class="n">u</span>
+<span class="n">ces_utility</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ces_utility</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ces_utility</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.5
+-1.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ces_utility</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span> 
+    <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">delta</span><span class="p">)</span><span class="o">/</span><span class="n">delta</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="n">delta</span><span class="p">)</span><span class="o">/</span><span class="n">delta</span>
+    <span class="k">return</span> <span class="n">u</span>
+<span class="n">ces_utility</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.82842712474619
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ces_utility</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span> 
+    <span class="sd">&#39;&#39;&#39;Calculates the CES utility. </span>
+<span class="sd">    Inputs: </span>
+<span class="sd">    * x: good 1 (numeric) </span>
+<span class="sd">    * y: good 2 (numeric) </span>
+<span class="sd">    * delta: governs elasticity of substitution (numeric)</span>
+<span class="sd">    </span>
+<span class="sd">    Output: utility (numeric) &#39;&#39;&#39;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">delta</span><span class="p">)</span><span class="o">/</span><span class="n">delta</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="n">delta</span><span class="p">)</span><span class="o">/</span><span class="n">delta</span>
+    <span class="k">return</span> <span class="n">u</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions-as-objects">
+<h3>Functions as objects<a class="headerlink" href="#functions-as-objects" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">nl_apply</span></code> which takes a list of numbers and function as arguments, and applies the function to each element of the list.</p></li>
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">plus_one</span></code>, which takes a number as an input and increases it by 1.</p></li>
+<li><p>Call the function <code class="docutils literal notranslate"><span class="pre">nl_apply</span></code> with a list of numbers from 1 to 10 and the function <code class="docutils literal notranslate"><span class="pre">plus_one</span></code> as arguments. Store the result in the variable <code class="docutils literal notranslate"><span class="pre">result</span></code> and print it out.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nl_apply</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span> 
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">plus_one</span><span class="p">(</span><span class="n">number</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">nl_apply</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">plus_one</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="error-handling-with-try-and-except">
+<h3>Error handling with <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#error-handling-with-try-and-except" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">add_stuff</span></code> which adds two numbers given to it as arguments.</p></li>
+<li><p>Call it without arguments. Observe what happens.</p></li>
+<li><p>Use a try-except structure to explain the error. Call the function without arguments again.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_stuff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">add_stuff</span><span class="p">()</span>
+    
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You forgot to pass two numbers to the function!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You forgot to pass two numbers to the function!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modules">
+<h3>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Create a file called <code class="docutils literal notranslate"><span class="pre">hitchhiker.py</span></code> in your current working directory.</p></li>
+<li><p>Open it and define a function called <code class="docutils literal notranslate"><span class="pre">meaning_of_life</span></code>. The function should print out: <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">meaning</span> <span class="pre">of</span> <span class="pre">life</span> <span class="pre">is</span> <span class="pre">42!</span></code></p></li>
+<li><p>Open a new notebook or script. Import the module <code class="docutils literal notranslate"><span class="pre">hitchhiker</span></code> and run the function.</p></li>
+<li><p>Import the module as <code class="docutils literal notranslate"><span class="pre">adams</span></code> and call the function.</p></li>
+<li><p>Import just the function <code class="docutils literal notranslate"><span class="pre">meaning_of_life</span></code> and call it.</p></li>
+<li><p>Import the function as <code class="docutils literal notranslate"><span class="pre">deep_thought</span></code> and call it.</p></li>
+</ol>
+<p>No solution provided here.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="06-regular_expressions.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">String nightmares: A brief tour into the world of regular expressions</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../numpy/00-intro.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">A Brief Introduction to NumPy</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
