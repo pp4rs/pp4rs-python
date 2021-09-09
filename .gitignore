@@ -2,3 +2,5 @@ _build/**
 .vscode
 *.txt
 *.npy
+notebooks/basics/xkcd*
+notebooks/basics/*.csv
