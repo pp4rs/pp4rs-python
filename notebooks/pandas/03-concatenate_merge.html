@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concatenating and Merging Data &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Indexing and Selecting Data" href="04-indexing_and_selecting.html" />
+    <link rel="prev" title="Importing (and Exporting) Data" href="02-importing_data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/07-exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-motivating_pandas.html">
+   Data Manipulation and Exploratory Analysis with Pandas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-pandas_objects.html">
+     Pandas Series Object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-importing_data.html">
+     Importing (and Exporting) Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Concatenating and Merging Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-indexing_and_selecting.html">
+     Indexing and Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-operations_on_data.html">
+     Operations on Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-missing_data.html">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-hierarchical_indexing.html">
+     Hierachical (Multi-) Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-aggregation_grouping.html">
+     Aggregate Functions and Group Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/03-concatenate_merge.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/03-concatenate_merge.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/pandas/03-concatenate_merge.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Concatenating and Merging Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-files-that-look-alike">
+   Finding Files that look alike
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge">
+     Challenge:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-data">
+   Merging Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Challenge
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="concatenating-and-merging-data">
+<h1>Concatenating and Merging Data<a class="headerlink" href="#concatenating-and-merging-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Contact: Lachlan Deer, [econgit] &#64;ldeer, [github/twitter] &#64;lachlandeer</p></li>
+</ul>
+<p>In the previous lesson we learned how to import a single data set from a file and how to write a pandas DataFrame to a file once we are finished working on it. Another common task is to bring multiple datasets together, either by:</p>
+<ol class="simple">
+<li><p>concatenating/appending them, i.e adding new data about the same variables</p></li>
+<li><p>merging data: adding new data about different variables for the same index.</p></li>
+</ol>
+<p>That’s the focus of this lesson!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finding-files-that-look-alike">
+<h1>Finding Files that look alike<a class="headerlink" href="#finding-files-that-look-alike" title="Permalink to this headline">¶</a></h1>
+<p>In our main data directory <code class="docutils literal notranslate"><span class="pre">data/bls-employment-state</span></code> we have a lot of different data files, but groups of them share common information, for example:</p>
+<ul class="simple">
+<li><p>All files that end in *03 contain information on given states unemployment rates by month, similarly for file endings *04,*05 and *06.</p></li>
+<li><p>All files that contain <em>ST01</em> contain data about the labor market in Alabama</p></li>
+</ul>
+<p>We can piece these files together into one pandas DataFrame that contains all employment statistics that we want to work with in what follows.</p>
+<p>The glob library contains a function, also called glob, that finds files and directories whose names match a pattern. We provide those patterns as strings: the character * matches zero or more characters, while ? matches any one character.</p>
+<p>We can use this to get the names of CSV files that match a certain pattern. For example we can find all files about unemployment rates as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pathRoot</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;data/bls-employment-state/&#39;</span>      <span class="c1"># use your path</span>
+<span class="c1"># advisable to use os.path.join as this makes concatenation OS independent</span>
+<span class="n">unemploymentFiles</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pathRoot</span><span class="p">,</span> <span class="s2">&quot;*03.csv&quot;</span><span class="p">))</span> 
+<span class="n">unemploymentFiles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/bls-employment-state/LAUST330000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST220000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST350000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST180000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST450000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST250000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST490000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST040000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST240000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST170000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST510000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST150000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST340000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST200000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST400000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST260000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST270000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST320000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST230000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST290000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST360000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST060000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST410000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST210000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST560000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST190000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST050000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST530000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST110000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST500000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST380000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST480000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST010000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST420000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST550000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST300000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST540000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST390000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST460000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST160000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST090000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST280000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST310000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST120000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST080000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST370000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST440000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST470000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST100000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST020000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST720000000000003.csv&#39;,
+ &#39;data/bls-employment-state/LAUST130000000000003.csv&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s verify that has all the states:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">unemploymentFiles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">52</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement yielded no output to the console, this means the logical statement is True, and we can continue knowing we are dealing with <em>all</em> states data</p>
+<p>Now we need to write a command that imports the data. We do this in two steps, first we write a <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> call that will correctly import an individual data set; then we loop over all datasets using the command.</p>
+<p>Using what we learned in 02-importingData, lets set up a import command</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_import</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000003.csv&#39;</span><span class="p">,</span>
+                <span class="n">usecols</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_import</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Alabama</th>
+      <th>M12</th>
+      <th>2016</th>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <th>2016</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <th>2016</th>
+      <td>6.2</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <th>2016</th>
+      <td>6.2</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <th>2016</th>
+      <td>6.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nice that works well! Now we need to nest that inside a loop over all files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemp_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">iFile</span><span class="p">,</span>
+                            <span class="n">usecols</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                            <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span> \
+              <span class="k">for</span> <span class="n">iFile</span> <span class="ow">in</span> <span class="n">unemploymentFiles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">unemp_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generator
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hmmm, that’s a type we haven’t seen before in Julian’s classes… so it probably needs a brief explanation:</p>
+<p>A generator is simply a function which returns an object on which you can call next, such that for every call it returns some value, until it raises a StopIteration exception, signaling that all values have been generated. Such an object is called an iterator.</p>
+<p>For us, what this has done is provide a function that will loop over all unemployment files, reading each in according to the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> call we built. Note that it hasn’t actually executed anything.</p>
+<p>Now we want to get all those unemployment data sets appended to each other. We do that using the <code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code> function applied to the generator function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">unemp_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>let’s checkout what we get returned:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">New Hampshire</th>
+      <th>M12</th>
+      <th>2016</th>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <th>2016</th>
+      <td>2.6</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <th>2016</th>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <th>2016</th>
+      <td>2.6</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <th>2016</th>
+      <td>2.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Georgia</th>
+      <th>M05</th>
+      <th>2000</th>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <th>2000</th>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <th>2000</th>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <th>2000</th>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <th>2000</th>
+      <td>3.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If this worked correctly, we should have 52 x 17 x 12 observations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">unemployment</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">52</span> <span class="o">*</span> <span class="mi">17</span> <span class="o">*</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cool! Note this only worked to give the exact number because each state has the same number of observations in the its original data set.</p>
+<div class="section" id="challenge">
+<h2>Challenge:<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<p>Use the template above to append all state’s data for the following series, each as separate DataFrames:</p>
+<ul class="simple">
+<li><p>all files ending in *04 as <code class="docutils literal notranslate"><span class="pre">qty_unemployed</span></code></p></li>
+<li><p>all files ending in 05 as <code class="docutils literal notranslate"><span class="pre">qty_employed</span></code></p></li>
+<li><p>all files ending in *06 as <code class="docutils literal notranslate"><span class="pre">labor_force</span></code></p></li>
+</ul>
+<p><em>Hint: write a function that generates the list and returns the appended data</em></p>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## list the files</span>
+<span class="n">qty_unemploymentFiles</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pathRoot</span><span class="p">,</span> <span class="s2">&quot;*04.csv&quot;</span><span class="p">))</span> 
+<span class="n">qty_employmentFiles</span>   <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pathRoot</span><span class="p">,</span> <span class="s2">&quot;*05.csv&quot;</span><span class="p">))</span> 
+<span class="n">labor_forceFiles</span>      <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pathRoot</span><span class="p">,</span> <span class="s2">&quot;*06.csv&quot;</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">appendData</span><span class="p">(</span><span class="n">fileList</span><span class="p">):</span>
+    <span class="n">data_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">iFile</span><span class="p">,</span>
+                            <span class="n">usecols</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                            <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span> \
+                      <span class="k">for</span> <span class="n">iFile</span> <span class="ow">in</span> <span class="n">fileList</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data_generator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qty_unemployment</span> <span class="o">=</span> <span class="n">appendData</span><span class="p">(</span><span class="n">qty_unemploymentFiles</span><span class="p">)</span>
+<span class="n">qty_employment</span>   <span class="o">=</span> <span class="n">appendData</span><span class="p">(</span><span class="n">qty_employmentFiles</span><span class="p">)</span>
+<span class="n">labor_force</span>      <span class="o">=</span> <span class="n">appendData</span><span class="p">(</span><span class="n">labor_forceFiles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">qty_unemployment</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">52</span> <span class="o">*</span> <span class="mi">17</span> <span class="o">*</span> <span class="mi">12</span>
+<span class="k">assert</span> <span class="n">qty_employment</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="o">==</span> <span class="mi">52</span> <span class="o">*</span> <span class="mi">17</span> <span class="o">*</span> <span class="mi">12</span>
+<span class="k">assert</span> <span class="n">labor_force</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>      <span class="o">==</span> <span class="mi">52</span> <span class="o">*</span> <span class="mi">17</span> <span class="o">*</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="merging-data">
+<h1>Merging Data<a class="headerlink" href="#merging-data" title="Permalink to this headline">¶</a></h1>
+<p>Now we have 4 data sets, that each tell us something about the labor market in a state-month pair. Ideally we want these combined into one big data set - this is where merging comes in.</p>
+<p>Pandas comes with the <code class="docutils literal notranslate"><span class="pre">merge()</span></code> function where you can merge dataSetA to dataSetB using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mergedData</span> <span class="o">=</span> <span class="n">dataSetA</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataSetB</span><span class="p">,</span> 
+                            <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Key&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Key&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>we want to keep only the data where each data-set successfully finds its ‘partner’ in the other data set, this is an <em>inner-join</em>, so we can set <code class="docutils literal notranslate"><span class="pre">how='inner'</span></code>.
+Since we merge on the index, we don’t have to specify the <code class="docutils literal notranslate"><span class="pre">*_on</span></code> inputs, but instead set <code class="docutils literal notranslate"><span class="pre">*_index=True</span></code>.</p>
+<p>Before we proceed though - each of our data set’s main variables have the same variable name, <code class="docutils literal notranslate"><span class="pre">value</span></code>, lets change these to something meaningful</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployment</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">},</span>
+                    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">qty_employment</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;qty_employed&#39;</span><span class="p">},</span>
+                    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">qty_unemployment</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">},</span>
+                    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">labor_force</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;labour_force&#39;</span><span class="p">},</span>
+                    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">unemployment</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">qty_unemployment</span><span class="p">,</span> 
+                                 <span class="n">left_index</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">right_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">New Hampshire</th>
+      <th>M12</th>
+      <th>2016</th>
+      <td>2.5</td>
+      <td>18907</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <th>2016</th>
+      <td>2.6</td>
+      <td>19573</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <th>2016</th>
+      <td>2.5</td>
+      <td>18430</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <th>2016</th>
+      <td>2.6</td>
+      <td>19415</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <th>2016</th>
+      <td>2.8</td>
+      <td>20933</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="id1">
+<h2>Challenge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Merge the remaining labour force data together so that we end up with one data set <code class="docutils literal notranslate"><span class="pre">merged_data</span></code></p></li>
+<li><p>Save <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> to a file <code class="docutils literal notranslate"><span class="pre">out_data/state_labour_statistics.csv</span></code></p></li>
+</ul>
+<div class="section" id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">qty_employment</span><span class="p">,</span> 
+                                 <span class="n">left_index</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">right_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="n">merged_data</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">labor_force</span><span class="p">,</span> 
+                                 <span class="n">left_index</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">right_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>      <span class="o">==</span> <span class="mi">52</span> <span class="o">*</span> <span class="mi">17</span> <span class="o">*</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out_data/state_labour_statistics.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="02-importing_data.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Importing (and Exporting) Data</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="04-indexing_and_selecting.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Indexing and Selecting Data</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

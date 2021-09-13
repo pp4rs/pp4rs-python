@@ -1,0 +1,1715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Importing (and Exporting) Data &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Concatenating and Merging Data" href="03-concatenate_merge.html" />
+    <link rel="prev" title="Pandas Series Object" href="01-pandas_objects.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/07-exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-motivating_pandas.html">
+   Data Manipulation and Exploratory Analysis with Pandas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-pandas_objects.html">
+     Pandas Series Object
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Importing (and Exporting) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-concatenate_merge.html">
+     Concatenating and Merging Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-indexing_and_selecting.html">
+     Indexing and Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-operations_on_data.html">
+     Operations on Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-missing_data.html">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-hierarchical_indexing.html">
+     Hierachical (Multi-) Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-aggregation_grouping.html">
+     Aggregate Functions and Group Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/02-importing_data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/02-importing_data.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/pandas/02-importing_data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-data-with-read-csv">
+   Importing data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     read_csv
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-simplest-import">
+     The Simplest Import
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selectively-importing-columns">
+     Selectively importing columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selectively-importing-rows">
+   Selectively Importing Rows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge">
+     Challenge
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-the-index">
+   Setting the Index
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Challenge:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exporting-data">
+   Exporting Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Challenge
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="importing-and-exporting-data">
+<h1>Importing (and Exporting) Data<a class="headerlink" href="#importing-and-exporting-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Contact: Lachlan Deer, [econgit] &#64;ldeer, [github/twitter]: &#64;lachlandeer</p></li>
+</ul>
+<p>In our early adventures we have focussed on attributes of pandas objects, and created small data sets on the fly. This is rarely how empirical work happens - usually we have some data stored on our computer / in the cloud that we want to load in, work with and then potentially save the results.</p>
+<p>Pandas has functionality to read and write from/to many different formats. A complete list is available here: <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/io.html">http://pandas.pydata.org/pandas-docs/version/0.20/io.html</a>. For economists, we are typically interested in working with:</p>
+<ul class="simple">
+<li><p>Csv files: read_csv(), write_csv()</p></li>
+<li><p>Stata Files: read_stata(), write_stata()</p></li>
+<li><p>Excel files: read_excel(), write_excel()</p></li>
+</ul>
+<p>and possibly working with <code class="docutils literal notranslate"><span class="pre">sql</span></code> or <code class="docutils literal notranslate"><span class="pre">sas</span></code> data too.</p>
+<p>Hopefully this course has emphasized flat files, that are not encrypted to a particular language are a preferred go-to - so we focus on the csv file functions. Exceptions to this rule are OK if your data is ‘big’ when you might have to look at sql, or HDF5 or Google Big Query structures, but we are getting way ahead of ourselves.</p>
+<p>Most functions work similar enough that focussing on csv based read/write operations should be almost without loss of generality.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="importing-data-with-read-csv">
+<h2>Importing data with <code class="docutils literal notranslate"><span class="pre">read_csv</span></code><a class="headerlink" href="#importing-data-with-read-csv" title="Permalink to this headline">¶</a></h2>
+<p>Our github repository comes with a lot of data in it that we will want to use throughout the session. Let’s look at one subdirectory that stores a bunch of data from the BLS:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/bls-employment-state/*.csv&quot;</span><span class="p">)[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/bls-employment-state/LAUST720000000000006.csv&#39;, &#39;data/bls-employment-state/LAUST250000000000006.csv&#39;, &#39;data/bls-employment-state/LAUST380000000000004.csv&#39;, &#39;data/bls-employment-state/LAUST510000000000006.csv&#39;, &#39;data/bls-employment-state/LAUST330000000000003.csv&#39;, &#39;data/bls-employment-state/LAUST560000000000005.csv&#39;, &#39;data/bls-employment-state/LAUST300000000000006.csv&#39;, &#39;data/bls-employment-state/LAUST310000000000005.csv&#39;, &#39;data/bls-employment-state/LAUST220000000000003.csv&#39;, &#39;data/bls-employment-state/LAUST340000000000004.csv&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>and what does a particular file look like?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head data/bls-employment-state/LAUST010000000000005.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state,year,period,value,footnotes
+
+Alabama,2016,M12,2050965,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M11,2060807,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M10,2057151,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M09,2042696,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M08,2033706,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M07,2040731,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M06,2040095,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M05,2042665,Reflects revised population controls and model reestimation.
+
+Alabama,2016,M04,2040921,Reflects revised population controls and model reestimation.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s read in that file to our session using <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>…</p>
+<div class="section" id="the-simplest-import">
+<h3>The Simplest Import<a class="headerlink" href="#the-simplest-import" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+      <th>footnotes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M12</td>
+      <td>2050965</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M11</td>
+      <td>2060807</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M10</td>
+      <td>2057151</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M09</td>
+      <td>2042696</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M08</td>
+      <td>2033706</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M05</td>
+      <td>2037787</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M04</td>
+      <td>2045171</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M03</td>
+      <td>2038654</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M02</td>
+      <td>2027226</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M01</td>
+      <td>2024262</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>204 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>it worked. What is the type of object we just imported?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the future, we may not want to look at such a big excerpt of data - useful functions are then:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+      <th>footnotes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M12</td>
+      <td>2050965</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M11</td>
+      <td>2060807</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M10</td>
+      <td>2057151</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M09</td>
+      <td>2042696</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M08</td>
+      <td>2033706</td>
+      <td>Reflects revised population controls and model...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+      <th>footnotes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>199</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M05</td>
+      <td>2037787</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M04</td>
+      <td>2045171</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M03</td>
+      <td>2038654</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M02</td>
+      <td>2027226</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>Alabama</td>
+      <td>2000</td>
+      <td>M01</td>
+      <td>2024262</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="selectively-importing-columns">
+<h3>Selectively importing columns<a class="headerlink" href="#selectively-importing-columns" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we didn’t want to import the <code class="docutils literal notranslate"><span class="pre">footnotes</span></code> column. Pandas allows us to specify the columns we want imported:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M12</td>
+      <td>2050965</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M11</td>
+      <td>2060807</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M10</td>
+      <td>2057151</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M09</td>
+      <td>2042696</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M08</td>
+      <td>2033706</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="selectively-importing-rows">
+<h2>Selectively Importing Rows<a class="headerlink" href="#selectively-importing-rows" title="Permalink to this headline">¶</a></h2>
+<p>The default behaviour is to import any row from the file that contains text. This is not always what we want.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>sometimes a file contains a header or footer full of unneccesary text</p></li>
+<li><p>the whole data set may not fit into the computer’s memory</p></li>
+<li><p>we only need certain data for our analysis</p></li>
+</ul>
+<p>we can use some of <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>’s functionaliy to help out here</p>
+<p>we can read in the first 20 rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="n">nrows</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M12</td>
+      <td>2050965</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M11</td>
+      <td>2060807</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M10</td>
+      <td>2057151</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M09</td>
+      <td>2042696</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M08</td>
+      <td>2033706</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M07</td>
+      <td>2040731</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M06</td>
+      <td>2040095</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M05</td>
+      <td>2042665</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M04</td>
+      <td>2040921</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M03</td>
+      <td>2031490</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M02</td>
+      <td>2017039</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Alabama</td>
+      <td>2016</td>
+      <td>M01</td>
+      <td>2007036</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M12</td>
+      <td>2030765</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M11</td>
+      <td>2035229</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M10</td>
+      <td>2032455</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M09</td>
+      <td>2017049</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M08</td>
+      <td>2015129</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M07</td>
+      <td>2022263</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M06</td>
+      <td>2024858</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M05</td>
+      <td>2029625</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>we can skip the earliest year:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">,</span>
+                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="n">skipfooter</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the &#39;python&#39; engine because the &#39;c&#39; engine does not support skipfooter; you can avoid this warning by specifying engine=&#39;python&#39;.
+  return func(*args, **kwargs)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>187</th>
+      <td>Alabama</td>
+      <td>2001</td>
+      <td>M05</td>
+      <td>2013679</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>Alabama</td>
+      <td>2001</td>
+      <td>M04</td>
+      <td>2018617</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>Alabama</td>
+      <td>2001</td>
+      <td>M03</td>
+      <td>2021612</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>Alabama</td>
+      <td>2001</td>
+      <td>M02</td>
+      <td>2009904</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>Alabama</td>
+      <td>2001</td>
+      <td>M01</td>
+      <td>2008876</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>we can skip the most recent year:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">,</span>
+                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">skiprows</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/util/_decorators.py:311: ParserWarning: Length of header or names does not match length of data. This leads to a loss of data with index_col=False.
+  return func(*args, **kwargs)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M12</td>
+      <td>2030765</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M11</td>
+      <td>2035229</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M10</td>
+      <td>2032455</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M09</td>
+      <td>2017049</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>2015</td>
+      <td>M08</td>
+      <td>2015129</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="challenge">
+<h3>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Read in the file <code class="docutils literal notranslate"><span class="pre">data/bls-employment-state/LAUST010000000000006.csv</span></code>, as <code class="docutils literal notranslate"><span class="pre">df2</span></code></p></li>
+<li><p>Read in the file <code class="docutils literal notranslate"><span class="pre">data/bls-employment-state/LAUST010000000000003.csv</span></code>, as <code class="docutils literal notranslate"><span class="pre">df3</span></code>, but only the years around the financial crisis, 2007-2010.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="setting-the-index">
+<h2>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
+<p>Notice how in <code class="docutils literal notranslate"><span class="pre">df</span></code>, pandas created a new index for us? We may want to set an index ourselves.</p>
+<p>Let’s do this, first by importing only the 2016 data for Alabama, and using the month as our index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2016</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">,</span>
+                <span class="n">usecols</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">],</span>
+                <span class="n">nrows</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2016</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>period</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>M12</th>
+      <td>2050965</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>2060807</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>2057151</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>2042696</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>2033706</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>2040731</td>
+    </tr>
+    <tr>
+      <th>M06</th>
+      <td>2040095</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <td>2042665</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>2040921</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>2031490</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>2017039</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <td>2007036</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>we can also have a ‘multi-index’ structure, where mutliple rows define the index. For example we can import the years 2015 and 2016 data as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_recent</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/bls-employment-state/LAUST010000000000005.csv&#39;</span><span class="p">,</span>
+                <span class="n">usecols</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span>
+                <span class="n">nrows</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">df_recent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>period</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>M12</th>
+      <th>2016</th>
+      <td>2050965</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <th>2016</th>
+      <td>2060807</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <th>2016</th>
+      <td>2057151</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <th>2016</th>
+      <td>2042696</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <th>2016</th>
+      <td>2033706</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <th>2016</th>
+      <td>2040731</td>
+    </tr>
+    <tr>
+      <th>M06</th>
+      <th>2016</th>
+      <td>2040095</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <th>2016</th>
+      <td>2042665</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <th>2016</th>
+      <td>2040921</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <th>2016</th>
+      <td>2031490</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <th>2016</th>
+      <td>2017039</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <th>2016</th>
+      <td>2007036</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <th>2015</th>
+      <td>2030765</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <th>2015</th>
+      <td>2035229</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <th>2015</th>
+      <td>2032455</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <th>2015</th>
+      <td>2017049</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <th>2015</th>
+      <td>2015129</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <th>2015</th>
+      <td>2022263</td>
+    </tr>
+    <tr>
+      <th>M06</th>
+      <th>2015</th>
+      <td>2024858</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <th>2015</th>
+      <td>2029625</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <th>2015</th>
+      <td>2025920</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <th>2015</th>
+      <td>2013339</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <th>2015</th>
+      <td>2003076</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <th>2015</th>
+      <td>1998388</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="id1">
+<h3>Challenge:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Read in the file data/bls-employment-state/LAUST010000000000003.csv, as df3, but only the years around the financial crisis, 2007-2010. Set the index to consist of the state-month-year.</p>
+<p>We have now covered the basics for importing data. If you want to know (much!) more, consult the documentation at <a class="reference external" href="http://pandas.pydata.org/pandas-docs/version/0.20/generated/pandas.read_csv.html#pandas.read_csv">http://pandas.pydata.org/pandas-docs/version/0.20/generated/pandas.read_csv.html#pandas.read_csv</a>. Warning: it’s hard to get the hang of reading the pandas documentation, but over time you become accustomed to it.</p>
+</div>
+</div>
+<div class="section" id="exporting-data">
+<h2>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s turn to exporting data. We created the DataFrame <code class="docutils literal notranslate"><span class="pre">df_2016</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2016</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>period</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>M12</th>
+      <td>2050965</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>2060807</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>2057151</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>2042696</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>2033706</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>2040731</td>
+    </tr>
+    <tr>
+      <th>M06</th>
+      <td>2040095</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <td>2042665</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>2040921</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>2031490</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>2017039</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <td>2007036</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Suppose we want to export that data and save it to our project. The function <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> will do this for us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2016</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out_data/alabama_2016.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s verify that pandas did as expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head out_data/alabama_2016.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>period,value
+M12,2050965
+M11,2060807
+M10,2057151
+M09,2042696
+M08,2033706
+M07,2040731
+M06,2040095
+M05,2042665
+M04,2040921
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many options for the <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> function - many of which I don’t find that useful. One I sometimes use is to change the column separator. Let’s change to ‘&amp;’ separators when we write <code class="docutils literal notranslate"><span class="pre">df_recent</span></code> to file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_recent</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out_data/alabama_recent.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&amp;&#39;</span><span class="p">)</span>
+<span class="o">!</span>head out_data/alabama_recent.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>period&amp;year&amp;value
+M12&amp;2016&amp;2050965
+M11&amp;2016&amp;2060807
+M10&amp;2016&amp;2057151
+M09&amp;2016&amp;2042696
+M08&amp;2016&amp;2033706
+M07&amp;2016&amp;2040731
+M06&amp;2016&amp;2040095
+M05&amp;2016&amp;2042665
+M04&amp;2016&amp;2040921
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Challenge<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Take your financial crisis data, and write it to file. Use tab separators (‘t’).</p></li>
+<li><p>Reload your financial crisis data under the name ‘df_financialCrisis’ using <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>. What did you have to change to make the data import successful?</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="01-pandas_objects.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Pandas Series Object</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="03-concatenate_merge.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Concatenating and Merging Data</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

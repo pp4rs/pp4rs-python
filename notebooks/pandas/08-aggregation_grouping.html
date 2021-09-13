@@ -1,0 +1,2673 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aggregate Functions and Group Statistics &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Hierachical (Multi-) Indexing" href="07-hierarchical_indexing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/07-exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-motivating_pandas.html">
+   Data Manipulation and Exploratory Analysis with Pandas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-pandas_objects.html">
+     Pandas Series Object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-importing_data.html">
+     Importing (and Exporting) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-concatenate_merge.html">
+     Concatenating and Merging Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-indexing_and_selecting.html">
+     Indexing and Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-operations_on_data.html">
+     Operations on Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-missing_data.html">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-hierarchical_indexing.html">
+     Hierachical (Multi-) Indexing
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Aggregate Functions and Group Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/08-aggregation_grouping.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/08-aggregation_grouping.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/pandas/08-aggregation_grouping.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-aggregation">
+   Simple Aggregation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupby-the-split-apply-combine-paradigm">
+   GroupBy: The Split, Apply, Combine Paradigm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   Challenge
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-solution">
+     Partial Solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-useful-groupby-functionality">
+   More useful GroupBy functionality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-useful-functions">
+     Other useful functions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="aggregate-functions-and-group-statistics">
+<h1>Aggregate Functions and Group Statistics<a class="headerlink" href="#aggregate-functions-and-group-statistics" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Contact: Lachlan Deer, [econgit] &#64;ldeer, [github/twitter] &#64;lachlandeer</p></li>
+</ul>
+<p>So far our work with Pandas as been purely about simple transformations of each row or data; whether selecting them or creating new columns out of old ones. This is rarely enough - we typically want some degree of summarization of the data; either of an entire column; or on parts of (groups) of the column in question.</p>
+<p>This is what we will go after here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;out_data/state_labour_statistics.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-aggregation">
+<h2>Simple Aggregation<a class="headerlink" href="#simple-aggregation" title="Permalink to this headline">¶</a></h2>
+<p>Like NumPy, Pandas has some of the standard data aggregations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.618795
+1    0.591624
+2    0.888684
+3    0.891655
+4    0.457567
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.4483242705353976
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">series</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">series</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.6896648541070796, 0.61879477158568, 0.8916548001156082)
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a data-frame; these aggregations return results for each column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+                   <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.778188</td>
+      <td>0.400999</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.267064</td>
+      <td>0.705406</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.996106</td>
+      <td>0.405186</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.540095</td>
+      <td>0.949991</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.537522</td>
+      <td>0.030754</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A    0.623795
+B    0.498467
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>if you want the aggregation across a row, you can specify thats what you want:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.589594
+1    0.486235
+2    0.700646
+3    0.745043
+4    0.284138
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Often times, we want to see all of the common aggregates at once. Pandas provides a function <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> to do this for us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10608.00000</td>
+      <td>10608.000000</td>
+      <td>1.060800e+04</td>
+      <td>1.060800e+04</td>
+      <td>1.060800e+04</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2008.00000</td>
+      <td>5.943194</td>
+      <td>1.849809e+05</td>
+      <td>2.751157e+06</td>
+      <td>2.936138e+06</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4.89921</td>
+      <td>2.261388</td>
+      <td>2.433025e+05</td>
+      <td>3.021023e+06</td>
+      <td>3.242657e+06</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2000.00000</td>
+      <td>1.700000</td>
+      <td>6.697000e+03</td>
+      <td>2.486420e+05</td>
+      <td>2.619910e+05</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2004.00000</td>
+      <td>4.400000</td>
+      <td>4.088675e+04</td>
+      <td>7.359608e+05</td>
+      <td>7.836765e+05</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2008.00000</td>
+      <td>5.500000</td>
+      <td>1.150930e+05</td>
+      <td>1.837300e+06</td>
+      <td>1.961558e+06</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2012.00000</td>
+      <td>7.000000</td>
+      <td>2.212182e+05</td>
+      <td>3.226836e+06</td>
+      <td>3.451084e+06</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2016.00000</td>
+      <td>17.300000</td>
+      <td>2.316525e+06</td>
+      <td>1.819380e+07</td>
+      <td>1.920923e+07</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Some useful aggregation functions in pandas are in the table below:</p>
+<p>[insert table]</p>
+<p>Whilst these aggregations can provide some notions of patterns in the data - often we want to go deeper - and compute these summaries at the level of a group (like a state of a year). Pandas has the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function that will allow us to efficiently looks at aggregate statistics on subsets of the data.</p>
+</div>
+<div class="section" id="groupby-the-split-apply-combine-paradigm">
+<h2>GroupBy: The Split, Apply, Combine Paradigm<a class="headerlink" href="#groupby-the-split-apply-combine-paradigm" title="Permalink to this headline">¶</a></h2>
+<p>The canonical example of the groupby paradigm  is best represented in a figure:</p>
+<p>[insert figure]</p>
+<p>In words, GroupBy does the following:</p>
+<ul class="simple">
+<li><p>The <em>split</em> step breaks up a DataFrame into subsets depending on the value of a specified key</p></li>
+<li><p>the <em>apply</em> step computes some aggregate functions within an individual group</p></li>
+<li><p>The <em>combine</em> step merges the results of the computations within groups back to a single dataset</p></li>
+</ul>
+<p>We could certainly perform all these operations by ourselves, manually - but the tedium of the task combined with a high probability of error makes us immediately want to use a built in function that abstracts away from individual steps and asks the user to rather think of the operation as a whole rather than the individual steps.</p>
+<p>As a start - let’s look at the average unemployment rate by state. As a first step we must specify the name of the column we are looking to split on:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f2370d25a60&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Think of this object as an under the hood view of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Note that it does not compute anything until an aggregation is applied to it; i.e. it uses ‘lazy evaluation’</p>
+<p>Now lets get those mena unemployment rates:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unemployment_rate</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state
+Alabama                  6.514706
+Alaska                   7.005392
+Arizona                  6.381373
+Arkansas                 5.997059
+California               7.443627
+Colorado                 5.453922
+Connecticut              5.821078
+Delaware                 5.214216
+District of Columbia     7.306373
+Florida                  6.158824
+Georgia                  6.446078
+Hawaii                   4.456373
+Idaho                    5.525000
+Illinois                 6.936275
+Indiana                  6.184804
+Iowa                     4.373039
+Kansas                   5.084314
+Kentucky                 6.639216
+Louisiana                6.197549
+Maine                    5.470098
+Maryland                 5.121078
+Massachusetts            5.521078
+Michigan                 7.662255
+Minnesota                4.886765
+Mississippi              7.285784
+Missouri                 6.069118
+Montana                  5.023039
+Nebraska                 3.629412
+Nevada                   7.220098
+New Hampshire            4.205882
+New Jersey               6.248039
+New Mexico               5.972059
+New York                 6.182353
+North Carolina           6.741176
+North Dakota             3.279902
+Ohio                     6.455392
+Oklahoma                 4.784804
+Oregon                   7.242647
+Pennsylvania             5.946569
+Puerto Rico             12.653922
+Rhode Island             7.000490
+South Carolina           7.130882
+South Dakota             3.579412
+Tennessee                6.369118
+Texas                    5.775000
+Utah                     4.716667
+Vermont                  4.247549
+Virginia                 4.543137
+Washington               6.706863
+West Virginia            6.168137
+Wisconsin                5.668627
+Wyoming                  4.399510
+Name: unemployment_rate, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice if we wanted the aggregation function to be applied to all of the columns, we can skip the part where we specify the column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alabama</th>
+      <td>2008.0</td>
+      <td>6.514706</td>
+      <td>1.407627e+05</td>
+      <td>2.016128e+06</td>
+      <td>2.156891e+06</td>
+    </tr>
+    <tr>
+      <th>Alaska</th>
+      <td>2008.0</td>
+      <td>7.005392</td>
+      <td>2.449233e+04</td>
+      <td>3.251195e+05</td>
+      <td>3.496119e+05</td>
+    </tr>
+    <tr>
+      <th>Arizona</th>
+      <td>2008.0</td>
+      <td>6.381373</td>
+      <td>1.901428e+05</td>
+      <td>2.759190e+06</td>
+      <td>2.949333e+06</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>2008.0</td>
+      <td>5.997059</td>
+      <td>7.955364e+04</td>
+      <td>1.244863e+06</td>
+      <td>1.324416e+06</td>
+    </tr>
+    <tr>
+      <th>California</th>
+      <td>2008.0</td>
+      <td>7.443627</td>
+      <td>1.347057e+06</td>
+      <td>1.665503e+07</td>
+      <td>1.800209e+07</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>2008.0</td>
+      <td>5.453922</td>
+      <td>1.452646e+05</td>
+      <td>2.503614e+06</td>
+      <td>2.648878e+06</td>
+    </tr>
+    <tr>
+      <th>Connecticut</th>
+      <td>2008.0</td>
+      <td>5.821078</td>
+      <td>1.082514e+05</td>
+      <td>1.736436e+06</td>
+      <td>1.844688e+06</td>
+    </tr>
+    <tr>
+      <th>Delaware</th>
+      <td>2008.0</td>
+      <td>5.214216</td>
+      <td>2.292001e+04</td>
+      <td>4.152155e+05</td>
+      <td>4.381355e+05</td>
+    </tr>
+    <tr>
+      <th>District of Columbia</th>
+      <td>2008.0</td>
+      <td>7.306373</td>
+      <td>2.490122e+04</td>
+      <td>3.137833e+05</td>
+      <td>3.386846e+05</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>2008.0</td>
+      <td>6.158824</td>
+      <td>5.573326e+05</td>
+      <td>8.397621e+06</td>
+      <td>8.954954e+06</td>
+    </tr>
+    <tr>
+      <th>Georgia</th>
+      <td>2008.0</td>
+      <td>6.446078</td>
+      <td>3.016779e+05</td>
+      <td>4.339163e+06</td>
+      <td>4.640840e+06</td>
+    </tr>
+    <tr>
+      <th>Hawaii</th>
+      <td>2008.0</td>
+      <td>4.456373</td>
+      <td>2.844513e+04</td>
+      <td>6.090308e+05</td>
+      <td>6.374759e+05</td>
+    </tr>
+    <tr>
+      <th>Idaho</th>
+      <td>2008.0</td>
+      <td>5.525000</td>
+      <td>4.104917e+04</td>
+      <td>7.013501e+05</td>
+      <td>7.423993e+05</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>2008.0</td>
+      <td>6.936275</td>
+      <td>4.523743e+05</td>
+      <td>6.059067e+06</td>
+      <td>6.511441e+06</td>
+    </tr>
+    <tr>
+      <th>Indiana</th>
+      <td>2008.0</td>
+      <td>6.184804</td>
+      <td>1.977921e+05</td>
+      <td>3.002629e+06</td>
+      <td>3.200421e+06</td>
+    </tr>
+    <tr>
+      <th>Iowa</th>
+      <td>2008.0</td>
+      <td>4.373039</td>
+      <td>7.248086e+04</td>
+      <td>1.583003e+06</td>
+      <td>1.655483e+06</td>
+    </tr>
+    <tr>
+      <th>Kansas</th>
+      <td>2008.0</td>
+      <td>5.084314</td>
+      <td>7.486110e+04</td>
+      <td>1.394324e+06</td>
+      <td>1.469186e+06</td>
+    </tr>
+    <tr>
+      <th>Kentucky</th>
+      <td>2008.0</td>
+      <td>6.639216</td>
+      <td>1.339159e+05</td>
+      <td>1.874098e+06</td>
+      <td>2.008013e+06</td>
+    </tr>
+    <tr>
+      <th>Louisiana</th>
+      <td>2008.0</td>
+      <td>6.197549</td>
+      <td>1.283975e+05</td>
+      <td>1.938786e+06</td>
+      <td>2.067184e+06</td>
+    </tr>
+    <tr>
+      <th>Maine</th>
+      <td>2008.0</td>
+      <td>5.470098</td>
+      <td>3.788920e+04</td>
+      <td>6.543850e+05</td>
+      <td>6.922742e+05</td>
+    </tr>
+    <tr>
+      <th>Maryland</th>
+      <td>2008.0</td>
+      <td>5.121078</td>
+      <td>1.548394e+05</td>
+      <td>2.847295e+06</td>
+      <td>3.002135e+06</td>
+    </tr>
+    <tr>
+      <th>Massachusetts</th>
+      <td>2008.0</td>
+      <td>5.521078</td>
+      <td>1.911474e+05</td>
+      <td>3.266176e+06</td>
+      <td>3.457324e+06</td>
+    </tr>
+    <tr>
+      <th>Michigan</th>
+      <td>2008.0</td>
+      <td>7.662255</td>
+      <td>3.749323e+05</td>
+      <td>4.543822e+06</td>
+      <td>4.918755e+06</td>
+    </tr>
+    <tr>
+      <th>Minnesota</th>
+      <td>2008.0</td>
+      <td>4.886765</td>
+      <td>1.426212e+05</td>
+      <td>2.771413e+06</td>
+      <td>2.914034e+06</td>
+    </tr>
+    <tr>
+      <th>Mississippi</th>
+      <td>2008.0</td>
+      <td>7.285784</td>
+      <td>9.449842e+04</td>
+      <td>1.201615e+06</td>
+      <td>1.296114e+06</td>
+    </tr>
+    <tr>
+      <th>Missouri</th>
+      <td>2008.0</td>
+      <td>6.069118</td>
+      <td>1.842034e+05</td>
+      <td>2.849336e+06</td>
+      <td>3.033539e+06</td>
+    </tr>
+    <tr>
+      <th>Montana</th>
+      <td>2008.0</td>
+      <td>5.023039</td>
+      <td>2.489118e+04</td>
+      <td>4.706648e+05</td>
+      <td>4.955559e+05</td>
+    </tr>
+    <tr>
+      <th>Nebraska</th>
+      <td>2008.0</td>
+      <td>3.629412</td>
+      <td>3.576543e+04</td>
+      <td>9.494372e+05</td>
+      <td>9.852027e+05</td>
+    </tr>
+    <tr>
+      <th>Nevada</th>
+      <td>2008.0</td>
+      <td>7.220098</td>
+      <td>9.513693e+04</td>
+      <td>1.193879e+06</td>
+      <td>1.289016e+06</td>
+    </tr>
+    <tr>
+      <th>New Hampshire</th>
+      <td>2008.0</td>
+      <td>4.205882</td>
+      <td>3.072605e+04</td>
+      <td>6.977644e+05</td>
+      <td>7.284904e+05</td>
+    </tr>
+    <tr>
+      <th>New Jersey</th>
+      <td>2008.0</td>
+      <td>6.248039</td>
+      <td>2.798071e+05</td>
+      <td>4.176598e+06</td>
+      <td>4.456405e+06</td>
+    </tr>
+    <tr>
+      <th>New Mexico</th>
+      <td>2008.0</td>
+      <td>5.972059</td>
+      <td>5.465965e+04</td>
+      <td>8.586955e+05</td>
+      <td>9.133552e+05</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>2008.0</td>
+      <td>6.182353</td>
+      <td>5.869909e+05</td>
+      <td>8.888198e+06</td>
+      <td>9.475189e+06</td>
+    </tr>
+    <tr>
+      <th>North Carolina</th>
+      <td>2008.0</td>
+      <td>6.741176</td>
+      <td>3.046283e+05</td>
+      <td>4.188285e+06</td>
+      <td>4.492913e+06</td>
+    </tr>
+    <tr>
+      <th>North Dakota</th>
+      <td>2008.0</td>
+      <td>3.279902</td>
+      <td>1.220031e+04</td>
+      <td>3.621385e+05</td>
+      <td>3.743388e+05</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>2008.0</td>
+      <td>6.455392</td>
+      <td>3.763495e+05</td>
+      <td>5.449497e+06</td>
+      <td>5.825846e+06</td>
+    </tr>
+    <tr>
+      <th>Oklahoma</th>
+      <td>2008.0</td>
+      <td>4.784804</td>
+      <td>8.368540e+04</td>
+      <td>1.661057e+06</td>
+      <td>1.744743e+06</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>2008.0</td>
+      <td>7.242647</td>
+      <td>1.389804e+05</td>
+      <td>1.776049e+06</td>
+      <td>1.915029e+06</td>
+    </tr>
+    <tr>
+      <th>Pennsylvania</th>
+      <td>2008.0</td>
+      <td>5.946569</td>
+      <td>3.771446e+05</td>
+      <td>5.952701e+06</td>
+      <td>6.329845e+06</td>
+    </tr>
+    <tr>
+      <th>Puerto Rico</th>
+      <td>2008.0</td>
+      <td>12.653922</td>
+      <td>1.603699e+05</td>
+      <td>1.112528e+06</td>
+      <td>1.272898e+06</td>
+    </tr>
+    <tr>
+      <th>Rhode Island</th>
+      <td>2008.0</td>
+      <td>7.000490</td>
+      <td>3.921885e+04</td>
+      <td>5.201720e+05</td>
+      <td>5.593909e+05</td>
+    </tr>
+    <tr>
+      <th>South Carolina</th>
+      <td>2008.0</td>
+      <td>7.130882</td>
+      <td>1.517508e+05</td>
+      <td>1.967512e+06</td>
+      <td>2.119263e+06</td>
+    </tr>
+    <tr>
+      <th>South Dakota</th>
+      <td>2008.0</td>
+      <td>3.579412</td>
+      <td>1.562588e+04</td>
+      <td>4.203784e+05</td>
+      <td>4.360043e+05</td>
+    </tr>
+    <tr>
+      <th>Tennessee</th>
+      <td>2008.0</td>
+      <td>6.369118</td>
+      <td>1.926002e+05</td>
+      <td>2.816181e+06</td>
+      <td>3.008781e+06</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>2008.0</td>
+      <td>5.775000</td>
+      <td>6.833513e+05</td>
+      <td>1.111923e+07</td>
+      <td>1.180258e+07</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>2008.0</td>
+      <td>4.716667</td>
+      <td>6.224774e+04</td>
+      <td>1.261578e+06</td>
+      <td>1.323826e+06</td>
+    </tr>
+    <tr>
+      <th>Vermont</th>
+      <td>2008.0</td>
+      <td>4.247549</td>
+      <td>1.492144e+04</td>
+      <td>3.346937e+05</td>
+      <td>3.496151e+05</td>
+    </tr>
+    <tr>
+      <th>Virginia</th>
+      <td>2008.0</td>
+      <td>4.543137</td>
+      <td>1.844006e+05</td>
+      <td>3.830106e+06</td>
+      <td>4.014506e+06</td>
+    </tr>
+    <tr>
+      <th>Washington</th>
+      <td>2008.0</td>
+      <td>6.706863</td>
+      <td>2.257521e+05</td>
+      <td>3.132887e+06</td>
+      <td>3.358639e+06</td>
+    </tr>
+    <tr>
+      <th>West Virginia</th>
+      <td>2008.0</td>
+      <td>6.168137</td>
+      <td>4.937335e+04</td>
+      <td>7.508340e+05</td>
+      <td>8.002073e+05</td>
+    </tr>
+    <tr>
+      <th>Wisconsin</th>
+      <td>2008.0</td>
+      <td>5.668627</td>
+      <td>1.737884e+05</td>
+      <td>2.889477e+06</td>
+      <td>3.063265e+06</td>
+    </tr>
+    <tr>
+      <th>Wyoming</th>
+      <td>2008.0</td>
+      <td>4.399510</td>
+      <td>1.283748e+04</td>
+      <td>2.771341e+05</td>
+      <td>2.899716e+05</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>and if we want multiple, but not all columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2118/1019232107.py:1: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
+  data.groupby(&#39;state&#39;)[&#39;unemployment_rate&#39;, &#39;qty_unemployed&#39;].mean()
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alabama</th>
+      <td>6.514706</td>
+      <td>1.407627e+05</td>
+    </tr>
+    <tr>
+      <th>Alaska</th>
+      <td>7.005392</td>
+      <td>2.449233e+04</td>
+    </tr>
+    <tr>
+      <th>Arizona</th>
+      <td>6.381373</td>
+      <td>1.901428e+05</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>5.997059</td>
+      <td>7.955364e+04</td>
+    </tr>
+    <tr>
+      <th>California</th>
+      <td>7.443627</td>
+      <td>1.347057e+06</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>5.453922</td>
+      <td>1.452646e+05</td>
+    </tr>
+    <tr>
+      <th>Connecticut</th>
+      <td>5.821078</td>
+      <td>1.082514e+05</td>
+    </tr>
+    <tr>
+      <th>Delaware</th>
+      <td>5.214216</td>
+      <td>2.292001e+04</td>
+    </tr>
+    <tr>
+      <th>District of Columbia</th>
+      <td>7.306373</td>
+      <td>2.490122e+04</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>6.158824</td>
+      <td>5.573326e+05</td>
+    </tr>
+    <tr>
+      <th>Georgia</th>
+      <td>6.446078</td>
+      <td>3.016779e+05</td>
+    </tr>
+    <tr>
+      <th>Hawaii</th>
+      <td>4.456373</td>
+      <td>2.844513e+04</td>
+    </tr>
+    <tr>
+      <th>Idaho</th>
+      <td>5.525000</td>
+      <td>4.104917e+04</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>6.936275</td>
+      <td>4.523743e+05</td>
+    </tr>
+    <tr>
+      <th>Indiana</th>
+      <td>6.184804</td>
+      <td>1.977921e+05</td>
+    </tr>
+    <tr>
+      <th>Iowa</th>
+      <td>4.373039</td>
+      <td>7.248086e+04</td>
+    </tr>
+    <tr>
+      <th>Kansas</th>
+      <td>5.084314</td>
+      <td>7.486110e+04</td>
+    </tr>
+    <tr>
+      <th>Kentucky</th>
+      <td>6.639216</td>
+      <td>1.339159e+05</td>
+    </tr>
+    <tr>
+      <th>Louisiana</th>
+      <td>6.197549</td>
+      <td>1.283975e+05</td>
+    </tr>
+    <tr>
+      <th>Maine</th>
+      <td>5.470098</td>
+      <td>3.788920e+04</td>
+    </tr>
+    <tr>
+      <th>Maryland</th>
+      <td>5.121078</td>
+      <td>1.548394e+05</td>
+    </tr>
+    <tr>
+      <th>Massachusetts</th>
+      <td>5.521078</td>
+      <td>1.911474e+05</td>
+    </tr>
+    <tr>
+      <th>Michigan</th>
+      <td>7.662255</td>
+      <td>3.749323e+05</td>
+    </tr>
+    <tr>
+      <th>Minnesota</th>
+      <td>4.886765</td>
+      <td>1.426212e+05</td>
+    </tr>
+    <tr>
+      <th>Mississippi</th>
+      <td>7.285784</td>
+      <td>9.449842e+04</td>
+    </tr>
+    <tr>
+      <th>Missouri</th>
+      <td>6.069118</td>
+      <td>1.842034e+05</td>
+    </tr>
+    <tr>
+      <th>Montana</th>
+      <td>5.023039</td>
+      <td>2.489118e+04</td>
+    </tr>
+    <tr>
+      <th>Nebraska</th>
+      <td>3.629412</td>
+      <td>3.576543e+04</td>
+    </tr>
+    <tr>
+      <th>Nevada</th>
+      <td>7.220098</td>
+      <td>9.513693e+04</td>
+    </tr>
+    <tr>
+      <th>New Hampshire</th>
+      <td>4.205882</td>
+      <td>3.072605e+04</td>
+    </tr>
+    <tr>
+      <th>New Jersey</th>
+      <td>6.248039</td>
+      <td>2.798071e+05</td>
+    </tr>
+    <tr>
+      <th>New Mexico</th>
+      <td>5.972059</td>
+      <td>5.465965e+04</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>6.182353</td>
+      <td>5.869909e+05</td>
+    </tr>
+    <tr>
+      <th>North Carolina</th>
+      <td>6.741176</td>
+      <td>3.046283e+05</td>
+    </tr>
+    <tr>
+      <th>North Dakota</th>
+      <td>3.279902</td>
+      <td>1.220031e+04</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>6.455392</td>
+      <td>3.763495e+05</td>
+    </tr>
+    <tr>
+      <th>Oklahoma</th>
+      <td>4.784804</td>
+      <td>8.368540e+04</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>7.242647</td>
+      <td>1.389804e+05</td>
+    </tr>
+    <tr>
+      <th>Pennsylvania</th>
+      <td>5.946569</td>
+      <td>3.771446e+05</td>
+    </tr>
+    <tr>
+      <th>Puerto Rico</th>
+      <td>12.653922</td>
+      <td>1.603699e+05</td>
+    </tr>
+    <tr>
+      <th>Rhode Island</th>
+      <td>7.000490</td>
+      <td>3.921885e+04</td>
+    </tr>
+    <tr>
+      <th>South Carolina</th>
+      <td>7.130882</td>
+      <td>1.517508e+05</td>
+    </tr>
+    <tr>
+      <th>South Dakota</th>
+      <td>3.579412</td>
+      <td>1.562588e+04</td>
+    </tr>
+    <tr>
+      <th>Tennessee</th>
+      <td>6.369118</td>
+      <td>1.926002e+05</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>5.775000</td>
+      <td>6.833513e+05</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>4.716667</td>
+      <td>6.224774e+04</td>
+    </tr>
+    <tr>
+      <th>Vermont</th>
+      <td>4.247549</td>
+      <td>1.492144e+04</td>
+    </tr>
+    <tr>
+      <th>Virginia</th>
+      <td>4.543137</td>
+      <td>1.844006e+05</td>
+    </tr>
+    <tr>
+      <th>Washington</th>
+      <td>6.706863</td>
+      <td>2.257521e+05</td>
+    </tr>
+    <tr>
+      <th>West Virginia</th>
+      <td>6.168137</td>
+      <td>4.937335e+04</td>
+    </tr>
+    <tr>
+      <th>Wisconsin</th>
+      <td>5.668627</td>
+      <td>1.737884e+05</td>
+    </tr>
+    <tr>
+      <th>Wyoming</th>
+      <td>4.399510</td>
+      <td>1.283748e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Very Cool!</p>
+</div>
+<div class="section" id="challenge">
+<h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<p>Try and compute statistics where the grouping is described by multiple variables:</p>
+<ol class="simple">
+<li><p>Compute the average unemployment rate by state-year</p></li>
+<li><p>Compute the average unemployment rate by state-year-month</p></li>
+<li><p>Compute the average unemployment rate by state-year for the Carolinas (Hint: use the .filter() function after the computation)</p></li>
+<li><p>Compute the average unemployment rate by state-year and use <code class="docutils literal notranslate"><span class="pre">unstack</span></code> to view the data in a way that is different from the default output</p></li>
+</ol>
+<div class="section" id="partial-solution">
+<h3>Partial Solution<a class="headerlink" href="#partial-solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Carolina&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state           year
+North Carolina  2000     3.666667
+                2001     5.516667
+                2002     6.658333
+                2003     6.375000
+                2004     5.491667
+                2005     5.233333
+                2006     4.750000
+                2007     4.725000
+                2008     6.100000
+                2009    10.575000
+                2010    10.850000
+                2011    10.275000
+                2012     9.291667
+                2013     7.983333
+                2014     6.300000
+                2015     5.750000
+                2016     5.058333
+South Carolina  2000     3.758333
+                2001     5.216667
+                2002     5.808333
+                2003     6.908333
+                2004     6.825000
+                2005     6.725000
+                2006     6.433333
+                2007     5.666667
+                2008     6.791667
+                2009    11.258333
+                2010    11.158333
+                2011    10.558333
+                2012     9.216667
+                2013     7.641667
+                2014     6.441667
+                2015     5.975000
+                2016     4.841667
+Name: unemployment_rate, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>state</th>
+      <th>Alabama</th>
+      <th>Alaska</th>
+      <th>Arizona</th>
+      <th>Arkansas</th>
+      <th>California</th>
+      <th>Colorado</th>
+      <th>Connecticut</th>
+      <th>Delaware</th>
+      <th>District of Columbia</th>
+      <th>Florida</th>
+      <th>...</th>
+      <th>South Dakota</th>
+      <th>Tennessee</th>
+      <th>Texas</th>
+      <th>Utah</th>
+      <th>Vermont</th>
+      <th>Virginia</th>
+      <th>Washington</th>
+      <th>West Virginia</th>
+      <th>Wisconsin</th>
+      <th>Wyoming</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000</th>
+      <td>4.583333</td>
+      <td>6.375000</td>
+      <td>3.950000</td>
+      <td>4.258333</td>
+      <td>4.941667</td>
+      <td>2.758333</td>
+      <td>2.391667</td>
+      <td>3.733333</td>
+      <td>5.608333</td>
+      <td>3.683333</td>
+      <td>...</td>
+      <td>2.458333</td>
+      <td>3.866667</td>
+      <td>4.291667</td>
+      <td>3.341667</td>
+      <td>2.808333</td>
+      <td>2.300000</td>
+      <td>5.166667</td>
+      <td>5.483333</td>
+      <td>3.525000</td>
+      <td>3.908333</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>5.125000</td>
+      <td>6.433333</td>
+      <td>4.791667</td>
+      <td>4.958333</td>
+      <td>5.433333</td>
+      <td>3.800000</td>
+      <td>3.133333</td>
+      <td>3.500000</td>
+      <td>6.333333</td>
+      <td>4.641667</td>
+      <td>...</td>
+      <td>3.091667</td>
+      <td>4.550000</td>
+      <td>4.941667</td>
+      <td>4.416667</td>
+      <td>3.333333</td>
+      <td>3.233333</td>
+      <td>6.300000</td>
+      <td>5.008333</td>
+      <td>4.525000</td>
+      <td>3.825000</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>5.900000</td>
+      <td>7.291667</td>
+      <td>6.083333</td>
+      <td>5.483333</td>
+      <td>6.666667</td>
+      <td>5.533333</td>
+      <td>4.333333</td>
+      <td>4.025000</td>
+      <td>6.408333</td>
+      <td>5.633333</td>
+      <td>...</td>
+      <td>3.183333</td>
+      <td>5.183333</td>
+      <td>6.341667</td>
+      <td>5.800000</td>
+      <td>3.991667</td>
+      <td>4.216667</td>
+      <td>7.408333</td>
+      <td>5.916667</td>
+      <td>5.375000</td>
+      <td>4.041667</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>6.016667</td>
+      <td>7.825000</td>
+      <td>5.741667</td>
+      <td>5.933333</td>
+      <td>6.800000</td>
+      <td>5.958333</td>
+      <td>5.391667</td>
+      <td>4.266667</td>
+      <td>6.833333</td>
+      <td>5.208333</td>
+      <td>...</td>
+      <td>3.533333</td>
+      <td>5.633333</td>
+      <td>6.683333</td>
+      <td>5.633333</td>
+      <td>4.266667</td>
+      <td>4.108333</td>
+      <td>7.408333</td>
+      <td>6.050000</td>
+      <td>5.700000</td>
+      <td>4.275000</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>5.683333</td>
+      <td>7.458333</td>
+      <td>5.033333</td>
+      <td>5.708333</td>
+      <td>6.208333</td>
+      <td>5.483333</td>
+      <td>4.966667</td>
+      <td>3.991667</td>
+      <td>7.783333</td>
+      <td>4.633333</td>
+      <td>...</td>
+      <td>3.725000</td>
+      <td>5.333333</td>
+      <td>5.941667</td>
+      <td>4.991667</td>
+      <td>3.675000</td>
+      <td>3.825000</td>
+      <td>6.266667</td>
+      <td>5.325000</td>
+      <td>5.025000</td>
+      <td>3.808333</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>4.491667</td>
+      <td>6.883333</td>
+      <td>4.683333</td>
+      <td>5.250000</td>
+      <td>5.400000</td>
+      <td>5.025000</td>
+      <td>4.883333</td>
+      <td>4.141667</td>
+      <td>6.375000</td>
+      <td>3.691667</td>
+      <td>...</td>
+      <td>3.816667</td>
+      <td>5.550000</td>
+      <td>5.408333</td>
+      <td>4.091667</td>
+      <td>3.475000</td>
+      <td>3.566667</td>
+      <td>5.550000</td>
+      <td>5.108333</td>
+      <td>4.741667</td>
+      <td>3.583333</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>4.033333</td>
+      <td>6.616667</td>
+      <td>4.208333</td>
+      <td>5.158333</td>
+      <td>4.900000</td>
+      <td>4.308333</td>
+      <td>4.333333</td>
+      <td>3.575000</td>
+      <td>5.791667</td>
+      <td>3.225000</td>
+      <td>...</td>
+      <td>3.108333</td>
+      <td>5.200000</td>
+      <td>4.891667</td>
+      <td>2.975000</td>
+      <td>3.683333</td>
+      <td>3.100000</td>
+      <td>5.041667</td>
+      <td>4.941667</td>
+      <td>4.741667</td>
+      <td>3.175000</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>3.983333</td>
+      <td>6.333333</td>
+      <td>3.858333</td>
+      <td>5.308333</td>
+      <td>5.375000</td>
+      <td>3.733333</td>
+      <td>4.475000</td>
+      <td>3.441667</td>
+      <td>5.525000</td>
+      <td>4.008333</td>
+      <td>...</td>
+      <td>2.841667</td>
+      <td>4.675000</td>
+      <td>4.291667</td>
+      <td>2.566667</td>
+      <td>4.008333</td>
+      <td>3.033333</td>
+      <td>4.708333</td>
+      <td>4.583333</td>
+      <td>4.900000</td>
+      <td>2.816667</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>5.658333</td>
+      <td>6.691667</td>
+      <td>6.125000</td>
+      <td>5.466667</td>
+      <td>7.275000</td>
+      <td>4.825000</td>
+      <td>5.683333</td>
+      <td>4.941667</td>
+      <td>6.458333</td>
+      <td>6.283333</td>
+      <td>...</td>
+      <td>3.050000</td>
+      <td>6.575000</td>
+      <td>4.808333</td>
+      <td>3.591667</td>
+      <td>4.683333</td>
+      <td>3.941667</td>
+      <td>5.383333</td>
+      <td>4.358333</td>
+      <td>4.908333</td>
+      <td>3.050000</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>11.033333</td>
+      <td>7.741667</td>
+      <td>9.933333</td>
+      <td>7.850000</td>
+      <td>11.141667</td>
+      <td>7.283333</td>
+      <td>7.933333</td>
+      <td>8.266667</td>
+      <td>9.275000</td>
+      <td>10.408333</td>
+      <td>...</td>
+      <td>4.925000</td>
+      <td>10.483333</td>
+      <td>7.558333</td>
+      <td>7.325000</td>
+      <td>6.591667</td>
+      <td>6.700000</td>
+      <td>9.141667</td>
+      <td>7.725000</td>
+      <td>8.575000</td>
+      <td>6.325000</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>10.541667</td>
+      <td>7.883333</td>
+      <td>10.366667</td>
+      <td>8.191667</td>
+      <td>12.225000</td>
+      <td>8.725000</td>
+      <td>9.108333</td>
+      <td>8.416667</td>
+      <td>9.416667</td>
+      <td>11.041667</td>
+      <td>...</td>
+      <td>4.983333</td>
+      <td>9.675000</td>
+      <td>8.150000</td>
+      <td>7.833333</td>
+      <td>6.091667</td>
+      <td>7.150000</td>
+      <td>10.000000</td>
+      <td>8.641667</td>
+      <td>8.666667</td>
+      <td>6.458333</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>9.641667</td>
+      <td>7.591667</td>
+      <td>9.500000</td>
+      <td>8.308333</td>
+      <td>11.716667</td>
+      <td>8.358333</td>
+      <td>8.808333</td>
+      <td>7.500000</td>
+      <td>10.158333</td>
+      <td>9.991667</td>
+      <td>...</td>
+      <td>4.741667</td>
+      <td>8.991667</td>
+      <td>7.758333</td>
+      <td>6.733333</td>
+      <td>5.475000</td>
+      <td>6.591667</td>
+      <td>9.291667</td>
+      <td>8.058333</td>
+      <td>7.758333</td>
+      <td>5.808333</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>7.941667</td>
+      <td>7.141667</td>
+      <td>8.350000</td>
+      <td>7.575000</td>
+      <td>10.375000</td>
+      <td>7.875000</td>
+      <td>8.341667</td>
+      <td>7.200000</td>
+      <td>9.050000</td>
+      <td>8.458333</td>
+      <td>...</td>
+      <td>4.275000</td>
+      <td>7.841667</td>
+      <td>6.725000</td>
+      <td>5.408333</td>
+      <td>4.950000</td>
+      <td>6.033333</td>
+      <td>8.133333</td>
+      <td>7.508333</td>
+      <td>7.041667</td>
+      <td>5.316667</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>7.225000</td>
+      <td>6.925000</td>
+      <td>7.741667</td>
+      <td>7.341667</td>
+      <td>8.933333</td>
+      <td>6.825000</td>
+      <td>7.750000</td>
+      <td>6.716667</td>
+      <td>8.500000</td>
+      <td>7.233333</td>
+      <td>...</td>
+      <td>3.783333</td>
+      <td>7.791667</td>
+      <td>6.225000</td>
+      <td>4.600000</td>
+      <td>4.416667</td>
+      <td>5.716667</td>
+      <td>7.033333</td>
+      <td>6.766667</td>
+      <td>6.741667</td>
+      <td>4.708333</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>6.791667</td>
+      <td>6.841667</td>
+      <td>6.775000</td>
+      <td>6.091667</td>
+      <td>7.500000</td>
+      <td>5.000000</td>
+      <td>6.608333</td>
+      <td>5.708333</td>
+      <td>7.775000</td>
+      <td>6.266667</td>
+      <td>...</td>
+      <td>3.433333</td>
+      <td>6.516667</td>
+      <td>5.100000</td>
+      <td>3.816667</td>
+      <td>3.950000</td>
+      <td>5.241667</td>
+      <td>6.125000</td>
+      <td>6.633333</td>
+      <td>5.416667</td>
+      <td>4.158333</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>6.108333</td>
+      <td>6.441667</td>
+      <td>6.033333</td>
+      <td>5.075000</td>
+      <td>6.216667</td>
+      <td>3.908333</td>
+      <td>5.733333</td>
+      <td>4.833333</td>
+      <td>6.900000</td>
+      <td>5.416667</td>
+      <td>...</td>
+      <td>3.075000</td>
+      <td>5.600000</td>
+      <td>4.441667</td>
+      <td>3.633333</td>
+      <td>3.566667</td>
+      <td>4.466667</td>
+      <td>5.625000</td>
+      <td>6.750000</td>
+      <td>4.575000</td>
+      <td>4.250000</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>5.991667</td>
+      <td>6.616667</td>
+      <td>5.308333</td>
+      <td>3.991667</td>
+      <td>5.433333</td>
+      <td>3.316667</td>
+      <td>5.083333</td>
+      <td>4.383333</td>
+      <td>6.016667</td>
+      <td>4.875000</td>
+      <td>...</td>
+      <td>2.825000</td>
+      <td>4.808333</td>
+      <td>4.616667</td>
+      <td>3.425000</td>
+      <td>3.241667</td>
+      <td>4.008333</td>
+      <td>5.433333</td>
+      <td>6.000000</td>
+      <td>4.150000</td>
+      <td>5.283333</td>
+    </tr>
+  </tbody>
+</table>
+<p>17 rows × 52 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="more-useful-groupby-functionality">
+<h2>More useful GroupBy functionality<a class="headerlink" href="#more-useful-groupby-functionality" title="Permalink to this headline">¶</a></h2>
+<p>Often we want more than one aggregate statistic, for example we may want the min, mean and max by State. We can use the <code class="docutils literal notranslate"><span class="pre">.aggregate()</span></code> function to get these:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>amin</th>
+      <th>mean</th>
+      <th>amax</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alabama</th>
+      <td>3.3</td>
+      <td>6.514706</td>
+      <td>12.3</td>
+    </tr>
+    <tr>
+      <th>Alaska</th>
+      <td>5.2</td>
+      <td>7.005392</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>Arizona</th>
+      <td>3.4</td>
+      <td>6.381373</td>
+      <td>11.1</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>3.4</td>
+      <td>5.997059</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>California</th>
+      <td>4.4</td>
+      <td>7.443627</td>
+      <td>12.7</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>2.4</td>
+      <td>5.453922</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>Connecticut</th>
+      <td>1.7</td>
+      <td>5.821078</td>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <th>Delaware</th>
+      <td>2.9</td>
+      <td>5.214216</td>
+      <td>9.4</td>
+    </tr>
+    <tr>
+      <th>District of Columbia</th>
+      <td>4.7</td>
+      <td>7.306373</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>2.8</td>
+      <td>6.158824</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>Georgia</th>
+      <td>3.0</td>
+      <td>6.446078</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>Hawaii</th>
+      <td>1.9</td>
+      <td>4.456373</td>
+      <td>7.9</td>
+    </tr>
+    <tr>
+      <th>Idaho</th>
+      <td>2.2</td>
+      <td>5.525000</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>3.6</td>
+      <td>6.936275</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>Indiana</th>
+      <td>2.2</td>
+      <td>6.184804</td>
+      <td>11.8</td>
+    </tr>
+    <tr>
+      <th>Iowa</th>
+      <td>2.3</td>
+      <td>4.373039</td>
+      <td>7.3</td>
+    </tr>
+    <tr>
+      <th>Kansas</th>
+      <td>3.2</td>
+      <td>5.084314</td>
+      <td>7.9</td>
+    </tr>
+    <tr>
+      <th>Kentucky</th>
+      <td>3.7</td>
+      <td>6.639216</td>
+      <td>11.9</td>
+    </tr>
+    <tr>
+      <th>Louisiana</th>
+      <td>3.6</td>
+      <td>6.197549</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>Maine</th>
+      <td>2.6</td>
+      <td>5.470098</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>Maryland</th>
+      <td>3.1</td>
+      <td>5.121078</td>
+      <td>8.3</td>
+    </tr>
+    <tr>
+      <th>Massachusetts</th>
+      <td>2.1</td>
+      <td>5.521078</td>
+      <td>9.6</td>
+    </tr>
+    <tr>
+      <th>Michigan</th>
+      <td>2.9</td>
+      <td>7.662255</td>
+      <td>15.4</td>
+    </tr>
+    <tr>
+      <th>Minnesota</th>
+      <td>2.7</td>
+      <td>4.886765</td>
+      <td>8.6</td>
+    </tr>
+    <tr>
+      <th>Mississippi</th>
+      <td>4.6</td>
+      <td>7.285784</td>
+      <td>11.7</td>
+    </tr>
+    <tr>
+      <th>Missouri</th>
+      <td>3.0</td>
+      <td>6.069118</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>Montana</th>
+      <td>2.7</td>
+      <td>5.023039</td>
+      <td>8.6</td>
+    </tr>
+    <tr>
+      <th>Nebraska</th>
+      <td>2.6</td>
+      <td>3.629412</td>
+      <td>5.4</td>
+    </tr>
+    <tr>
+      <th>Nevada</th>
+      <td>3.7</td>
+      <td>7.220098</td>
+      <td>13.9</td>
+    </tr>
+    <tr>
+      <th>New Hampshire</th>
+      <td>2.3</td>
+      <td>4.205882</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>New Jersey</th>
+      <td>3.3</td>
+      <td>6.248039</td>
+      <td>10.3</td>
+    </tr>
+    <tr>
+      <th>New Mexico</th>
+      <td>3.4</td>
+      <td>5.972059</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>3.9</td>
+      <td>6.182353</td>
+      <td>9.6</td>
+    </tr>
+    <tr>
+      <th>North Carolina</th>
+      <td>3.0</td>
+      <td>6.741176</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>North Dakota</th>
+      <td>2.0</td>
+      <td>3.279902</td>
+      <td>5.1</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>3.4</td>
+      <td>6.455392</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>Oklahoma</th>
+      <td>2.6</td>
+      <td>4.784804</td>
+      <td>7.6</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>4.2</td>
+      <td>7.242647</td>
+      <td>12.6</td>
+    </tr>
+    <tr>
+      <th>Pennsylvania</th>
+      <td>3.6</td>
+      <td>5.946569</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>Puerto Rico</th>
+      <td>8.9</td>
+      <td>12.653922</td>
+      <td>17.3</td>
+    </tr>
+    <tr>
+      <th>Rhode Island</th>
+      <td>3.6</td>
+      <td>7.000490</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>South Carolina</th>
+      <td>3.2</td>
+      <td>7.130882</td>
+      <td>12.4</td>
+    </tr>
+    <tr>
+      <th>South Dakota</th>
+      <td>2.0</td>
+      <td>3.579412</td>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <th>Tennessee</th>
+      <td>3.3</td>
+      <td>6.369118</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>3.5</td>
+      <td>5.775000</td>
+      <td>8.6</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>2.1</td>
+      <td>4.716667</td>
+      <td>8.4</td>
+    </tr>
+    <tr>
+      <th>Vermont</th>
+      <td>2.3</td>
+      <td>4.247549</td>
+      <td>7.6</td>
+    </tr>
+    <tr>
+      <th>Virginia</th>
+      <td>1.8</td>
+      <td>4.543137</td>
+      <td>7.9</td>
+    </tr>
+    <tr>
+      <th>Washington</th>
+      <td>4.2</td>
+      <td>6.706863</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>West Virginia</th>
+      <td>3.6</td>
+      <td>6.168137</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>Wisconsin</th>
+      <td>2.8</td>
+      <td>5.668627</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>Wyoming</th>
+      <td>2.4</td>
+      <td>4.399510</td>
+      <td>8.1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can dress it up a little too if we like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span> \
+        <span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s1">&#39;Min. Unemploy.&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span>
+                    <span class="s1">&#39;Mean Unemploy.&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
+                    <span class="s1">&#39;Max. Unemploy.&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">SpecificationError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2118</span><span class="o">/</span><span class="mf">3467181496.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span> \
+<span class="g g-Whitespace">      </span><span class="mi">2</span>         <span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s1">&#39;Min. Unemploy.&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                     <span class="s1">&#39;Mean Unemploy.&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="s1">&#39;Max. Unemploy.&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">})</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/core/groupby/generic.py</span> in <span class="ni">aggregate</span><span class="nt">(self, func, engine, engine_kwargs, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span>             <span class="c1"># but not the class list / tuple itself.</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span>             <span class="n">func</span> <span class="o">=</span> <span class="n">maybe_mangle_lambdas</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">249</span>             <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aggregate_multiple_funcs</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="k">if</span> <span class="n">relabeling</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>                 <span class="c1"># error: Incompatible types in assignment (expression has type</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/core/groupby/generic.py</span> in <span class="ni">_aggregate_multiple_funcs</span><span class="nt">(self, arg)</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>             <span class="c1"># have not shown a higher level one</span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span>             <span class="c1"># GH 15931</span>
+<span class="ne">--&gt; </span><span class="mi">284</span>             <span class="k">raise</span> <span class="n">SpecificationError</span><span class="p">(</span><span class="s2">&quot;nested renamer is not supported&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> 
+<span class="g g-Whitespace">    </span><span class="mi">286</span>         <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">):</span>
+
+<span class="ne">SpecificationError</span>: nested renamer is not supported
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the challenge above, we used filter to select out states based on a string, but there are more uses of filter than this simple one. For example, we can filter based on the group properties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filter_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">5</span>
+
+<span class="n">problem_states</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">filter_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">problem_states</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Alaska&#39;, &#39;Puerto Rico&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">problem_states</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">unemployment_rate</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>state</th>
+      <th>Alaska</th>
+      <th>Puerto Rico</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000</th>
+      <td>6.375000</td>
+      <td>10.125000</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>6.433333</td>
+      <td>11.350000</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>7.291667</td>
+      <td>12.250000</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>7.825000</td>
+      <td>11.966667</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>7.458333</td>
+      <td>10.575000</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>6.883333</td>
+      <td>11.325000</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>6.616667</td>
+      <td>10.500000</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>6.333333</td>
+      <td>11.183333</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>6.691667</td>
+      <td>11.766667</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>7.741667</td>
+      <td>15.333333</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>7.883333</td>
+      <td>16.358333</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>7.591667</td>
+      <td>15.941667</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>7.141667</td>
+      <td>14.466667</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>6.925000</td>
+      <td>14.291667</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>6.841667</td>
+      <td>13.900000</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>6.441667</td>
+      <td>11.991667</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>6.616667</td>
+      <td>11.791667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="other-useful-functions">
+<h3>Other useful functions:<a class="headerlink" href="#other-useful-functions" title="Permalink to this headline">¶</a></h3>
+<p>GroupBy also works alongside the following functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">transform()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply()</span></code></p></li>
+</ul>
+<p>For lack of time we leave these for you to explore.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="07-hierarchical_indexing.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Hierachical (Multi-) Indexing</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

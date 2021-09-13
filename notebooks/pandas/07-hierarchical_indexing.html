@@ -1,0 +1,2642 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hierachical (Multi-) Indexing &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Aggregate Functions and Group Statistics" href="08-aggregation_grouping.html" />
+    <link rel="prev" title="Missing Data" href="06-missing_data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/07-exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-motivating_pandas.html">
+   Data Manipulation and Exploratory Analysis with Pandas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-pandas_objects.html">
+     Pandas Series Object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-importing_data.html">
+     Importing (and Exporting) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-concatenate_merge.html">
+     Concatenating and Merging Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-indexing_and_selecting.html">
+     Indexing and Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-operations_on_data.html">
+     Operations on Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-missing_data.html">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Hierachical (Multi-) Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-aggregation_grouping.html">
+     Aggregate Functions and Group Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/07-hierarchical_indexing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/07-hierarchical_indexing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/pandas/07-hierarchical_indexing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiply-indexed-data">
+   Multiply Indexed Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-data-with-a-multi-index">
+   Selecting Data with a Multi-Index
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge">
+     Challenge
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#partial-solution">
+       Partial Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#index-un-stacking">
+   Index (Un-)Stacking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Challenge
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="hierachical-multi-indexing">
+<h1>Hierachical (Multi-) Indexing<a class="headerlink" href="#hierachical-multi-indexing" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Contact: Lachlan Deer, [econgit] &#64;ldeer, [github/twitter] &#64;lachlandeer</p></li>
+</ul>
+<p>In earlier notebooks we were working with our labor market data and importing it to have a multi-index. In this notebook, we explore the notions of multi-indexing in more detail.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="multiply-indexed-data">
+<h2>Multiply Indexed Data<a class="headerlink" href="#multiply-indexed-data" title="Permalink to this headline">¶</a></h2>
+<p>We focus on multiply indexed <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code>, and ignore pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> because we will most often come across <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code>. Most of our discussion carries over.</p>
+<p>Let’s import our labour market data in the ‘simplest way’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;out_data/state_labour_statistics.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Hampshire</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>2.5</td>
+      <td>18907</td>
+      <td>728556</td>
+      <td>747463</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>New Hampshire</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>2.6</td>
+      <td>19573</td>
+      <td>729720</td>
+      <td>749293</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Hampshire</td>
+      <td>M10</td>
+      <td>2016</td>
+      <td>2.5</td>
+      <td>18430</td>
+      <td>729792</td>
+      <td>748222</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>New Hampshire</td>
+      <td>M09</td>
+      <td>2016</td>
+      <td>2.6</td>
+      <td>19415</td>
+      <td>727548</td>
+      <td>746963</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>New Hampshire</td>
+      <td>M08</td>
+      <td>2016</td>
+      <td>2.8</td>
+      <td>20933</td>
+      <td>737236</td>
+      <td>758169</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=10608, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again note that pandas has created an index for us, which is simply a row identifier. We argued earlier that a better way of indexing might be state-year-month.</p>
+<p>To make the shift to our preferred index, we need to reset the index, using the <code class="docutils literal notranslate"><span class="pre">set_index</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">New Hampshire</th>
+      <th rowspan="5" valign="top">2016</th>
+      <th>M12</th>
+      <td>2.5</td>
+      <td>18907</td>
+      <td>728556</td>
+      <td>747463</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>2.6</td>
+      <td>19573</td>
+      <td>729720</td>
+      <td>749293</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>2.5</td>
+      <td>18430</td>
+      <td>729792</td>
+      <td>748222</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>2.6</td>
+      <td>19415</td>
+      <td>727548</td>
+      <td>746963</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>2.8</td>
+      <td>20933</td>
+      <td>737236</td>
+      <td>758169</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we want to go back to the original index, we can use <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> and ask that the multi-index we set is returned to columns of the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Hampshire</td>
+      <td>2016</td>
+      <td>M12</td>
+      <td>2.5</td>
+      <td>18907</td>
+      <td>728556</td>
+      <td>747463</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>New Hampshire</td>
+      <td>2016</td>
+      <td>M11</td>
+      <td>2.6</td>
+      <td>19573</td>
+      <td>729720</td>
+      <td>749293</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Hampshire</td>
+      <td>2016</td>
+      <td>M10</td>
+      <td>2.5</td>
+      <td>18430</td>
+      <td>729792</td>
+      <td>748222</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>New Hampshire</td>
+      <td>2016</td>
+      <td>M09</td>
+      <td>2.6</td>
+      <td>19415</td>
+      <td>727548</td>
+      <td>746963</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>New Hampshire</td>
+      <td>2016</td>
+      <td>M08</td>
+      <td>2.8</td>
+      <td>20933</td>
+      <td>737236</td>
+      <td>758169</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>But let’s for now stick with our multi-index data- and see how to use it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selecting-data-with-a-multi-index">
+<h2>Selecting Data with a Multi-Index<a class="headerlink" href="#selecting-data-with-a-multi-index" title="Permalink to this headline">¶</a></h2>
+<p>One advantage of a multi-index is that we can subset data quite simply:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Alabama&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">2016</th>
+      <th>M12</th>
+      <td>5.9</td>
+      <td>129295</td>
+      <td>2050965</td>
+      <td>2180260</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>5.7</td>
+      <td>123834</td>
+      <td>2060807</td>
+      <td>2184641</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>6.2</td>
+      <td>136336</td>
+      <td>2057151</td>
+      <td>2193487</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>6.2</td>
+      <td>134032</td>
+      <td>2042696</td>
+      <td>2176728</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>6.2</td>
+      <td>134754</td>
+      <td>2033706</td>
+      <td>2168460</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">2000</th>
+      <th>M05</th>
+      <td>4.1</td>
+      <td>86308</td>
+      <td>2037787</td>
+      <td>2124095</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>3.8</td>
+      <td>80215</td>
+      <td>2045171</td>
+      <td>2125386</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>4.5</td>
+      <td>95449</td>
+      <td>2038654</td>
+      <td>2134103</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>5.1</td>
+      <td>109464</td>
+      <td>2027226</td>
+      <td>2136690</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <td>5.1</td>
+      <td>108551</td>
+      <td>2024262</td>
+      <td>2132813</td>
+    </tr>
+  </tbody>
+</table>
+<p>204 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2099/4288551881.py:1: PerformanceWarning: indexing past lexsort depth may impact performance.
+  data.loc[&#39;Alabama&#39;, 2010]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>M12</th>
+      <td>9.8</td>
+      <td>217272</td>
+      <td>1996538</td>
+      <td>2213810</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>10.0</td>
+      <td>222536</td>
+      <td>2001481</td>
+      <td>2224017</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>9.9</td>
+      <td>219224</td>
+      <td>2001483</td>
+      <td>2220707</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>9.8</td>
+      <td>216750</td>
+      <td>1990219</td>
+      <td>2206969</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>10.1</td>
+      <td>224435</td>
+      <td>1988261</td>
+      <td>2212696</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>10.2</td>
+      <td>225826</td>
+      <td>1990949</td>
+      <td>2216775</td>
+    </tr>
+    <tr>
+      <th>M06</th>
+      <td>10.5</td>
+      <td>234972</td>
+      <td>1994590</td>
+      <td>2229562</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <td>9.9</td>
+      <td>219339</td>
+      <td>1994090</td>
+      <td>2213429</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>10.4</td>
+      <td>229680</td>
+      <td>1976552</td>
+      <td>2206232</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>11.5</td>
+      <td>245567</td>
+      <td>1892006</td>
+      <td>2137573</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>12.1</td>
+      <td>258825</td>
+      <td>1876758</td>
+      <td>2135583</td>
+    </tr>
+    <tr>
+      <th>M01</th>
+      <td>12.3</td>
+      <td>263375</td>
+      <td>1871780</td>
+      <td>2135155</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="s1">&#39;M10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unemployment_rate          9.9
+qty_unemployed        219224.0
+qty_employed         2001483.0
+labour_force         2220707.0
+Name: (Alabama, 2010, M10), dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we hope this may work...</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="p">:,</span> <span class="s1">&#39;M10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="17" valign="top">Alabama</th>
+      <th>2016</th>
+      <th>M10</th>
+      <td>6.2</td>
+      <td>136336</td>
+      <td>2057151</td>
+      <td>2193487</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <th>M10</th>
+      <td>5.9</td>
+      <td>126424</td>
+      <td>2032455</td>
+      <td>2158879</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <th>M10</th>
+      <td>6.0</td>
+      <td>130881</td>
+      <td>2035345</td>
+      <td>2166226</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <th>M10</th>
+      <td>7.0</td>
+      <td>152300</td>
+      <td>2012001</td>
+      <td>2164301</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <th>M10</th>
+      <td>7.5</td>
+      <td>165164</td>
+      <td>2025114</td>
+      <td>2190278</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <th>M10</th>
+      <td>8.9</td>
+      <td>194917</td>
+      <td>2005689</td>
+      <td>2200606</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <th>M10</th>
+      <td>9.9</td>
+      <td>219224</td>
+      <td>2001483</td>
+      <td>2220707</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <th>M10</th>
+      <td>11.7</td>
+      <td>252694</td>
+      <td>1906032</td>
+      <td>2158726</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <th>M10</th>
+      <td>6.3</td>
+      <td>137392</td>
+      <td>2047657</td>
+      <td>2185049</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <th>M10</th>
+      <td>3.8</td>
+      <td>82043</td>
+      <td>2099135</td>
+      <td>2181178</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <th>M10</th>
+      <td>3.6</td>
+      <td>79073</td>
+      <td>2103518</td>
+      <td>2182591</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <th>M10</th>
+      <td>4.2</td>
+      <td>91482</td>
+      <td>2078674</td>
+      <td>2170156</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <th>M10</th>
+      <td>5.5</td>
+      <td>119278</td>
+      <td>2035705</td>
+      <td>2154983</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <th>M10</th>
+      <td>6.1</td>
+      <td>130045</td>
+      <td>2009302</td>
+      <td>2139347</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <th>M10</th>
+      <td>5.6</td>
+      <td>118872</td>
+      <td>2006102</td>
+      <td>2124974</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <th>M10</th>
+      <td>5.6</td>
+      <td>118727</td>
+      <td>2006251</td>
+      <td>2124978</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <th>M10</th>
+      <td>4.5</td>
+      <td>96899</td>
+      <td>2042462</td>
+      <td>2139361</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need to sort the index first</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Alabama</th>
+      <th rowspan="5" valign="top">2000</th>
+      <th>M01</th>
+      <td>5.1</td>
+      <td>108551</td>
+      <td>2024262</td>
+      <td>2132813</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>5.1</td>
+      <td>109464</td>
+      <td>2027226</td>
+      <td>2136690</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>4.5</td>
+      <td>95449</td>
+      <td>2038654</td>
+      <td>2134103</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>3.8</td>
+      <td>80215</td>
+      <td>2045171</td>
+      <td>2125386</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <td>4.1</td>
+      <td>86308</td>
+      <td>2037787</td>
+      <td>2124095</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">:</span><span class="mi">2016</span><span class="p">,</span> <span class="s1">&#39;M10&#39;</span><span class="p">:</span><span class="s1">&#39;M12&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="21" valign="top">Alabama</th>
+      <th rowspan="3" valign="top">2010</th>
+      <th>M10</th>
+      <td>9.9</td>
+      <td>219224</td>
+      <td>2001483</td>
+      <td>2220707</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>10.0</td>
+      <td>222536</td>
+      <td>2001481</td>
+      <td>2224017</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>9.8</td>
+      <td>217272</td>
+      <td>1996538</td>
+      <td>2213810</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2011</th>
+      <th>M10</th>
+      <td>8.9</td>
+      <td>194917</td>
+      <td>2005689</td>
+      <td>2200606</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>8.0</td>
+      <td>175369</td>
+      <td>2008604</td>
+      <td>2183973</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>7.9</td>
+      <td>172004</td>
+      <td>2004151</td>
+      <td>2176155</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2012</th>
+      <th>M10</th>
+      <td>7.5</td>
+      <td>165164</td>
+      <td>2025114</td>
+      <td>2190278</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>6.9</td>
+      <td>149468</td>
+      <td>2023318</td>
+      <td>2172786</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>7.2</td>
+      <td>156518</td>
+      <td>2016210</td>
+      <td>2172728</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2013</th>
+      <th>M10</th>
+      <td>7.0</td>
+      <td>152300</td>
+      <td>2012001</td>
+      <td>2164301</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>6.7</td>
+      <td>144052</td>
+      <td>2020314</td>
+      <td>2164366</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>6.7</td>
+      <td>143618</td>
+      <td>2013519</td>
+      <td>2157137</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2014</th>
+      <th>M10</th>
+      <td>6.0</td>
+      <td>130881</td>
+      <td>2035345</td>
+      <td>2166226</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>5.8</td>
+      <td>124177</td>
+      <td>2033698</td>
+      <td>2157875</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>5.7</td>
+      <td>121281</td>
+      <td>2023427</td>
+      <td>2144708</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2015</th>
+      <th>M10</th>
+      <td>5.9</td>
+      <td>126424</td>
+      <td>2032455</td>
+      <td>2158879</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>5.7</td>
+      <td>122954</td>
+      <td>2035229</td>
+      <td>2158183</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>5.9</td>
+      <td>127389</td>
+      <td>2030765</td>
+      <td>2158154</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2016</th>
+      <th>M10</th>
+      <td>6.2</td>
+      <td>136336</td>
+      <td>2057151</td>
+      <td>2193487</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>5.7</td>
+      <td>123834</td>
+      <td>2060807</td>
+      <td>2184641</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>5.9</td>
+      <td>129295</td>
+      <td>2050965</td>
+      <td>2180260</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="challenge">
+<h3>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Extract all the data for the Carolinas (Help: you need to do a partial string match on the index <code class="docutils literal notranslate"><span class="pre">data.index.get_level_values(XX).str.contains(YY)</span></code> )</p></li>
+<li><p>Extract all the data for the Carolinas in 2007</p></li>
+<li><p>Extract all the data for the Carolinas between 2007-2010</p></li>
+<li><p>Extract all the data in the summer months for the Carolina between 2007 and 2010</p></li>
+</ol>
+<div class="section" id="partial-solution">
+<h4>Partial Solution:<a class="headerlink" href="#partial-solution" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Carolina&quot;</span><span class="p">),</span> 
+             <span class="mi">2007</span><span class="p">:</span><span class="mi">2010</span><span class="p">,</span> <span class="s1">&#39;M06&#39;</span><span class="p">:</span><span class="s1">&#39;M09&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>year</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="16" valign="top">North Carolina</th>
+      <th rowspan="4" valign="top">2007</th>
+      <th>M06</th>
+      <td>4.9</td>
+      <td>220499</td>
+      <td>4323332</td>
+      <td>4543831</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>5.1</td>
+      <td>231083</td>
+      <td>4336375</td>
+      <td>4567458</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>4.7</td>
+      <td>212508</td>
+      <td>4299171</td>
+      <td>4511679</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>4.5</td>
+      <td>201890</td>
+      <td>4321920</td>
+      <td>4523810</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2008</th>
+      <th>M06</th>
+      <td>5.9</td>
+      <td>271173</td>
+      <td>4313781</td>
+      <td>4584954</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>6.3</td>
+      <td>289018</td>
+      <td>4324163</td>
+      <td>4613181</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>6.3</td>
+      <td>288553</td>
+      <td>4282651</td>
+      <td>4571204</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>5.9</td>
+      <td>268607</td>
+      <td>4292928</td>
+      <td>4561535</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2009</th>
+      <th>M06</th>
+      <td>10.8</td>
+      <td>498908</td>
+      <td>4102835</td>
+      <td>4601743</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>10.8</td>
+      <td>498541</td>
+      <td>4121528</td>
+      <td>4620069</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>10.6</td>
+      <td>485802</td>
+      <td>4083402</td>
+      <td>4569204</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>10.4</td>
+      <td>472231</td>
+      <td>4076322</td>
+      <td>4548553</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2010</th>
+      <th>M06</th>
+      <td>10.9</td>
+      <td>503871</td>
+      <td>4137291</td>
+      <td>4641162</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>10.8</td>
+      <td>503704</td>
+      <td>4150739</td>
+      <td>4654443</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>10.5</td>
+      <td>486253</td>
+      <td>4137732</td>
+      <td>4623985</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>10.0</td>
+      <td>459133</td>
+      <td>4152584</td>
+      <td>4611717</td>
+    </tr>
+    <tr>
+      <th rowspan="16" valign="top">South Carolina</th>
+      <th rowspan="4" valign="top">2007</th>
+      <th>M06</th>
+      <td>5.9</td>
+      <td>126476</td>
+      <td>2033179</td>
+      <td>2159655</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>5.8</td>
+      <td>125358</td>
+      <td>2031889</td>
+      <td>2157247</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>5.7</td>
+      <td>121989</td>
+      <td>2015875</td>
+      <td>2137864</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>5.6</td>
+      <td>119816</td>
+      <td>2008234</td>
+      <td>2128050</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2008</th>
+      <th>M06</th>
+      <td>6.6</td>
+      <td>143842</td>
+      <td>2028477</td>
+      <td>2172319</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>6.9</td>
+      <td>149774</td>
+      <td>2022393</td>
+      <td>2172167</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>7.5</td>
+      <td>162877</td>
+      <td>2003086</td>
+      <td>2165963</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>7.5</td>
+      <td>160318</td>
+      <td>1990871</td>
+      <td>2151189</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2009</th>
+      <th>M06</th>
+      <td>11.9</td>
+      <td>260682</td>
+      <td>1932513</td>
+      <td>2193195</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>11.6</td>
+      <td>253471</td>
+      <td>1932518</td>
+      <td>2185989</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>11.5</td>
+      <td>247965</td>
+      <td>1914687</td>
+      <td>2162652</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>11.5</td>
+      <td>245694</td>
+      <td>1895141</td>
+      <td>2140835</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2010</th>
+      <th>M06</th>
+      <td>11.2</td>
+      <td>244208</td>
+      <td>1940423</td>
+      <td>2184631</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>11.0</td>
+      <td>240106</td>
+      <td>1944223</td>
+      <td>2184329</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>11.2</td>
+      <td>244749</td>
+      <td>1934786</td>
+      <td>2179535</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>10.7</td>
+      <td>231578</td>
+      <td>1923986</td>
+      <td>2155564</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="index-un-stacking">
+<h2>Index (Un-)Stacking<a class="headerlink" href="#index-un-stacking" title="Permalink to this headline">¶</a></h2>
+<p>One potentially cool use for multi-indexing is using the indexes across <em>two</em> dimensions. This is <em>unstacking</em>, and often allows for simple ways to view patterns in the data.</p>
+<p>For example, we could translate the year-index across to a column axis, so that we could can easily see patterns in labor force statistics in a given month, but over various years:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="10" halign="left">unemployment_rate</th>
+      <th>...</th>
+      <th colspan="10" halign="left">labour_force</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>2000</th>
+      <th>2001</th>
+      <th>2002</th>
+      <th>2003</th>
+      <th>2004</th>
+      <th>2005</th>
+      <th>2006</th>
+      <th>2007</th>
+      <th>2008</th>
+      <th>2009</th>
+      <th>...</th>
+      <th>2007</th>
+      <th>2008</th>
+      <th>2009</th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Alabama</th>
+      <th>M01</th>
+      <td>5.1</td>
+      <td>5.2</td>
+      <td>6.5</td>
+      <td>6.2</td>
+      <td>6.4</td>
+      <td>5.4</td>
+      <td>4.4</td>
+      <td>4.3</td>
+      <td>4.8</td>
+      <td>9.7</td>
+      <td>...</td>
+      <td>2169298</td>
+      <td>2170233</td>
+      <td>2164104</td>
+      <td>2135155</td>
+      <td>2210128</td>
+      <td>2151638</td>
+      <td>2166067</td>
+      <td>2151800</td>
+      <td>2134230</td>
+      <td>2141628</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>5.1</td>
+      <td>5.0</td>
+      <td>6.3</td>
+      <td>6.0</td>
+      <td>6.1</td>
+      <td>5.4</td>
+      <td>4.5</td>
+      <td>4.2</td>
+      <td>4.9</td>
+      <td>10.5</td>
+      <td>...</td>
+      <td>2170069</td>
+      <td>2167554</td>
+      <td>2171529</td>
+      <td>2135583</td>
+      <td>2204837</td>
+      <td>2165383</td>
+      <td>2170603</td>
+      <td>2165104</td>
+      <td>2136284</td>
+      <td>2152446</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>4.5</td>
+      <td>4.7</td>
+      <td>6.0</td>
+      <td>5.6</td>
+      <td>5.9</td>
+      <td>4.6</td>
+      <td>3.9</td>
+      <td>3.8</td>
+      <td>4.7</td>
+      <td>10.4</td>
+      <td>...</td>
+      <td>2176156</td>
+      <td>2170499</td>
+      <td>2166423</td>
+      <td>2137573</td>
+      <td>2206650</td>
+      <td>2171589</td>
+      <td>2164327</td>
+      <td>2172369</td>
+      <td>2139776</td>
+      <td>2160907</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>3.8</td>
+      <td>4.2</td>
+      <td>5.3</td>
+      <td>5.3</td>
+      <td>5.2</td>
+      <td>3.9</td>
+      <td>3.5</td>
+      <td>3.3</td>
+      <td>4.0</td>
+      <td>9.9</td>
+      <td>...</td>
+      <td>2156839</td>
+      <td>2162674</td>
+      <td>2162016</td>
+      <td>2206232</td>
+      <td>2204162</td>
+      <td>2163833</td>
+      <td>2158996</td>
+      <td>2153646</td>
+      <td>2144272</td>
+      <td>2154477</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <td>4.1</td>
+      <td>4.0</td>
+      <td>5.2</td>
+      <td>5.6</td>
+      <td>5.4</td>
+      <td>4.0</td>
+      <td>3.6</td>
+      <td>3.3</td>
+      <td>4.9</td>
+      <td>10.6</td>
+      <td>...</td>
+      <td>2158625</td>
+      <td>2174485</td>
+      <td>2164803</td>
+      <td>2213429</td>
+      <td>2205918</td>
+      <td>2178571</td>
+      <td>2171580</td>
+      <td>2164055</td>
+      <td>2162423</td>
+      <td>2159095</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Wyoming</th>
+      <th>M08</th>
+      <td>3.4</td>
+      <td>3.3</td>
+      <td>3.4</td>
+      <td>3.7</td>
+      <td>3.3</td>
+      <td>3.2</td>
+      <td>2.8</td>
+      <td>2.5</td>
+      <td>2.6</td>
+      <td>6.1</td>
+      <td>...</td>
+      <td>290133</td>
+      <td>296658</td>
+      <td>302187</td>
+      <td>305471</td>
+      <td>309004</td>
+      <td>309559</td>
+      <td>308650</td>
+      <td>308852</td>
+      <td>307846</td>
+      <td>304511</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>3.4</td>
+      <td>3.3</td>
+      <td>3.5</td>
+      <td>3.6</td>
+      <td>3.4</td>
+      <td>3.2</td>
+      <td>2.8</td>
+      <td>2.4</td>
+      <td>2.5</td>
+      <td>6.0</td>
+      <td>...</td>
+      <td>287821</td>
+      <td>294561</td>
+      <td>299774</td>
+      <td>303557</td>
+      <td>307206</td>
+      <td>306748</td>
+      <td>306052</td>
+      <td>306169</td>
+      <td>304353</td>
+      <td>301548</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>3.4</td>
+      <td>3.4</td>
+      <td>3.6</td>
+      <td>3.6</td>
+      <td>3.4</td>
+      <td>3.3</td>
+      <td>2.8</td>
+      <td>2.4</td>
+      <td>2.7</td>
+      <td>6.3</td>
+      <td>...</td>
+      <td>288442</td>
+      <td>295880</td>
+      <td>300205</td>
+      <td>304878</td>
+      <td>307938</td>
+      <td>307263</td>
+      <td>306560</td>
+      <td>306735</td>
+      <td>304311</td>
+      <td>300979</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>4.0</td>
+      <td>3.8</td>
+      <td>4.2</td>
+      <td>4.1</td>
+      <td>3.7</td>
+      <td>3.5</td>
+      <td>3.0</td>
+      <td>2.6</td>
+      <td>3.2</td>
+      <td>6.7</td>
+      <td>...</td>
+      <td>288931</td>
+      <td>295690</td>
+      <td>300575</td>
+      <td>305384</td>
+      <td>308172</td>
+      <td>306948</td>
+      <td>306599</td>
+      <td>306418</td>
+      <td>302892</td>
+      <td>300414</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>3.9</td>
+      <td>3.9</td>
+      <td>4.5</td>
+      <td>4.2</td>
+      <td>3.7</td>
+      <td>3.5</td>
+      <td>2.9</td>
+      <td>2.5</td>
+      <td>3.7</td>
+      <td>7.5</td>
+      <td>...</td>
+      <td>287174</td>
+      <td>294792</td>
+      <td>300582</td>
+      <td>304124</td>
+      <td>306890</td>
+      <td>305084</td>
+      <td>305285</td>
+      <td>303753</td>
+      <td>300859</td>
+      <td>299114</td>
+    </tr>
+  </tbody>
+</table>
+<p>624 rows × 68 columns</p>
+</div></div></div>
+</div>
+<p>In it’s current form this is a bit ugly because there is so much data. But we can use our indexing function <code class="docutils literal notranslate"><span class="pre">loc</span></code> together with a column selection to potentially view one of our series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;California&#39;</span><span class="p">][</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>year</th>
+      <th>2000</th>
+      <th>2001</th>
+      <th>2002</th>
+      <th>2003</th>
+      <th>2004</th>
+      <th>2005</th>
+      <th>2006</th>
+      <th>2007</th>
+      <th>2008</th>
+      <th>2009</th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+    </tr>
+    <tr>
+      <th>period</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>M01</th>
+      <td>5.4</td>
+      <td>5.3</td>
+      <td>7.0</td>
+      <td>7.3</td>
+      <td>7.0</td>
+      <td>6.2</td>
+      <td>5.3</td>
+      <td>5.5</td>
+      <td>6.4</td>
+      <td>10.2</td>
+      <td>12.7</td>
+      <td>12.6</td>
+      <td>11.4</td>
+      <td>10.2</td>
+      <td>8.4</td>
+      <td>7.2</td>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <th>M02</th>
+      <td>5.4</td>
+      <td>5.1</td>
+      <td>6.8</td>
+      <td>7.1</td>
+      <td>6.7</td>
+      <td>6.1</td>
+      <td>5.3</td>
+      <td>5.4</td>
+      <td>6.3</td>
+      <td>10.6</td>
+      <td>12.6</td>
+      <td>12.2</td>
+      <td>11.3</td>
+      <td>9.7</td>
+      <td>8.4</td>
+      <td>6.9</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>M03</th>
+      <td>5.4</td>
+      <td>5.3</td>
+      <td>6.9</td>
+      <td>7.1</td>
+      <td>7.0</td>
+      <td>5.9</td>
+      <td>5.2</td>
+      <td>5.2</td>
+      <td>6.6</td>
+      <td>10.9</td>
+      <td>12.6</td>
+      <td>12.1</td>
+      <td>11.0</td>
+      <td>9.3</td>
+      <td>8.3</td>
+      <td>6.7</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>M04</th>
+      <td>4.8</td>
+      <td>4.9</td>
+      <td>6.6</td>
+      <td>6.7</td>
+      <td>6.3</td>
+      <td>5.3</td>
+      <td>4.9</td>
+      <td>5.0</td>
+      <td>6.1</td>
+      <td>10.4</td>
+      <td>12.0</td>
+      <td>11.5</td>
+      <td>10.3</td>
+      <td>8.7</td>
+      <td>7.3</td>
+      <td>6.2</td>
+      <td>5.4</td>
+    </tr>
+    <tr>
+      <th>M05</th>
+      <td>4.8</td>
+      <td>4.6</td>
+      <td>6.2</td>
+      <td>6.4</td>
+      <td>5.9</td>
+      <td>5.0</td>
+      <td>4.5</td>
+      <td>4.8</td>
+      <td>6.4</td>
+      <td>10.6</td>
+      <td>11.7</td>
+      <td>11.3</td>
+      <td>10.2</td>
+      <td>8.6</td>
+      <td>7.2</td>
+      <td>6.1</td>
+      <td>4.9</td>
+    </tr>
+    <tr>
+      <th>M06</th>
+      <td>5.0</td>
+      <td>5.2</td>
+      <td>6.7</td>
+      <td>7.2</td>
+      <td>6.4</td>
+      <td>5.4</td>
+      <td>4.9</td>
+      <td>5.3</td>
+      <td>7.0</td>
+      <td>11.3</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>10.6</td>
+      <td>9.2</td>
+      <td>7.4</td>
+      <td>6.3</td>
+      <td>5.6</td>
+    </tr>
+    <tr>
+      <th>M07</th>
+      <td>5.3</td>
+      <td>5.5</td>
+      <td>6.9</td>
+      <td>7.1</td>
+      <td>6.4</td>
+      <td>5.5</td>
+      <td>5.2</td>
+      <td>5.7</td>
+      <td>7.6</td>
+      <td>11.7</td>
+      <td>12.6</td>
+      <td>12.2</td>
+      <td>10.9</td>
+      <td>9.3</td>
+      <td>7.9</td>
+      <td>6.5</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>M08</th>
+      <td>5.0</td>
+      <td>5.7</td>
+      <td>6.7</td>
+      <td>6.8</td>
+      <td>5.9</td>
+      <td>5.1</td>
+      <td>4.9</td>
+      <td>5.4</td>
+      <td>7.8</td>
+      <td>11.5</td>
+      <td>12.3</td>
+      <td>11.9</td>
+      <td>10.4</td>
+      <td>8.9</td>
+      <td>7.6</td>
+      <td>6.1</td>
+      <td>5.6</td>
+    </tr>
+    <tr>
+      <th>M09</th>
+      <td>4.6</td>
+      <td>5.5</td>
+      <td>6.3</td>
+      <td>6.5</td>
+      <td>5.6</td>
+      <td>5.1</td>
+      <td>4.6</td>
+      <td>5.3</td>
+      <td>7.7</td>
+      <td>11.4</td>
+      <td>11.9</td>
+      <td>11.5</td>
+      <td>9.6</td>
+      <td>8.5</td>
+      <td>7.0</td>
+      <td>5.6</td>
+      <td>5.2</td>
+    </tr>
+    <tr>
+      <th>M10</th>
+      <td>4.5</td>
+      <td>5.8</td>
+      <td>6.4</td>
+      <td>6.5</td>
+      <td>5.7</td>
+      <td>5.0</td>
+      <td>4.5</td>
+      <td>5.4</td>
+      <td>8.0</td>
+      <td>11.6</td>
+      <td>11.9</td>
+      <td>11.3</td>
+      <td>9.7</td>
+      <td>8.5</td>
+      <td>6.9</td>
+      <td>5.7</td>
+      <td>5.2</td>
+    </tr>
+    <tr>
+      <th>M11</th>
+      <td>4.7</td>
+      <td>6.2</td>
+      <td>6.8</td>
+      <td>6.7</td>
+      <td>5.9</td>
+      <td>5.3</td>
+      <td>4.8</td>
+      <td>5.6</td>
+      <td>8.4</td>
+      <td>11.7</td>
+      <td>12.3</td>
+      <td>11.0</td>
+      <td>9.5</td>
+      <td>8.3</td>
+      <td>7.0</td>
+      <td>5.7</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>M12</th>
+      <td>4.4</td>
+      <td>6.1</td>
+      <td>6.7</td>
+      <td>6.2</td>
+      <td>5.7</td>
+      <td>4.9</td>
+      <td>4.7</td>
+      <td>5.9</td>
+      <td>9.0</td>
+      <td>11.8</td>
+      <td>12.1</td>
+      <td>11.0</td>
+      <td>9.6</td>
+      <td>8.0</td>
+      <td>6.6</td>
+      <td>5.6</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>the opposite of unstacking is <code class="docutils literal notranslate"><span class="pre">stacking</span></code>, and it puts our data back into the multi-index format we began with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Alabama</th>
+      <th rowspan="5" valign="top">M01</th>
+      <th>2000</th>
+      <td>5.1</td>
+      <td>108551</td>
+      <td>2024262</td>
+      <td>2132813</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>5.2</td>
+      <td>110035</td>
+      <td>2008876</td>
+      <td>2118911</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>6.5</td>
+      <td>134750</td>
+      <td>1953814</td>
+      <td>2088564</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>6.2</td>
+      <td>129966</td>
+      <td>1974374</td>
+      <td>2104340</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>6.4</td>
+      <td>134673</td>
+      <td>1985886</td>
+      <td>2120559</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Wyoming</th>
+      <th rowspan="5" valign="top">M12</th>
+      <th>2012</th>
+      <td>5.2</td>
+      <td>15953</td>
+      <td>289131</td>
+      <td>305084</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>4.6</td>
+      <td>14116</td>
+      <td>291169</td>
+      <td>305285</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>3.8</td>
+      <td>11613</td>
+      <td>292140</td>
+      <td>303753</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>4.8</td>
+      <td>14459</td>
+      <td>286400</td>
+      <td>300859</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>5.0</td>
+      <td>14866</td>
+      <td>284248</td>
+      <td>299114</td>
+    </tr>
+  </tbody>
+</table>
+<p>10608 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>In this way, the <code class="docutils literal notranslate"><span class="pre">unstack</span></code>-<code class="docutils literal notranslate"><span class="pre">stack</span></code> functionality is a useful way to view data and potentially see some patterns; even if the data is has high dimensionality in the index</p>
+<div class="section" id="id1">
+<h3>Challenge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use the unstack method to view data about the employment rate among the labor force over years and months in California</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="06-missing_data.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Missing Data</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="08-aggregation_grouping.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Aggregate Functions and Group Statistics</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

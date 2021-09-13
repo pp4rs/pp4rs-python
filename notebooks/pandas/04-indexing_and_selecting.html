@@ -1,0 +1,5541 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indexing and Selecting Data &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operations on Data" href="05-operations_on_data.html" />
+    <link rel="prev" title="Concatenating and Merging Data" href="03-concatenate_merge.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/07-exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-motivating_pandas.html">
+   Data Manipulation and Exploratory Analysis with Pandas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-pandas_objects.html">
+     Pandas Series Object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-importing_data.html">
+     Importing (and Exporting) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-concatenate_merge.html">
+     Concatenating and Merging Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Indexing and Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-operations_on_data.html">
+     Operations on Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-missing_data.html">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-hierarchical_indexing.html">
+     Hierachical (Multi-) Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-aggregation_grouping.html">
+     Aggregate Functions and Group Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/04-indexing_and_selecting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/04-indexing_and_selecting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/pandas/04-indexing_and_selecting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-columns">
+   Selecting Columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-rows-of-data">
+   Selecting Rows of data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-masking-and-fancy-indexing">
+   Boolean Masking and Fancy Indexing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge">
+     Challenge
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solutions">
+       Solutions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-query-syntax">
+   The Query Syntax
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="indexing-and-selecting-data">
+<h1>Indexing and Selecting Data<a class="headerlink" href="#indexing-and-selecting-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Contact: Lachlan Deer, [econgit] &#64;ldeer, [github/Twitter] &#64;lachlandeer</p></li>
+</ul>
+<p>In yesterday’s class on NumPy we thought about indexing, slicing, masking and modifying values in Numpy arrays. There are analogues to these operations in the pandas library that we will look into now.</p>
+<p>Our focus will be on the pandas DataFrame, rather than the pandas Series Object - because we will be dealing with DataFrames more often than not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, let’s load our example DataFrame that we assembled in the previous lesson:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;out_data/state_labour_statistics.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Hampshire</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>2.5</td>
+      <td>18907</td>
+      <td>728556</td>
+      <td>747463</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>New Hampshire</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>2.6</td>
+      <td>19573</td>
+      <td>729720</td>
+      <td>749293</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Hampshire</td>
+      <td>M10</td>
+      <td>2016</td>
+      <td>2.5</td>
+      <td>18430</td>
+      <td>729792</td>
+      <td>748222</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>New Hampshire</td>
+      <td>M09</td>
+      <td>2016</td>
+      <td>2.6</td>
+      <td>19415</td>
+      <td>727548</td>
+      <td>746963</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>New Hampshire</td>
+      <td>M08</td>
+      <td>2016</td>
+      <td>2.8</td>
+      <td>20933</td>
+      <td>737236</td>
+      <td>758169</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice that although when we were working with the data in our previous notebook the index was set as state-year-period, once we saved to csv we lost this structure. This is not a big deal, in a future notebook we will go back to setting the index as we so desire.</p>
+<p>We can look at some of the features of our DataFrame before continuing (as a review)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=10608, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;state&#39;, &#39;period&#39;, &#39;year&#39;, &#39;unemployment_rate&#39;, &#39;qty_unemployed&#39;,
+       &#39;qty_employed&#39;, &#39;labour_force&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10608, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&#39;New Hampshire&#39;, &#39;M12&#39;, 2016, ..., 18907, 728556, 747463],
+       [&#39;New Hampshire&#39;, &#39;M11&#39;, 2016, ..., 19573, 729720, 749293],
+       [&#39;New Hampshire&#39;, &#39;M10&#39;, 2016, ..., 18430, 729792, 748222],
+       ...,
+       [&#39;Georgia&#39;, &#39;M03&#39;, 2000, ..., 158596, 4064879, 4223475],
+       [&#39;Georgia&#39;, &#39;M02&#39;, 2000, ..., 157572, 4046970, 4204542],
+       [&#39;Georgia&#39;, &#39;M01&#39;, 2000, ..., 157066, 4028619, 4185685]],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="selecting-columns">
+<h2>Selecting Columns<a class="headerlink" href="#selecting-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can select individual columns using a square bracket notation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        2.5
+1        2.6
+2        2.5
+3        2.6
+4        2.8
+        ... 
+10603    3.7
+10604    3.3
+10605    3.8
+10606    3.7
+10607    3.8
+Name: unemployment_rate, Length: 10608, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>or using a ‘dot’ notation, which is an attribute-style way of accessing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">unemployment_rate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        2.5
+1        2.6
+2        2.5
+3        2.6
+4        2.8
+        ... 
+10603    3.7
+10604    3.3
+10605    3.8
+10606    3.7
+10607    3.8
+Name: unemployment_rate, Length: 10608, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>we can verify that it returns the same thing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">unemployment_rate</span> <span class="ow">is</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The attribute style indexing will not work if the column names conflict with a method of a DataFrame.</p>
+<p>We can select multiple columns too by passing a list of columns to select:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;unemployment_rate&#39;</span> <span class="p">,</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.5</td>
+      <td>18907</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.6</td>
+      <td>19573</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.5</td>
+      <td>18430</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.6</td>
+      <td>19415</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.8</td>
+      <td>20933</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>10603</th>
+      <td>3.7</td>
+      <td>155898</td>
+    </tr>
+    <tr>
+      <th>10604</th>
+      <td>3.3</td>
+      <td>138511</td>
+    </tr>
+    <tr>
+      <th>10605</th>
+      <td>3.8</td>
+      <td>158596</td>
+    </tr>
+    <tr>
+      <th>10606</th>
+      <td>3.7</td>
+      <td>157572</td>
+    </tr>
+    <tr>
+      <th>10607</th>
+      <td>3.8</td>
+      <td>157066</td>
+    </tr>
+  </tbody>
+</table>
+<p>10608 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>If we feel the need, we can also transpose a DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>10598</th>
+      <th>10599</th>
+      <th>10600</th>
+      <th>10601</th>
+      <th>10602</th>
+      <th>10603</th>
+      <th>10604</th>
+      <th>10605</th>
+      <th>10606</th>
+      <th>10607</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>state</th>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>New Hampshire</td>
+      <td>...</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+      <td>Georgia</td>
+    </tr>
+    <tr>
+      <th>period</th>
+      <td>M12</td>
+      <td>M11</td>
+      <td>M10</td>
+      <td>M09</td>
+      <td>M08</td>
+      <td>M07</td>
+      <td>M06</td>
+      <td>M05</td>
+      <td>M04</td>
+      <td>M03</td>
+      <td>...</td>
+      <td>M10</td>
+      <td>M09</td>
+      <td>M08</td>
+      <td>M07</td>
+      <td>M06</td>
+      <td>M05</td>
+      <td>M04</td>
+      <td>M03</td>
+      <td>M02</td>
+      <td>M01</td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>...</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>unemployment_rate</th>
+      <td>2.5</td>
+      <td>2.6</td>
+      <td>2.5</td>
+      <td>2.6</td>
+      <td>2.8</td>
+      <td>2.8</td>
+      <td>2.9</td>
+      <td>2.7</td>
+      <td>2.8</td>
+      <td>3.2</td>
+      <td>...</td>
+      <td>3.3</td>
+      <td>3.5</td>
+      <td>3.9</td>
+      <td>3.9</td>
+      <td>4.0</td>
+      <td>3.7</td>
+      <td>3.3</td>
+      <td>3.8</td>
+      <td>3.7</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <th>qty_unemployed</th>
+      <td>18907</td>
+      <td>19573</td>
+      <td>18430</td>
+      <td>19415</td>
+      <td>20933</td>
+      <td>21521</td>
+      <td>21559</td>
+      <td>20206</td>
+      <td>20652</td>
+      <td>23501</td>
+      <td>...</td>
+      <td>137555</td>
+      <td>146555</td>
+      <td>164397</td>
+      <td>165992</td>
+      <td>168502</td>
+      <td>155898</td>
+      <td>138511</td>
+      <td>158596</td>
+      <td>157572</td>
+      <td>157066</td>
+    </tr>
+    <tr>
+      <th>qty_employed</th>
+      <td>728556</td>
+      <td>729720</td>
+      <td>729792</td>
+      <td>727548</td>
+      <td>737236</td>
+      <td>740418</td>
+      <td>733329</td>
+      <td>722805</td>
+      <td>720696</td>
+      <td>721319</td>
+      <td>...</td>
+      <td>4081125</td>
+      <td>4063109</td>
+      <td>4060662</td>
+      <td>4075181</td>
+      <td>4067365</td>
+      <td>4063847</td>
+      <td>4071886</td>
+      <td>4064879</td>
+      <td>4046970</td>
+      <td>4028619</td>
+    </tr>
+    <tr>
+      <th>labour_force</th>
+      <td>747463</td>
+      <td>749293</td>
+      <td>748222</td>
+      <td>746963</td>
+      <td>758169</td>
+      <td>761939</td>
+      <td>754888</td>
+      <td>743011</td>
+      <td>741348</td>
+      <td>744820</td>
+      <td>...</td>
+      <td>4218680</td>
+      <td>4209664</td>
+      <td>4225059</td>
+      <td>4241173</td>
+      <td>4235867</td>
+      <td>4219745</td>
+      <td>4210397</td>
+      <td>4223475</td>
+      <td>4204542</td>
+      <td>4185685</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 10608 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="selecting-rows-of-data">
+<h2>Selecting Rows of data<a class="headerlink" href="#selecting-rows-of-data" title="Permalink to this headline">¶</a></h2>
+<p>Since the ‘square-bracket’ indexing is reserved for selecting columns of data, we need another way to access individual rows of data. Pandas offers us three alternatives here:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iloc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ix</span></code></p></li>
+</ul>
+<p>Let’s see how each of these work:</p>
+<p><code class="docutils literal notranslate"><span class="pre">iloc</span></code> works just like the NumPy indexing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Hampshire</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>2.5</td>
+      <td>18907</td>
+      <td>728556</td>
+      <td>747463</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>New Hampshire</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>2.6</td>
+      <td>19573</td>
+      <td>729720</td>
+      <td>749293</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Hampshire</td>
+      <td>M10</td>
+      <td>2016</td>
+      <td>2.5</td>
+      <td>18430</td>
+      <td>729792</td>
+      <td>748222</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Hampshire</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Hampshire</td>
+      <td>M10</td>
+      <td>2016</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>New Hampshire</td>
+      <td>M08</td>
+      <td>2016</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>New Hampshire</td>
+      <td>M06</td>
+      <td>2016</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>New Hampshire</td>
+      <td>M04</td>
+      <td>2016</td>
+      <td>2.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">loc</span></code> syntax allows us to index the data using explicit index and column names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Hampshire</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>New Hampshire</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>2.6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Hampshire</td>
+      <td>M10</td>
+      <td>2016</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>New Hampshire</td>
+      <td>M09</td>
+      <td>2016</td>
+      <td>2.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>New Hampshire</td>
+      <td>M08</td>
+      <td>2016</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>New Hampshire</td>
+      <td>M07</td>
+      <td>2016</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>New Hampshire</td>
+      <td>M06</td>
+      <td>2016</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>New Hampshire</td>
+      <td>M05</td>
+      <td>2016</td>
+      <td>2.7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>New Hampshire</td>
+      <td>M04</td>
+      <td>2016</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>New Hampshire</td>
+      <td>M03</td>
+      <td>2016</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>New Hampshire</td>
+      <td>M02</td>
+      <td>2016</td>
+      <td>3.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ix</span></code> indexer is useful if the index is set as text but we want to select by row number, whilst refer to columns by name. Note for our example, nothing changes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2040</span><span class="o">/</span><span class="mf">3867642031.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5485</span>         <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5486</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5487</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5488</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5489</span>     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;ix&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>but if instead we have</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemployed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;California&#39;</span><span class="p">:</span> <span class="mi">423967</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="mi">695662</span><span class="p">,</span>
+                  <span class="s1">&#39;New York&#39;</span><span class="p">:</span> <span class="mi">141297</span><span class="p">,</span> <span class="s1">&#39;Florida&#39;</span><span class="p">:</span> <span class="mi">170312</span><span class="p">,</span>
+                  <span class="s1">&#39;Illinois&#39;</span><span class="p">:</span> <span class="mi">149995</span><span class="p">})</span>
+<span class="n">population</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;California&#39;</span><span class="p">:</span> <span class="mi">38332521</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="mi">26448193</span><span class="p">,</span>
+                 <span class="s1">&#39;New York&#39;</span><span class="p">:</span> <span class="mi">19651127</span><span class="p">,</span> <span class="s1">&#39;Florida&#39;</span><span class="p">:</span> <span class="mi">19552860</span><span class="p">,</span>
+                 <span class="s1">&#39;Illinois&#39;</span><span class="p">:</span> <span class="mi">12882135</span><span class="p">})</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;unemployed&#39;</span><span class="p">:</span><span class="n">unemployed</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span><span class="n">population</span><span class="p">})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>California</th>
+      <td>38332521</td>
+      <td>423967</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>19552860</td>
+      <td>170312</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>12882135</td>
+      <td>149995</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>19651127</td>
+      <td>141297</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>26448193</td>
+      <td>695662</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Florida     19552860
+Illinois    12882135
+Name: population, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>gives delivers something different than <code class="docutils literal notranslate"><span class="pre">.loc</span></code></p>
+<p>Any of our indexing conventions allow us to modify values if we so wish:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Florida&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20000000</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>California</th>
+      <td>38332521</td>
+      <td>423967</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>20000000</td>
+      <td>170312</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>12882135</td>
+      <td>149995</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>19651127</td>
+      <td>141297</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>26448193</td>
+      <td>695662</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="boolean-masking-and-fancy-indexing">
+<h2>Boolean Masking and Fancy Indexing<a class="headerlink" href="#boolean-masking-and-fancy-indexing" title="Permalink to this headline">¶</a></h2>
+<p>we can use NumPy-style access patterns within our indexers to subsets of data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span><span class="s1">&#39;Alabama&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2000</td>
+      <td>5.1</td>
+      <td>108551</td>
+      <td>2024262</td>
+      <td>2132813</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2001</td>
+      <td>5.2</td>
+      <td>110035</td>
+      <td>2008876</td>
+      <td>2118911</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2002</td>
+      <td>6.5</td>
+      <td>134750</td>
+      <td>1953814</td>
+      <td>2088564</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2003</td>
+      <td>6.2</td>
+      <td>129966</td>
+      <td>1974374</td>
+      <td>2104340</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2004</td>
+      <td>6.4</td>
+      <td>134673</td>
+      <td>1985886</td>
+      <td>2120559</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2005</td>
+      <td>5.4</td>
+      <td>114319</td>
+      <td>2011219</td>
+      <td>2125538</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2006</td>
+      <td>4.4</td>
+      <td>93680</td>
+      <td>2048878</td>
+      <td>2142558</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2007</td>
+      <td>4.3</td>
+      <td>93046</td>
+      <td>2076252</td>
+      <td>2169298</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2008</td>
+      <td>4.8</td>
+      <td>104650</td>
+      <td>2065583</td>
+      <td>2170233</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>9.7</td>
+      <td>208908</td>
+      <td>1955196</td>
+      <td>2164104</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>263375</td>
+      <td>1871780</td>
+      <td>2135155</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>11.0</td>
+      <td>243001</td>
+      <td>1967127</td>
+      <td>2210128</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2012</td>
+      <td>8.3</td>
+      <td>177986</td>
+      <td>1973652</td>
+      <td>2151638</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2013</td>
+      <td>8.2</td>
+      <td>177887</td>
+      <td>1988180</td>
+      <td>2166067</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2014</td>
+      <td>7.5</td>
+      <td>162341</td>
+      <td>1989459</td>
+      <td>2151800</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2015</td>
+      <td>6.4</td>
+      <td>135842</td>
+      <td>1998388</td>
+      <td>2134230</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2016</td>
+      <td>6.3</td>
+      <td>134592</td>
+      <td>2007036</td>
+      <td>2141628</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2000</td>
+      <td>5.1</td>
+      <td>109464</td>
+      <td>2027226</td>
+      <td>2136690</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2001</td>
+      <td>5.0</td>
+      <td>105469</td>
+      <td>2009904</td>
+      <td>2115373</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2002</td>
+      <td>6.3</td>
+      <td>132979</td>
+      <td>1966562</td>
+      <td>2099541</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2003</td>
+      <td>6.0</td>
+      <td>127265</td>
+      <td>1980206</td>
+      <td>2107471</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2004</td>
+      <td>6.1</td>
+      <td>130294</td>
+      <td>1990082</td>
+      <td>2120376</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2005</td>
+      <td>5.4</td>
+      <td>115837</td>
+      <td>2014928</td>
+      <td>2130765</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2006</td>
+      <td>4.5</td>
+      <td>96643</td>
+      <td>2053723</td>
+      <td>2150366</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2007</td>
+      <td>4.2</td>
+      <td>91769</td>
+      <td>2078300</td>
+      <td>2170069</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2008</td>
+      <td>4.9</td>
+      <td>106990</td>
+      <td>2060564</td>
+      <td>2167554</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.5</td>
+      <td>227822</td>
+      <td>1943707</td>
+      <td>2171529</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.1</td>
+      <td>258825</td>
+      <td>1876758</td>
+      <td>2135583</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2011</td>
+      <td>10.5</td>
+      <td>232117</td>
+      <td>1972720</td>
+      <td>2204837</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2012</td>
+      <td>8.4</td>
+      <td>182555</td>
+      <td>1982828</td>
+      <td>2165383</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2004</td>
+      <td>5.2</td>
+      <td>111612</td>
+      <td>2043152</td>
+      <td>2154764</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2005</td>
+      <td>4.0</td>
+      <td>86786</td>
+      <td>2078869</td>
+      <td>2165655</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2006</td>
+      <td>3.7</td>
+      <td>80347</td>
+      <td>2105333</td>
+      <td>2185680</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2007</td>
+      <td>3.9</td>
+      <td>85214</td>
+      <td>2107374</td>
+      <td>2192588</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2008</td>
+      <td>6.7</td>
+      <td>145764</td>
+      <td>2030180</td>
+      <td>2175944</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.1</td>
+      <td>238550</td>
+      <td>1910326</td>
+      <td>2148876</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>10.0</td>
+      <td>222536</td>
+      <td>2001481</td>
+      <td>2224017</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2011</td>
+      <td>8.0</td>
+      <td>175369</td>
+      <td>2008604</td>
+      <td>2183973</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2012</td>
+      <td>6.9</td>
+      <td>149468</td>
+      <td>2023318</td>
+      <td>2172786</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2013</td>
+      <td>6.7</td>
+      <td>144052</td>
+      <td>2020314</td>
+      <td>2164366</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2014</td>
+      <td>5.8</td>
+      <td>124177</td>
+      <td>2033698</td>
+      <td>2157875</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2015</td>
+      <td>5.7</td>
+      <td>122954</td>
+      <td>2035229</td>
+      <td>2158183</td>
+    </tr>
+    <tr>
+      <th>186</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>5.7</td>
+      <td>123834</td>
+      <td>2060807</td>
+      <td>2184641</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2000</td>
+      <td>4.2</td>
+      <td>90116</td>
+      <td>2045059</td>
+      <td>2135175</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2001</td>
+      <td>5.8</td>
+      <td>124127</td>
+      <td>1998822</td>
+      <td>2122949</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2002</td>
+      <td>5.7</td>
+      <td>121340</td>
+      <td>2001747</td>
+      <td>2123087</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2003</td>
+      <td>5.7</td>
+      <td>121278</td>
+      <td>2012259</td>
+      <td>2133537</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2004</td>
+      <td>4.9</td>
+      <td>105756</td>
+      <td>2041339</td>
+      <td>2147095</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2005</td>
+      <td>3.9</td>
+      <td>83794</td>
+      <td>2079724</td>
+      <td>2163518</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2006</td>
+      <td>3.7</td>
+      <td>82045</td>
+      <td>2107748</td>
+      <td>2189793</td>
+    </tr>
+    <tr>
+      <th>194</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2007</td>
+      <td>4.3</td>
+      <td>93382</td>
+      <td>2096601</td>
+      <td>2189983</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2008</td>
+      <td>7.6</td>
+      <td>164258</td>
+      <td>2008873</td>
+      <td>2173131</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.4</td>
+      <td>242992</td>
+      <td>1894973</td>
+      <td>2137965</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>9.8</td>
+      <td>217272</td>
+      <td>1996538</td>
+      <td>2213810</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2011</td>
+      <td>7.9</td>
+      <td>172004</td>
+      <td>2004151</td>
+      <td>2176155</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2012</td>
+      <td>7.2</td>
+      <td>156518</td>
+      <td>2016210</td>
+      <td>2172728</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2013</td>
+      <td>6.7</td>
+      <td>143618</td>
+      <td>2013519</td>
+      <td>2157137</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2014</td>
+      <td>5.7</td>
+      <td>121281</td>
+      <td>2023427</td>
+      <td>2144708</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2015</td>
+      <td>5.9</td>
+      <td>127389</td>
+      <td>2030765</td>
+      <td>2158154</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>5.9</td>
+      <td>129295</td>
+      <td>2050965</td>
+      <td>2180260</td>
+    </tr>
+  </tbody>
+</table>
+<p>204 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span><span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unemployment_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6.4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5.4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4.4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4.3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9.7</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>12.3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>8.3</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>8.2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>7.5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>6.4</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>6.3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>5.1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>6.3</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>5.4</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>4.2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>4.9</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>12.1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>8.4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>5.2</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>3.9</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>11.1</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>6.9</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>186</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>4.2</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>4.9</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>3.9</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>194</th>
+      <td>4.3</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>7.6</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>11.4</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>7.9</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>7.2</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>5.9</td>
+    </tr>
+  </tbody>
+</table>
+<p>204 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">unemployment_rate</span> <span class="o">&gt;</span> <span class="mf">10.0</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Alabama</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Alabama</td>
+      <td>M02</td>
+      <td>2011</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Alabama</td>
+      <td>M03</td>
+      <td>2009</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Alabama</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Alabama</td>
+      <td>M04</td>
+      <td>2010</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Alabama</td>
+      <td>M05</td>
+      <td>2009</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Alabama</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>11.9</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Alabama</td>
+      <td>M06</td>
+      <td>2010</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Alabama</td>
+      <td>M06</td>
+      <td>2011</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>Alabama</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>11.8</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>Alabama</td>
+      <td>M07</td>
+      <td>2010</td>
+      <td>10.2</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>Alabama</td>
+      <td>M07</td>
+      <td>2011</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>Alabama</td>
+      <td>M08</td>
+      <td>2009</td>
+      <td>11.9</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>Alabama</td>
+      <td>M08</td>
+      <td>2010</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Alabama</td>
+      <td>M09</td>
+      <td>2009</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>Alabama</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>11.7</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>Alabama</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.1</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>Alabama</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.4</td>
+    </tr>
+    <tr>
+      <th>418</th>
+      <td>Arizona</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>11.1</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>Arizona</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>10.7</td>
+    </tr>
+    <tr>
+      <th>452</th>
+      <td>Arizona</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>469</th>
+      <td>Arizona</td>
+      <td>M04</td>
+      <td>2010</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>502</th>
+      <td>Arizona</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>503</th>
+      <td>Arizona</td>
+      <td>M06</td>
+      <td>2010</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>504</th>
+      <td>Arizona</td>
+      <td>M06</td>
+      <td>2011</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>519</th>
+      <td>Arizona</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>520</th>
+      <td>Arizona</td>
+      <td>M07</td>
+      <td>2010</td>
+      <td>10.8</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8526</th>
+      <td>South Carolina</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>8527</th>
+      <td>South Carolina</td>
+      <td>M10</td>
+      <td>2010</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>8528</th>
+      <td>South Carolina</td>
+      <td>M10</td>
+      <td>2011</td>
+      <td>10.3</td>
+    </tr>
+    <tr>
+      <th>8543</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>8544</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>8560</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>8561</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>10.8</td>
+    </tr>
+    <tr>
+      <th>8782</th>
+      <td>Tennessee</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>11.2</td>
+    </tr>
+    <tr>
+      <th>8783</th>
+      <td>Tennessee</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>8798</th>
+      <td>Tennessee</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>8799</th>
+      <td>Tennessee</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>10.8</td>
+    </tr>
+    <tr>
+      <th>8815</th>
+      <td>Tennessee</td>
+      <td>M03</td>
+      <td>2009</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>8816</th>
+      <td>Tennessee</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>8832</th>
+      <td>Tennessee</td>
+      <td>M04</td>
+      <td>2009</td>
+      <td>10.2</td>
+    </tr>
+    <tr>
+      <th>8849</th>
+      <td>Tennessee</td>
+      <td>M05</td>
+      <td>2009</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>8866</th>
+      <td>Tennessee</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>8883</th>
+      <td>Tennessee</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>8900</th>
+      <td>Tennessee</td>
+      <td>M08</td>
+      <td>2009</td>
+      <td>10.7</td>
+    </tr>
+    <tr>
+      <th>8917</th>
+      <td>Tennessee</td>
+      <td>M09</td>
+      <td>2009</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>8934</th>
+      <td>Tennessee</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>10.2</td>
+    </tr>
+    <tr>
+      <th>8968</th>
+      <td>Tennessee</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>10.3</td>
+    </tr>
+    <tr>
+      <th>9802</th>
+      <td>Washington</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>9803</th>
+      <td>Washington</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>9819</th>
+      <td>Washington</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>11.2</td>
+    </tr>
+    <tr>
+      <th>9820</th>
+      <td>Washington</td>
+      <td>M02</td>
+      <td>2011</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>9836</th>
+      <td>Washington</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>9988</th>
+      <td>Washington</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <th>10210</th>
+      <td>Wisconsin</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>10227</th>
+      <td>Wisconsin</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>10244</th>
+      <td>Wisconsin</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>10.3</td>
+    </tr>
+  </tbody>
+</table>
+<p>663 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">unemployment_rate</span> <span class="o">&gt;</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;California&#39;</span><span class="p">),</span> 
+           <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>825</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>10.2</td>
+    </tr>
+    <tr>
+      <th>826</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.7</td>
+    </tr>
+    <tr>
+      <th>827</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>12.6</td>
+    </tr>
+    <tr>
+      <th>828</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2012</td>
+      <td>11.4</td>
+    </tr>
+    <tr>
+      <th>829</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2013</td>
+      <td>10.2</td>
+    </tr>
+    <tr>
+      <th>842</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>843</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.6</td>
+    </tr>
+    <tr>
+      <th>844</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2011</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>845</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2012</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>859</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2009</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>12.6</td>
+    </tr>
+    <tr>
+      <th>861</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2011</td>
+      <td>12.1</td>
+    </tr>
+    <tr>
+      <th>862</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2012</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>876</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2009</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>877</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2010</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>878</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2011</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>879</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2012</td>
+      <td>10.3</td>
+    </tr>
+    <tr>
+      <th>893</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2009</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2010</td>
+      <td>11.7</td>
+    </tr>
+    <tr>
+      <th>895</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2011</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>896</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2012</td>
+      <td>10.2</td>
+    </tr>
+    <tr>
+      <th>910</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>911</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2010</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>912</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2011</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>913</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2012</td>
+      <td>10.6</td>
+    </tr>
+    <tr>
+      <th>927</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>11.7</td>
+    </tr>
+    <tr>
+      <th>928</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2010</td>
+      <td>12.6</td>
+    </tr>
+    <tr>
+      <th>929</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2011</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>930</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2012</td>
+      <td>10.9</td>
+    </tr>
+    <tr>
+      <th>944</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2009</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>945</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2010</td>
+      <td>12.3</td>
+    </tr>
+    <tr>
+      <th>946</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2011</td>
+      <td>11.9</td>
+    </tr>
+    <tr>
+      <th>947</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2012</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>961</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2009</td>
+      <td>11.4</td>
+    </tr>
+    <tr>
+      <th>962</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2010</td>
+      <td>11.9</td>
+    </tr>
+    <tr>
+      <th>963</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2011</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>11.6</td>
+    </tr>
+    <tr>
+      <th>979</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2010</td>
+      <td>11.9</td>
+    </tr>
+    <tr>
+      <th>980</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2011</td>
+      <td>11.3</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.7</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>12.3</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2011</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.8</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>12.1</td>
+    </tr>
+    <tr>
+      <th>1014</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2011</td>
+      <td>11.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="challenge">
+<h3>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Select all data employment data for Nebraska when unemployment is greater than 5 percent</p></li>
+<li><p>Select all unemployment data in December for the Carolinas</p></li>
+<li><p>Select all unemployment data for the years 2007-2010 in California</p></li>
+</ol>
+<div class="section" id="solutions">
+<h4>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">unemployment_rate</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;Nebraska&#39;</span><span class="p">),</span> 
+           <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;qty_employed&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>qty_employed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5518</th>
+      <td>Nebraska</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>927304</td>
+    </tr>
+    <tr>
+      <th>5519</th>
+      <td>Nebraska</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>937296</td>
+    </tr>
+    <tr>
+      <th>5535</th>
+      <td>Nebraska</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>933213</td>
+    </tr>
+    <tr>
+      <th>5552</th>
+      <td>Nebraska</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>937821</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;South Carolina&#39;</span><span class="p">)</span> <span class="o">|</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;North Carolina&#39;</span><span class="p">),</span>
+          <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6732</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2000</td>
+      <td>3.7</td>
+      <td>150873</td>
+    </tr>
+    <tr>
+      <th>6733</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2001</td>
+      <td>4.9</td>
+      <td>203732</td>
+    </tr>
+    <tr>
+      <th>6734</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2002</td>
+      <td>7.4</td>
+      <td>305801</td>
+    </tr>
+    <tr>
+      <th>6735</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2003</td>
+      <td>6.9</td>
+      <td>288078</td>
+    </tr>
+    <tr>
+      <th>6736</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2004</td>
+      <td>6.3</td>
+      <td>266128</td>
+    </tr>
+    <tr>
+      <th>6737</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2005</td>
+      <td>5.7</td>
+      <td>241881</td>
+    </tr>
+    <tr>
+      <th>6738</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2006</td>
+      <td>4.8</td>
+      <td>205540</td>
+    </tr>
+    <tr>
+      <th>6739</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2007</td>
+      <td>5.1</td>
+      <td>226854</td>
+    </tr>
+    <tr>
+      <th>6740</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2008</td>
+      <td>5.3</td>
+      <td>239310</td>
+    </tr>
+    <tr>
+      <th>6741</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>10.2</td>
+      <td>466462</td>
+    </tr>
+    <tr>
+      <th>6742</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>549257</td>
+    </tr>
+    <tr>
+      <th>6743</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>10.9</td>
+      <td>500556</td>
+    </tr>
+    <tr>
+      <th>6744</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2012</td>
+      <td>10.0</td>
+      <td>461382</td>
+    </tr>
+    <tr>
+      <th>6745</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2013</td>
+      <td>9.7</td>
+      <td>451631</td>
+    </tr>
+    <tr>
+      <th>6746</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2014</td>
+      <td>6.9</td>
+      <td>320157</td>
+    </tr>
+    <tr>
+      <th>6747</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2015</td>
+      <td>6.1</td>
+      <td>285454</td>
+    </tr>
+    <tr>
+      <th>6748</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2016</td>
+      <td>5.4</td>
+      <td>260255</td>
+    </tr>
+    <tr>
+      <th>6749</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2000</td>
+      <td>3.8</td>
+      <td>155617</td>
+    </tr>
+    <tr>
+      <th>6750</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2001</td>
+      <td>5.0</td>
+      <td>209858</td>
+    </tr>
+    <tr>
+      <th>6751</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2002</td>
+      <td>7.1</td>
+      <td>296844</td>
+    </tr>
+    <tr>
+      <th>6752</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2003</td>
+      <td>6.7</td>
+      <td>282810</td>
+    </tr>
+    <tr>
+      <th>6753</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2004</td>
+      <td>6.0</td>
+      <td>255398</td>
+    </tr>
+    <tr>
+      <th>6754</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2005</td>
+      <td>6.0</td>
+      <td>253712</td>
+    </tr>
+    <tr>
+      <th>6755</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2006</td>
+      <td>5.0</td>
+      <td>218569</td>
+    </tr>
+    <tr>
+      <th>6756</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2007</td>
+      <td>4.9</td>
+      <td>219842</td>
+    </tr>
+    <tr>
+      <th>6757</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2008</td>
+      <td>5.3</td>
+      <td>236310</td>
+    </tr>
+    <tr>
+      <th>6758</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.7</td>
+      <td>491633</td>
+    </tr>
+    <tr>
+      <th>6759</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>549878</td>
+    </tr>
+    <tr>
+      <th>6760</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2011</td>
+      <td>10.6</td>
+      <td>486533</td>
+    </tr>
+    <tr>
+      <th>6761</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2012</td>
+      <td>9.9</td>
+      <td>458754</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8538</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2004</td>
+      <td>6.8</td>
+      <td>139685</td>
+    </tr>
+    <tr>
+      <th>8539</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2005</td>
+      <td>6.9</td>
+      <td>143139</td>
+    </tr>
+    <tr>
+      <th>8540</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2006</td>
+      <td>6.2</td>
+      <td>131898</td>
+    </tr>
+    <tr>
+      <th>8541</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>114045</td>
+    </tr>
+    <tr>
+      <th>8542</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2008</td>
+      <td>8.0</td>
+      <td>172247</td>
+    </tr>
+    <tr>
+      <th>8543</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.3</td>
+      <td>239246</td>
+    </tr>
+    <tr>
+      <th>8544</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>10.9</td>
+      <td>233542</td>
+    </tr>
+    <tr>
+      <th>8545</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2011</td>
+      <td>10.0</td>
+      <td>215727</td>
+    </tr>
+    <tr>
+      <th>8546</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2012</td>
+      <td>8.2</td>
+      <td>177723</td>
+    </tr>
+    <tr>
+      <th>8547</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2013</td>
+      <td>6.5</td>
+      <td>142009</td>
+    </tr>
+    <tr>
+      <th>8548</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2014</td>
+      <td>6.5</td>
+      <td>146273</td>
+    </tr>
+    <tr>
+      <th>8549</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2015</td>
+      <td>5.3</td>
+      <td>120874</td>
+    </tr>
+    <tr>
+      <th>8550</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>4.0</td>
+      <td>91905</td>
+    </tr>
+    <tr>
+      <th>8551</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2000</td>
+      <td>3.7</td>
+      <td>72211</td>
+    </tr>
+    <tr>
+      <th>8552</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2001</td>
+      <td>5.8</td>
+      <td>110516</td>
+    </tr>
+    <tr>
+      <th>8553</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2002</td>
+      <td>5.9</td>
+      <td>114920</td>
+    </tr>
+    <tr>
+      <th>8554</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2003</td>
+      <td>6.7</td>
+      <td>133811</td>
+    </tr>
+    <tr>
+      <th>8555</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2004</td>
+      <td>6.8</td>
+      <td>138995</td>
+    </tr>
+    <tr>
+      <th>8556</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2005</td>
+      <td>6.7</td>
+      <td>138832</td>
+    </tr>
+    <tr>
+      <th>8557</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2006</td>
+      <td>6.0</td>
+      <td>127512</td>
+    </tr>
+    <tr>
+      <th>8558</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2007</td>
+      <td>5.8</td>
+      <td>121614</td>
+    </tr>
+    <tr>
+      <th>8559</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2008</td>
+      <td>9.1</td>
+      <td>194839</td>
+    </tr>
+    <tr>
+      <th>8560</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.5</td>
+      <td>244006</td>
+    </tr>
+    <tr>
+      <th>8561</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>10.8</td>
+      <td>231105</td>
+    </tr>
+    <tr>
+      <th>8562</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2011</td>
+      <td>9.9</td>
+      <td>213746</td>
+    </tr>
+    <tr>
+      <th>8563</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2012</td>
+      <td>8.6</td>
+      <td>186783</td>
+    </tr>
+    <tr>
+      <th>8564</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2013</td>
+      <td>6.2</td>
+      <td>134045</td>
+    </tr>
+    <tr>
+      <th>8565</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2014</td>
+      <td>6.4</td>
+      <td>143637</td>
+    </tr>
+    <tr>
+      <th>8566</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2015</td>
+      <td>5.4</td>
+      <td>122137</td>
+    </tr>
+    <tr>
+      <th>8567</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>4.2</td>
+      <td>95277</td>
+    </tr>
+  </tbody>
+</table>
+<p>408 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># alt</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Carolina&quot;</span><span class="p">),</span>
+          <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6732</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2000</td>
+      <td>3.7</td>
+      <td>150873</td>
+    </tr>
+    <tr>
+      <th>6733</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2001</td>
+      <td>4.9</td>
+      <td>203732</td>
+    </tr>
+    <tr>
+      <th>6734</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2002</td>
+      <td>7.4</td>
+      <td>305801</td>
+    </tr>
+    <tr>
+      <th>6735</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2003</td>
+      <td>6.9</td>
+      <td>288078</td>
+    </tr>
+    <tr>
+      <th>6736</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2004</td>
+      <td>6.3</td>
+      <td>266128</td>
+    </tr>
+    <tr>
+      <th>6737</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2005</td>
+      <td>5.7</td>
+      <td>241881</td>
+    </tr>
+    <tr>
+      <th>6738</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2006</td>
+      <td>4.8</td>
+      <td>205540</td>
+    </tr>
+    <tr>
+      <th>6739</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2007</td>
+      <td>5.1</td>
+      <td>226854</td>
+    </tr>
+    <tr>
+      <th>6740</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2008</td>
+      <td>5.3</td>
+      <td>239310</td>
+    </tr>
+    <tr>
+      <th>6741</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>10.2</td>
+      <td>466462</td>
+    </tr>
+    <tr>
+      <th>6742</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>549257</td>
+    </tr>
+    <tr>
+      <th>6743</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2011</td>
+      <td>10.9</td>
+      <td>500556</td>
+    </tr>
+    <tr>
+      <th>6744</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2012</td>
+      <td>10.0</td>
+      <td>461382</td>
+    </tr>
+    <tr>
+      <th>6745</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2013</td>
+      <td>9.7</td>
+      <td>451631</td>
+    </tr>
+    <tr>
+      <th>6746</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2014</td>
+      <td>6.9</td>
+      <td>320157</td>
+    </tr>
+    <tr>
+      <th>6747</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2015</td>
+      <td>6.1</td>
+      <td>285454</td>
+    </tr>
+    <tr>
+      <th>6748</th>
+      <td>North Carolina</td>
+      <td>M01</td>
+      <td>2016</td>
+      <td>5.4</td>
+      <td>260255</td>
+    </tr>
+    <tr>
+      <th>6749</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2000</td>
+      <td>3.8</td>
+      <td>155617</td>
+    </tr>
+    <tr>
+      <th>6750</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2001</td>
+      <td>5.0</td>
+      <td>209858</td>
+    </tr>
+    <tr>
+      <th>6751</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2002</td>
+      <td>7.1</td>
+      <td>296844</td>
+    </tr>
+    <tr>
+      <th>6752</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2003</td>
+      <td>6.7</td>
+      <td>282810</td>
+    </tr>
+    <tr>
+      <th>6753</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2004</td>
+      <td>6.0</td>
+      <td>255398</td>
+    </tr>
+    <tr>
+      <th>6754</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2005</td>
+      <td>6.0</td>
+      <td>253712</td>
+    </tr>
+    <tr>
+      <th>6755</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2006</td>
+      <td>5.0</td>
+      <td>218569</td>
+    </tr>
+    <tr>
+      <th>6756</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2007</td>
+      <td>4.9</td>
+      <td>219842</td>
+    </tr>
+    <tr>
+      <th>6757</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2008</td>
+      <td>5.3</td>
+      <td>236310</td>
+    </tr>
+    <tr>
+      <th>6758</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.7</td>
+      <td>491633</td>
+    </tr>
+    <tr>
+      <th>6759</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>549878</td>
+    </tr>
+    <tr>
+      <th>6760</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2011</td>
+      <td>10.6</td>
+      <td>486533</td>
+    </tr>
+    <tr>
+      <th>6761</th>
+      <td>North Carolina</td>
+      <td>M02</td>
+      <td>2012</td>
+      <td>9.9</td>
+      <td>458754</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8538</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2004</td>
+      <td>6.8</td>
+      <td>139685</td>
+    </tr>
+    <tr>
+      <th>8539</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2005</td>
+      <td>6.9</td>
+      <td>143139</td>
+    </tr>
+    <tr>
+      <th>8540</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2006</td>
+      <td>6.2</td>
+      <td>131898</td>
+    </tr>
+    <tr>
+      <th>8541</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>114045</td>
+    </tr>
+    <tr>
+      <th>8542</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2008</td>
+      <td>8.0</td>
+      <td>172247</td>
+    </tr>
+    <tr>
+      <th>8543</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.3</td>
+      <td>239246</td>
+    </tr>
+    <tr>
+      <th>8544</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>10.9</td>
+      <td>233542</td>
+    </tr>
+    <tr>
+      <th>8545</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2011</td>
+      <td>10.0</td>
+      <td>215727</td>
+    </tr>
+    <tr>
+      <th>8546</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2012</td>
+      <td>8.2</td>
+      <td>177723</td>
+    </tr>
+    <tr>
+      <th>8547</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2013</td>
+      <td>6.5</td>
+      <td>142009</td>
+    </tr>
+    <tr>
+      <th>8548</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2014</td>
+      <td>6.5</td>
+      <td>146273</td>
+    </tr>
+    <tr>
+      <th>8549</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2015</td>
+      <td>5.3</td>
+      <td>120874</td>
+    </tr>
+    <tr>
+      <th>8550</th>
+      <td>South Carolina</td>
+      <td>M11</td>
+      <td>2016</td>
+      <td>4.0</td>
+      <td>91905</td>
+    </tr>
+    <tr>
+      <th>8551</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2000</td>
+      <td>3.7</td>
+      <td>72211</td>
+    </tr>
+    <tr>
+      <th>8552</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2001</td>
+      <td>5.8</td>
+      <td>110516</td>
+    </tr>
+    <tr>
+      <th>8553</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2002</td>
+      <td>5.9</td>
+      <td>114920</td>
+    </tr>
+    <tr>
+      <th>8554</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2003</td>
+      <td>6.7</td>
+      <td>133811</td>
+    </tr>
+    <tr>
+      <th>8555</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2004</td>
+      <td>6.8</td>
+      <td>138995</td>
+    </tr>
+    <tr>
+      <th>8556</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2005</td>
+      <td>6.7</td>
+      <td>138832</td>
+    </tr>
+    <tr>
+      <th>8557</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2006</td>
+      <td>6.0</td>
+      <td>127512</td>
+    </tr>
+    <tr>
+      <th>8558</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2007</td>
+      <td>5.8</td>
+      <td>121614</td>
+    </tr>
+    <tr>
+      <th>8559</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2008</td>
+      <td>9.1</td>
+      <td>194839</td>
+    </tr>
+    <tr>
+      <th>8560</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.5</td>
+      <td>244006</td>
+    </tr>
+    <tr>
+      <th>8561</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>10.8</td>
+      <td>231105</td>
+    </tr>
+    <tr>
+      <th>8562</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2011</td>
+      <td>9.9</td>
+      <td>213746</td>
+    </tr>
+    <tr>
+      <th>8563</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2012</td>
+      <td>8.6</td>
+      <td>186783</td>
+    </tr>
+    <tr>
+      <th>8564</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2013</td>
+      <td>6.2</td>
+      <td>134045</td>
+    </tr>
+    <tr>
+      <th>8565</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2014</td>
+      <td>6.4</td>
+      <td>143637</td>
+    </tr>
+    <tr>
+      <th>8566</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2015</td>
+      <td>5.4</td>
+      <td>122137</td>
+    </tr>
+    <tr>
+      <th>8567</th>
+      <td>South Carolina</td>
+      <td>M12</td>
+      <td>2016</td>
+      <td>4.2</td>
+      <td>95277</td>
+    </tr>
+  </tbody>
+</table>
+<p>408 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;California&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="mi">2007</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2010</span><span class="p">),</span>
+          <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>823</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2007</td>
+      <td>5.5</td>
+      <td>976429</td>
+    </tr>
+    <tr>
+      <th>824</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2008</td>
+      <td>6.4</td>
+      <td>1158755</td>
+    </tr>
+    <tr>
+      <th>825</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>10.2</td>
+      <td>1868614</td>
+    </tr>
+    <tr>
+      <th>826</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.7</td>
+      <td>2315237</td>
+    </tr>
+    <tr>
+      <th>840</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>956853</td>
+    </tr>
+    <tr>
+      <th>841</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2008</td>
+      <td>6.3</td>
+      <td>1138022</td>
+    </tr>
+    <tr>
+      <th>842</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.6</td>
+      <td>1935243</td>
+    </tr>
+    <tr>
+      <th>843</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2300364</td>
+    </tr>
+    <tr>
+      <th>857</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2007</td>
+      <td>5.2</td>
+      <td>932960</td>
+    </tr>
+    <tr>
+      <th>858</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2008</td>
+      <td>6.6</td>
+      <td>1185778</td>
+    </tr>
+    <tr>
+      <th>859</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2009</td>
+      <td>10.9</td>
+      <td>1991432</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2312390</td>
+    </tr>
+    <tr>
+      <th>874</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2007</td>
+      <td>5.0</td>
+      <td>895083</td>
+    </tr>
+    <tr>
+      <th>875</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2008</td>
+      <td>6.1</td>
+      <td>1103750</td>
+    </tr>
+    <tr>
+      <th>876</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2009</td>
+      <td>10.4</td>
+      <td>1900577</td>
+    </tr>
+    <tr>
+      <th>877</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>2201236</td>
+    </tr>
+    <tr>
+      <th>891</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2007</td>
+      <td>4.8</td>
+      <td>846097</td>
+    </tr>
+    <tr>
+      <th>892</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2008</td>
+      <td>6.4</td>
+      <td>1163777</td>
+    </tr>
+    <tr>
+      <th>893</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2009</td>
+      <td>10.6</td>
+      <td>1931991</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2010</td>
+      <td>11.7</td>
+      <td>2140341</td>
+    </tr>
+    <tr>
+      <th>908</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2007</td>
+      <td>5.3</td>
+      <td>940705</td>
+    </tr>
+    <tr>
+      <th>909</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2008</td>
+      <td>7.0</td>
+      <td>1273683</td>
+    </tr>
+    <tr>
+      <th>910</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>11.3</td>
+      <td>2060228</td>
+    </tr>
+    <tr>
+      <th>911</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>2206906</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2007</td>
+      <td>5.7</td>
+      <td>1023914</td>
+    </tr>
+    <tr>
+      <th>926</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2008</td>
+      <td>7.6</td>
+      <td>1397333</td>
+    </tr>
+    <tr>
+      <th>927</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>11.7</td>
+      <td>2142067</td>
+    </tr>
+    <tr>
+      <th>928</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2316525</td>
+    </tr>
+    <tr>
+      <th>942</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>971032</td>
+    </tr>
+    <tr>
+      <th>943</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2008</td>
+      <td>7.8</td>
+      <td>1419146</td>
+    </tr>
+    <tr>
+      <th>944</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2009</td>
+      <td>11.5</td>
+      <td>2105749</td>
+    </tr>
+    <tr>
+      <th>945</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>2271603</td>
+    </tr>
+    <tr>
+      <th>959</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2007</td>
+      <td>5.3</td>
+      <td>958487</td>
+    </tr>
+    <tr>
+      <th>960</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2008</td>
+      <td>7.7</td>
+      <td>1397892</td>
+    </tr>
+    <tr>
+      <th>961</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2009</td>
+      <td>11.4</td>
+      <td>2079035</td>
+    </tr>
+    <tr>
+      <th>962</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2010</td>
+      <td>11.9</td>
+      <td>2197318</td>
+    </tr>
+    <tr>
+      <th>976</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>968525</td>
+    </tr>
+    <tr>
+      <th>977</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2008</td>
+      <td>8.0</td>
+      <td>1461880</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>11.6</td>
+      <td>2114293</td>
+    </tr>
+    <tr>
+      <th>979</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2010</td>
+      <td>11.9</td>
+      <td>2188602</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2007</td>
+      <td>5.6</td>
+      <td>1011518</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2008</td>
+      <td>8.4</td>
+      <td>1541436</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.7</td>
+      <td>2127225</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>2268418</td>
+    </tr>
+    <tr>
+      <th>1010</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2007</td>
+      <td>5.9</td>
+      <td>1056279</td>
+    </tr>
+    <tr>
+      <th>1011</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2008</td>
+      <td>9.0</td>
+      <td>1642244</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.8</td>
+      <td>2134358</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>12.1</td>
+      <td>2212970</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#alternatively</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;California&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+          <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;unemployment_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;qty_unemployed&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>823</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2007</td>
+      <td>5.5</td>
+      <td>976429</td>
+    </tr>
+    <tr>
+      <th>824</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2008</td>
+      <td>6.4</td>
+      <td>1158755</td>
+    </tr>
+    <tr>
+      <th>825</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>10.2</td>
+      <td>1868614</td>
+    </tr>
+    <tr>
+      <th>826</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.7</td>
+      <td>2315237</td>
+    </tr>
+    <tr>
+      <th>840</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>956853</td>
+    </tr>
+    <tr>
+      <th>841</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2008</td>
+      <td>6.3</td>
+      <td>1138022</td>
+    </tr>
+    <tr>
+      <th>842</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.6</td>
+      <td>1935243</td>
+    </tr>
+    <tr>
+      <th>843</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2300364</td>
+    </tr>
+    <tr>
+      <th>857</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2007</td>
+      <td>5.2</td>
+      <td>932960</td>
+    </tr>
+    <tr>
+      <th>858</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2008</td>
+      <td>6.6</td>
+      <td>1185778</td>
+    </tr>
+    <tr>
+      <th>859</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2009</td>
+      <td>10.9</td>
+      <td>1991432</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2312390</td>
+    </tr>
+    <tr>
+      <th>874</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2007</td>
+      <td>5.0</td>
+      <td>895083</td>
+    </tr>
+    <tr>
+      <th>875</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2008</td>
+      <td>6.1</td>
+      <td>1103750</td>
+    </tr>
+    <tr>
+      <th>876</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2009</td>
+      <td>10.4</td>
+      <td>1900577</td>
+    </tr>
+    <tr>
+      <th>877</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>2201236</td>
+    </tr>
+    <tr>
+      <th>891</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2007</td>
+      <td>4.8</td>
+      <td>846097</td>
+    </tr>
+    <tr>
+      <th>892</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2008</td>
+      <td>6.4</td>
+      <td>1163777</td>
+    </tr>
+    <tr>
+      <th>893</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2009</td>
+      <td>10.6</td>
+      <td>1931991</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2010</td>
+      <td>11.7</td>
+      <td>2140341</td>
+    </tr>
+    <tr>
+      <th>908</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2007</td>
+      <td>5.3</td>
+      <td>940705</td>
+    </tr>
+    <tr>
+      <th>909</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2008</td>
+      <td>7.0</td>
+      <td>1273683</td>
+    </tr>
+    <tr>
+      <th>910</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>11.3</td>
+      <td>2060228</td>
+    </tr>
+    <tr>
+      <th>911</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>2206906</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2007</td>
+      <td>5.7</td>
+      <td>1023914</td>
+    </tr>
+    <tr>
+      <th>926</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2008</td>
+      <td>7.6</td>
+      <td>1397333</td>
+    </tr>
+    <tr>
+      <th>927</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>11.7</td>
+      <td>2142067</td>
+    </tr>
+    <tr>
+      <th>928</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2316525</td>
+    </tr>
+    <tr>
+      <th>942</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>971032</td>
+    </tr>
+    <tr>
+      <th>943</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2008</td>
+      <td>7.8</td>
+      <td>1419146</td>
+    </tr>
+    <tr>
+      <th>944</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2009</td>
+      <td>11.5</td>
+      <td>2105749</td>
+    </tr>
+    <tr>
+      <th>945</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>2271603</td>
+    </tr>
+    <tr>
+      <th>959</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2007</td>
+      <td>5.3</td>
+      <td>958487</td>
+    </tr>
+    <tr>
+      <th>960</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2008</td>
+      <td>7.7</td>
+      <td>1397892</td>
+    </tr>
+    <tr>
+      <th>961</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2009</td>
+      <td>11.4</td>
+      <td>2079035</td>
+    </tr>
+    <tr>
+      <th>962</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2010</td>
+      <td>11.9</td>
+      <td>2197318</td>
+    </tr>
+    <tr>
+      <th>976</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>968525</td>
+    </tr>
+    <tr>
+      <th>977</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2008</td>
+      <td>8.0</td>
+      <td>1461880</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>11.6</td>
+      <td>2114293</td>
+    </tr>
+    <tr>
+      <th>979</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2010</td>
+      <td>11.9</td>
+      <td>2188602</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2007</td>
+      <td>5.6</td>
+      <td>1011518</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2008</td>
+      <td>8.4</td>
+      <td>1541436</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.7</td>
+      <td>2127225</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>2268418</td>
+    </tr>
+    <tr>
+      <th>1010</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2007</td>
+      <td>5.9</td>
+      <td>1056279</td>
+    </tr>
+    <tr>
+      <th>1011</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2008</td>
+      <td>9.0</td>
+      <td>1642244</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.8</td>
+      <td>2134358</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>12.1</td>
+      <td>2212970</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-query-syntax">
+<h2>The Query Syntax<a class="headerlink" href="#the-query-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Instead of indexing with <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> pandas also has a <code class="docutils literal notranslate"><span class="pre">query</span></code> method. This is particularly handy when we have multi-index data, since the methods above don’t carry over.</p>
+<p>An example useage is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;California&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;2010 &gt;= year &gt;= 2007 &amp; state==@state&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>period</th>
+      <th>year</th>
+      <th>unemployment_rate</th>
+      <th>qty_unemployed</th>
+      <th>qty_employed</th>
+      <th>labour_force</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>823</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2007</td>
+      <td>5.5</td>
+      <td>976429</td>
+      <td>16797415</td>
+      <td>17773844</td>
+    </tr>
+    <tr>
+      <th>824</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2008</td>
+      <td>6.4</td>
+      <td>1158755</td>
+      <td>16844050</td>
+      <td>18002805</td>
+    </tr>
+    <tr>
+      <th>825</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2009</td>
+      <td>10.2</td>
+      <td>1868614</td>
+      <td>16372621</td>
+      <td>18241235</td>
+    </tr>
+    <tr>
+      <th>826</th>
+      <td>California</td>
+      <td>M01</td>
+      <td>2010</td>
+      <td>12.7</td>
+      <td>2315237</td>
+      <td>15863115</td>
+      <td>18178352</td>
+    </tr>
+    <tr>
+      <th>840</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>956853</td>
+      <td>16839213</td>
+      <td>17796066</td>
+    </tr>
+    <tr>
+      <th>841</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2008</td>
+      <td>6.3</td>
+      <td>1138022</td>
+      <td>16854691</td>
+      <td>17992713</td>
+    </tr>
+    <tr>
+      <th>842</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2009</td>
+      <td>10.6</td>
+      <td>1935243</td>
+      <td>16339886</td>
+      <td>18275129</td>
+    </tr>
+    <tr>
+      <th>843</th>
+      <td>California</td>
+      <td>M02</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2300364</td>
+      <td>15931087</td>
+      <td>18231451</td>
+    </tr>
+    <tr>
+      <th>857</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2007</td>
+      <td>5.2</td>
+      <td>932960</td>
+      <td>16884325</td>
+      <td>17817285</td>
+    </tr>
+    <tr>
+      <th>858</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2008</td>
+      <td>6.6</td>
+      <td>1185778</td>
+      <td>16865764</td>
+      <td>18051542</td>
+    </tr>
+    <tr>
+      <th>859</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2009</td>
+      <td>10.9</td>
+      <td>1991432</td>
+      <td>16257780</td>
+      <td>18249212</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>California</td>
+      <td>M03</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2312390</td>
+      <td>15970655</td>
+      <td>18283045</td>
+    </tr>
+    <tr>
+      <th>874</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2007</td>
+      <td>5.0</td>
+      <td>895083</td>
+      <td>16863748</td>
+      <td>17758831</td>
+    </tr>
+    <tr>
+      <th>875</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2008</td>
+      <td>6.1</td>
+      <td>1103750</td>
+      <td>16936957</td>
+      <td>18040707</td>
+    </tr>
+    <tr>
+      <th>876</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2009</td>
+      <td>10.4</td>
+      <td>1900577</td>
+      <td>16300947</td>
+      <td>18201524</td>
+    </tr>
+    <tr>
+      <th>877</th>
+      <td>California</td>
+      <td>M04</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>2201236</td>
+      <td>16156408</td>
+      <td>18357644</td>
+    </tr>
+    <tr>
+      <th>891</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2007</td>
+      <td>4.8</td>
+      <td>846097</td>
+      <td>16922244</td>
+      <td>17768341</td>
+    </tr>
+    <tr>
+      <th>892</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2008</td>
+      <td>6.4</td>
+      <td>1163777</td>
+      <td>16932233</td>
+      <td>18096010</td>
+    </tr>
+    <tr>
+      <th>893</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2009</td>
+      <td>10.6</td>
+      <td>1931991</td>
+      <td>16260585</td>
+      <td>18192576</td>
+    </tr>
+    <tr>
+      <th>894</th>
+      <td>California</td>
+      <td>M05</td>
+      <td>2010</td>
+      <td>11.7</td>
+      <td>2140341</td>
+      <td>16178497</td>
+      <td>18318838</td>
+    </tr>
+    <tr>
+      <th>908</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2007</td>
+      <td>5.3</td>
+      <td>940705</td>
+      <td>16958054</td>
+      <td>17898759</td>
+    </tr>
+    <tr>
+      <th>909</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2008</td>
+      <td>7.0</td>
+      <td>1273683</td>
+      <td>16922825</td>
+      <td>18196508</td>
+    </tr>
+    <tr>
+      <th>910</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2009</td>
+      <td>11.3</td>
+      <td>2060228</td>
+      <td>16206959</td>
+      <td>18267187</td>
+    </tr>
+    <tr>
+      <th>911</th>
+      <td>California</td>
+      <td>M06</td>
+      <td>2010</td>
+      <td>12.0</td>
+      <td>2206906</td>
+      <td>16123264</td>
+      <td>18330170</td>
+    </tr>
+    <tr>
+      <th>925</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2007</td>
+      <td>5.7</td>
+      <td>1023914</td>
+      <td>16981299</td>
+      <td>18005213</td>
+    </tr>
+    <tr>
+      <th>926</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2008</td>
+      <td>7.6</td>
+      <td>1397333</td>
+      <td>16908797</td>
+      <td>18306130</td>
+    </tr>
+    <tr>
+      <th>927</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2009</td>
+      <td>11.7</td>
+      <td>2142067</td>
+      <td>16185170</td>
+      <td>18327237</td>
+    </tr>
+    <tr>
+      <th>928</th>
+      <td>California</td>
+      <td>M07</td>
+      <td>2010</td>
+      <td>12.6</td>
+      <td>2316525</td>
+      <td>16115939</td>
+      <td>18432464</td>
+    </tr>
+    <tr>
+      <th>942</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>971032</td>
+      <td>16958142</td>
+      <td>17929174</td>
+    </tr>
+    <tr>
+      <th>943</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2008</td>
+      <td>7.8</td>
+      <td>1419146</td>
+      <td>16873372</td>
+      <td>18292518</td>
+    </tr>
+    <tr>
+      <th>944</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2009</td>
+      <td>11.5</td>
+      <td>2105749</td>
+      <td>16149025</td>
+      <td>18254774</td>
+    </tr>
+    <tr>
+      <th>945</th>
+      <td>California</td>
+      <td>M08</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>2271603</td>
+      <td>16171990</td>
+      <td>18443593</td>
+    </tr>
+    <tr>
+      <th>959</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2007</td>
+      <td>5.3</td>
+      <td>958487</td>
+      <td>17003870</td>
+      <td>17962357</td>
+    </tr>
+    <tr>
+      <th>960</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2008</td>
+      <td>7.7</td>
+      <td>1397892</td>
+      <td>16873297</td>
+      <td>18271189</td>
+    </tr>
+    <tr>
+      <th>961</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2009</td>
+      <td>11.4</td>
+      <td>2079035</td>
+      <td>16080505</td>
+      <td>18159540</td>
+    </tr>
+    <tr>
+      <th>962</th>
+      <td>California</td>
+      <td>M09</td>
+      <td>2010</td>
+      <td>11.9</td>
+      <td>2197318</td>
+      <td>16196643</td>
+      <td>18393961</td>
+    </tr>
+    <tr>
+      <th>976</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2007</td>
+      <td>5.4</td>
+      <td>968525</td>
+      <td>16993192</td>
+      <td>17961717</td>
+    </tr>
+    <tr>
+      <th>977</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2008</td>
+      <td>8.0</td>
+      <td>1461880</td>
+      <td>16863303</td>
+      <td>18325183</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2009</td>
+      <td>11.6</td>
+      <td>2114293</td>
+      <td>16049503</td>
+      <td>18163796</td>
+    </tr>
+    <tr>
+      <th>979</th>
+      <td>California</td>
+      <td>M10</td>
+      <td>2010</td>
+      <td>11.9</td>
+      <td>2188602</td>
+      <td>16160340</td>
+      <td>18348942</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2007</td>
+      <td>5.6</td>
+      <td>1011518</td>
+      <td>17020073</td>
+      <td>18031591</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2008</td>
+      <td>8.4</td>
+      <td>1541436</td>
+      <td>16748815</td>
+      <td>18290251</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2009</td>
+      <td>11.7</td>
+      <td>2127225</td>
+      <td>16047439</td>
+      <td>18174664</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>California</td>
+      <td>M11</td>
+      <td>2010</td>
+      <td>12.3</td>
+      <td>2268418</td>
+      <td>16118593</td>
+      <td>18387011</td>
+    </tr>
+    <tr>
+      <th>1010</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2007</td>
+      <td>5.9</td>
+      <td>1056279</td>
+      <td>16957504</td>
+      <td>18013783</td>
+    </tr>
+    <tr>
+      <th>1011</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2008</td>
+      <td>9.0</td>
+      <td>1642244</td>
+      <td>16629680</td>
+      <td>18271924</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2009</td>
+      <td>11.8</td>
+      <td>2134358</td>
+      <td>15940443</td>
+      <td>18074801</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>California</td>
+      <td>M12</td>
+      <td>2010</td>
+      <td>12.1</td>
+      <td>2212970</td>
+      <td>16116806</td>
+      <td>18329776</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="03-concatenate_merge.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Concatenating and Merging Data</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="05-operations_on_data.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Operations on Data</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
