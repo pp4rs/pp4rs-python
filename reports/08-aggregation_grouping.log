@@ -25,7 +25,7 @@ data.groupby('state')['unemployment_rate'] \
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mSpecificationError[0m                        Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2118/3467181496.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2144/3467181496.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mdata[0m[0;34m.[0m[0mgroupby[0m[0;34m([0m[0;34m'state'[0m[0;34m)[0m[0;34m[[0m[0;34m'unemployment_rate'[0m[0;34m][0m[0;31m [0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m         .aggregate({'Min. Unemploy.' : np.min,
 [1;32m      3[0m                     [0;34m'Mean Unemploy.'[0m [0;34m:[0m [0mnp[0m[0;34m.[0m[0mmean[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m

@@ -17,21 +17,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-ind[1] = 70
+name = ['Lagrange multiplier statistic', 'p-value', 
+        'f-value', 'f p-value']
+test = sms.het_breushpagan(results3.resid, results3.model.exog)
+lzip(name, test)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1991/770004720.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mind[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;34m=[0m [0;36m70[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py[0m in [0;36m__setitem__[0;34m(self, key, value)[0m
-[1;32m   4583[0m     [0;34m@[0m[0mfinal[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4584[0m     [0;32mdef[0m [0m__setitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 4585[0;31m         [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m"Index does not support mutable operations"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   4586[0m [0;34m[0m[0m
-[1;32m   4587[0m     [0;32mdef[0m [0m__getitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1713/307859961.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m name = ['Lagrange multiplier statistic', 'p-value', 
+[1;32m      2[0m         'f-value', 'f p-value']
+[0;32m----> 3[0;31m [0mtest[0m [0;34m=[0m [0msms[0m[0;34m.[0m[0mhet_breushpagan[0m[0;34m([0m[0mresults3[0m[0;34m.[0m[0mresid[0m[0;34m,[0m [0mresults3[0m[0;34m.[0m[0mmodel[0m[0;34m.[0m[0mexog[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mlzip[0m[0;34m([0m[0mname[0m[0;34m,[0m [0mtest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mTypeError[0m: Index does not support mutable operations
-TypeError: Index does not support mutable operations
+[0;31mAttributeError[0m: module 'statsmodels.stats.api' has no attribute 'het_breushpagan'
+AttributeError: module 'statsmodels.stats.api' has no attribute 'het_breushpagan'
 

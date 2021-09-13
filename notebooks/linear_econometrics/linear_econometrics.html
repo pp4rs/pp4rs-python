@@ -1,0 +1,1376 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linear Econometric Models &#8212; Python for Economics and Business Research</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Aggregate Functions and Group Statistics" href="../pandas/08-aggregation_grouping.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Economics and Business Research</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01_booleans_numbers_strings.html">
+   Python Atoms: Booleans, Numbers, and Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-lists_tuples_dictionaries.html">
+   Python Molecules: Lists, Tuples, and Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-loops_conditionals.html">
+   Code Structures I: Conditionals, Loops, and Comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04-functions_modules.html">
+   Code Structures II: Functions and Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05-files_directories.html">
+   Files and Directories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/06-regular_expressions.html">
+   String nightmares: A brief tour into the world of regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/07-exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/00-intro.html">
+   A Brief Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/01-create_array.html">
+     Numpy Basics - Creating Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/02-using_arrays.html">
+     Working with Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/03-array_computation.html">
+     Computation on Arrays - Universal Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/04-computation_aggregations.html">
+     Aggregate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/05-io.html">
+     Saving and Loading Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/06-computation_broadcasting.html">
+     More Computation on Arrays: Broadcasting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/07-booleans.html">
+     Boolean Logic and Boolean Masks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/08-fancy_indexing.html">
+     Fancy Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/09-sorting.html">
+     Sorting Values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandas/00-motivating_pandas.html">
+   Data Manipulation and Exploratory Analysis with Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/01-pandas_objects.html">
+     Pandas Series Object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/02-importing_data.html">
+     Importing (and Exporting) Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/03-concatenate_merge.html">
+     Concatenating and Merging Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/04-indexing_and_selecting.html">
+     Indexing and Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/05-operations_on_data.html">
+     Operations on Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/06-missing_data.html">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/07-hierarchical_indexing.html">
+     Hierachical (Multi-) Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/08-aggregation_grouping.html">
+     Aggregate Functions and Group Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Linear Econometric Models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/linear_econometrics/linear_econometrics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pp4rs/pp4rs-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pp4rs/pp4rs-python/issues/new?title=Issue%20on%20page%20%2Fnotebooks/linear_econometrics/linear_econometrics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pp4rs/pp4rs-python/main?urlpath=tree/docs/notebooks/linear_econometrics/linear_econometrics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-some-data">
+   Loading some data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-into-pandas">
+     Importing into Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-visualization">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#univariate-regression">
+   Univariate Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multivariate-regression">
+   Multivariate Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge">
+     Challenge
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#robustifying-standard-errors">
+   Robustifying Standard Errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrumental-variables-estimation">
+   Instrumental Variables Estimation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-challenge">
+     Final Challenge
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="linear-econometric-models">
+<h1>Linear Econometric Models<a class="headerlink" href="#linear-econometric-models" title="Permalink to this headline">¶</a></h1>
+<p>So far in our Scientific Python adventures we have covered:</p>
+<ul class="simple">
+<li><p>NumPy</p></li>
+<li><p>Pandas</p></li>
+<li><p>Matplotlib</p></li>
+</ul>
+<p>For our next adventure into Python’s Scientific stack we are going to look into estimating simple linear econometric models. This is just the tip of the iceberg as far as statistical modelling packages and capabilities in Python - but it is enough to get you hopefully confident enough to go looking for further modelling libraries on your own.</p>
+<p>This notebook is structured a little bit like how a simple project might look. We do all the tasks needed from downloading the data, some data visualization and the econometrics together. This should show you how far we have come on our Python Adventure.</p>
+<div class="section" id="loading-some-data">
+<h2>Loading some data<a class="headerlink" href="#loading-some-data" title="Permalink to this headline">¶</a></h2>
+<p>The plan is to use the data from Acemoglu, Johnson and Robinson’s 2001 AER paper (hereafter AJR) on linking institutions to economic development as an example on how to run OLS and IV style regression models. That means we have to load the data.</p>
+<div class="section" id="importing-into-pandas">
+<h3>Importing into Pandas<a class="headerlink" href="#importing-into-pandas" title="Permalink to this headline">¶</a></h3>
+<p>AJR provide multiple datasets on their replication page that we have put the ‘data’ directory.
+Each dataset allows us to construct estimates from one of the tables in the paper.</p>
+<p>We’ll start by working with table 1’s data, <code class="docutils literal notranslate"><span class="pre">maketable1.dta</span></code>.
+It’s a Stata datafile, so we will need to use the function <code class="docutils literal notranslate"><span class="pre">read_stata</span></code> from the pandas library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;data/maketable1.dta&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>shortnam</th>
+      <th>euro1900</th>
+      <th>excolony</th>
+      <th>avexpr</th>
+      <th>logpgp95</th>
+      <th>cons1</th>
+      <th>cons90</th>
+      <th>democ00a</th>
+      <th>cons00a</th>
+      <th>extmort4</th>
+      <th>logem4</th>
+      <th>loghjypl</th>
+      <th>baseco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AFG</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>93.699997</td>
+      <td>4.540098</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AGO</td>
+      <td>8.000000</td>
+      <td>1.0</td>
+      <td>5.363636</td>
+      <td>7.770645</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>280.000000</td>
+      <td>5.634789</td>
+      <td>-3.411248</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ARE</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>7.181818</td>
+      <td>9.804219</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARG</td>
+      <td>60.000004</td>
+      <td>1.0</td>
+      <td>6.386364</td>
+      <td>9.133459</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>68.900002</td>
+      <td>4.232656</td>
+      <td>-0.872274</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ARM</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>7.682482</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-visualization">
+<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h2>
+<p>AJR’s main hypothesis is to investigate the relationship between institutional differences and economic outcomes.</p>
+<p>To do this the paper operationalizes the variables of interest as follows:</p>
+<ul class="simple">
+<li><p>economic outcomes are proxied by log GDP per capita in 1995, adjusted for exchange rates, <code class="docutils literal notranslate"><span class="pre">logpgp95</span></code></p></li>
+<li><p>institutional differences are proxied by an index of protection against expropriation on average over 1985-95, constructed by the Political Risk Services Group, <code class="docutils literal notranslate"><span class="pre">avexpr</span></code></p></li>
+</ul>
+<p>Before we jump on to running regressions, let’s check out whether there is any relationship between these variables graphically:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-notebook&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;logpgp95&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Expropriation Risk (Institutions)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Income&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Income&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/linear_econometrics_7_1.png" src="../../_images/linear_econometrics_7_1.png" />
+</div>
+</div>
+<p>So there definitely appears to be a positive correlation between instututions and income.</p>
+</div>
+<div class="section" id="univariate-regression">
+<h2>Univariate Regression<a class="headerlink" href="#univariate-regression" title="Permalink to this headline">¶</a></h2>
+<p>OK, so now we have visualized data let’s run some OLS regressions. We will start with the simplest regression we can think of to map:</p>
+<div class="math notranslate nohighlight">
+\[
+logpgp95_i = \beta_0 + \beta_1 avexpr + u_i
+\]</div>
+<p>To run OLS regressions we’ll need a new package, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>.</p>
+<p>First we need to load the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> package:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.12.2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There’s two ways to write out the specification for a regression, the easiest is by writing a formulaic description of the regression we want to estimate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;logpgp95 ~ avexpr&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To estimate the regression specification, we use the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">simple_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> object now contains a bunch of information.
+Most of the ‘standard output’ we have come to expect from software like STATA are contained in the <code class="docutils literal notranslate"><span class="pre">.summary()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               logpgp95   R-squared:                       0.611
+Model:                            OLS   Adj. R-squared:                  0.608
+Method:                 Least Squares   F-statistic:                     171.4
+Date:                Mon, 13 Sep 2021   Prob (F-statistic):           4.16e-24
+Time:                        10:33:47   Log-Likelihood:                -119.71
+No. Observations:                 111   AIC:                             243.4
+Df Residuals:                     109   BIC:                             248.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      4.6261      0.301     15.391      0.000       4.030       5.222
+avexpr         0.5319      0.041     13.093      0.000       0.451       0.612
+==============================================================================
+Omnibus:                        9.251   Durbin-Watson:                   1.689
+Prob(Omnibus):                  0.010   Jarque-Bera (JB):                9.170
+Skew:                          -0.680   Prob(JB):                       0.0102
+Kurtosis:                       3.362   Cond. No.                         33.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>An observation was mistakenly dropped from the results in the original paper (see the note located in <a class="reference external" href="http://maketable2.do">maketable2.do</a> from Acemoglu’s webpage), so our coefficients differ slightly from the ones in the original paper.</p>
+<p>We can get the predicted values from the regression using the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> attribute. Let’s use these in a plot that has predicted versus actual values.
+To do this, we’ll need to drop missing data from our observations because the <code class="docutils literal notranslate"><span class="pre">predict()</span></code> method doesn’t do well with missing data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop missing observations from whole sample</span>
+
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;logpgp95&#39;</span><span class="p">,</span> <span class="s1">&#39;avexpr&#39;</span><span class="p">])</span>
+
+<span class="c1"># Plot predicted values</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">],</span> <span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;logpgp95&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">],</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;predicted&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Expropriation Risk (Institutions)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Income&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted vs actual values for simple OLS regression&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f86b64353d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/linear_econometrics_21_1.png" src="../../_images/linear_econometrics_21_1.png" />
+</div>
+</div>
+<p>We mentioned that there is two ways to call a linear regression, and so far we showed how to use the formula interface which is probably the recommended way to do this in most applications.</p>
+<p>If we end up in a situation where we have to run a regression many times the formula interface actually slows down the code because python has to deconstruct it to get the exact information it needs. Examples where this may occur (and I have come across) are if a regression is part of a nested loop over structural parameters (BLP estimation for IO people), or if we are coding up our own indirect inference procedure.</p>
+<p>Here’s another way to get the same result that is usually faster, although we have to import some additional functionality:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">add_constant</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">add_constant</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">has_constant</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/statsmodels/tsa/tsatools.py:142: FutureWarning: In a future version of pandas all arguments of concat except for the argument &#39;objs&#39; will be keyword-only
+  x = pd.concat(x[::order], 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;const&#39;, &#39;shortnam&#39;, &#39;euro1900&#39;, &#39;excolony&#39;, &#39;avexpr&#39;, &#39;logpgp95&#39;,
+       &#39;cons1&#39;, &#39;cons90&#39;, &#39;democ00a&#39;, &#39;cons00a&#39;, &#39;extmort4&#39;, &#39;logem4&#39;,
+       &#39;loghjypl&#39;, &#39;baseco&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_reg2</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;logpgp95&#39;</span><span class="p">],</span> 
+                     <span class="n">exog</span><span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;const&#39;</span><span class="p">,</span> <span class="s1">&#39;avexpr&#39;</span><span class="p">]],</span> 
+                     <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">simple_reg2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>statsmodels.regression.linear_model.OLS
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">simple_reg2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               logpgp95   R-squared:                       0.611
+Model:                            OLS   Adj. R-squared:                  0.608
+Method:                 Least Squares   F-statistic:                     171.4
+Date:                Mon, 13 Sep 2021   Prob (F-statistic):           4.16e-24
+Time:                        10:33:48   Log-Likelihood:                -119.71
+No. Observations:                 111   AIC:                             243.4
+Df Residuals:                     109   BIC:                             248.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          4.6261      0.301     15.391      0.000       4.030       5.222
+avexpr         0.5319      0.041     13.093      0.000       0.451       0.612
+==============================================================================
+Omnibus:                        9.251   Durbin-Watson:                   1.689
+Prob(Omnibus):                  0.010   Jarque-Bera (JB):                9.170
+Skew:                          -0.680   Prob(JB):                       0.0102
+Kurtosis:                       3.362   Cond. No.                         33.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that this gives us exactly the same results.</p>
+</div>
+<div class="section" id="multivariate-regression">
+<h2>Multivariate Regression<a class="headerlink" href="#multivariate-regression" title="Permalink to this headline">¶</a></h2>
+<p>Univariate regression is rarely enough in social science. At a bare minimum we are worried about other factors affecting GDP that are not included in our model that are also correlated with institutional quality. As reasonably good econometricians we know that this causes bias / inconsistency in our estimates for <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>.</p>
+<p>So let’s add more regressors! AJR argue that climate influences economic outcomes, and it is probably correlated to institutional quality (Discuss / think about why). They operationalize this by including latitude as a proxy.</p>
+<p>Notice that our current data, <code class="docutils literal notranslate"><span class="pre">data</span></code>, doesn’t have that variable due to the ‘interesting’ way Acemoglu structures his data and do files on the web. We’ll need the data <code class="docutils literal notranslate"><span class="pre">maketable2.dta</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import new data by overwriting the old one</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;data/maketable2.dta&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, using the formula interface we can readily add this variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg2</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;logpgp95 ~ avexpr + lat_abst&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">results2</span> <span class="o">=</span> <span class="n">reg2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               logpgp95   R-squared:                       0.623
+Model:                            OLS   Adj. R-squared:                  0.616
+Method:                 Least Squares   F-statistic:                     89.05
+Date:                Mon, 13 Sep 2021   Prob (F-statistic):           1.42e-23
+Time:                        10:33:48   Log-Likelihood:                -118.09
+No. Observations:                 111   AIC:                             242.2
+Df Residuals:                     108   BIC:                             250.3
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      4.8729      0.328     14.855      0.000       4.223       5.523
+avexpr         0.4635      0.055      8.352      0.000       0.353       0.573
+lat_abst       0.8722      0.488      1.788      0.077      -0.094       1.839
+==============================================================================
+Omnibus:                        6.082   Durbin-Watson:                   1.756
+Prob(Omnibus):                  0.048   Jarque-Bera (JB):                5.950
+Skew:                          -0.567   Prob(JB):                       0.0510
+Kurtosis:                       3.037   Cond. No.                         57.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is nice - but its a little hard to compare coefficients and the like across regressions that are far apart in the notebook. What we really want is a regression table that summarizes all of our results. <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> allows us to do this too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.iolib.summary2</span> <span class="kn">import</span> <span class="n">summary_col</span>
+
+<span class="n">info_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;R-squared&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rsquared</span><span class="p">),</span>
+           <span class="s1">&#39;No. observations&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">nobs</span><span class="p">))}</span>
+
+<span class="n">results_table</span> <span class="o">=</span> <span class="n">summary_col</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="p">[</span><span class="n">results</span><span class="p">,</span><span class="n">results2</span><span class="p">],</span>
+                            <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%0.2f</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="n">stars</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                            <span class="n">model_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Model 1&#39;</span><span class="p">,</span>
+                                         <span class="s1">&#39;Model 2&#39;</span><span class="p">],</span>
+                            <span class="n">info_dict</span><span class="o">=</span><span class="n">info_dict</span><span class="p">,</span>
+                            <span class="n">regressor_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">,</span>
+                                             <span class="s1">&#39;lat_abst&#39;</span><span class="p">,</span>
+                                             <span class="s1">&#39;const&#39;</span><span class="p">])</span>
+
+<span class="n">results_table</span><span class="o">.</span><span class="n">add_title</span><span class="p">(</span><span class="s1">&#39;Table - OLS Regressions&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">results_table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Table - OLS Regressions
+================================
+                 Model 1 Model 2
+--------------------------------
+avexpr           0.53*** 0.46***
+                 (0.04)  (0.06) 
+lat_abst                 0.87*  
+                         (0.49) 
+Intercept        4.63*** 4.87***
+                 (0.30)  (0.33) 
+R-squared        0.61    0.62   
+R-squared Adj.   0.61    0.62   
+R-squared        0.61    0.62   
+No. observations 111     111    
+================================
+Standard errors in parentheses.
+* p&lt;.1, ** p&lt;.05, ***p&lt;.01
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we decide we want this table as latex output we can do that too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ols_summary.tex&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+    <span class="n">file_handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results_table</span><span class="o">.</span><span class="n">as_latex</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice we did not provide a file path, so the results are saved to our current working directory.</p>
+<div class="section" id="challenge">
+<h3>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<p>It’s your turn!</p>
+<ol class="simple">
+<li><p>Add the following variables to the regression using the formula interface:</p>
+<ul class="simple">
+<li><p>‘asia’, ‘africa’, ‘other’</p></li>
+</ul>
+</li>
+<li><p>Add the same variables as (1); but use the alternative interface that requires you to specify ‘endog’ and ‘exog’ variables</p></li>
+<li><p>Export the results to a latex file ‘out/tables/ols-regressions’. Give the columns meaningful names, and make sure you don’t have stars in your output to satisfy the new AER policy.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="robustifying-standard-errors">
+<h2>Robustifying Standard Errors<a class="headerlink" href="#robustifying-standard-errors" title="Permalink to this headline">¶</a></h2>
+<p>So far our regressions have imposed heteroskedastic standard errors.</p>
+<p>A simple test for Heteroskedasticity is the Breusch Pagan test:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg3</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;logpgp95 ~ avexpr + lat_abst + asia + africa + other&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">results3</span> <span class="o">=</span> <span class="n">reg3</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> 
+
+<span class="kn">from</span> <span class="nn">statsmodels.compat</span> <span class="kn">import</span> <span class="n">lzip</span>
+<span class="kn">import</span> <span class="nn">statsmodels.stats.api</span> <span class="k">as</span> <span class="nn">sms</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lagrange multiplier statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;f-value&#39;</span><span class="p">,</span> <span class="s1">&#39;f p-value&#39;</span><span class="p">]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">het_breushpagan</span><span class="p">(</span><span class="n">results3</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">results3</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
+<span class="n">lzip</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1713</span><span class="o">/</span><span class="mf">307859961.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lagrange multiplier statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span>         <span class="s1">&#39;f-value&#39;</span><span class="p">,</span> <span class="s1">&#39;f p-value&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">test</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">het_breushpagan</span><span class="p">(</span><span class="n">results3</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">results3</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">lzip</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;statsmodels.stats.api&#39; has no attribute &#39;het_breushpagan&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is some evidence for heteroskedasticity. Let’s robustify standard errors. Statsmodels has ‘HC0’ ‘HC1’, ‘HC2’ and ‘HC3’ standard errors. The STATA default is HC1, so for better or worse let’s get a summary with those:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">robust_ols</span> <span class="o">=</span> <span class="n">reg3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HC1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">robust_ols</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               logpgp95   R-squared:                       0.715
+Model:                            OLS   Adj. R-squared:                  0.702
+Method:                 Least Squares   F-statistic:                     97.09
+Date:                Thu, 17 Aug 2017   Prob (F-statistic):           9.39e-38
+Time:                        17:09:20   Log-Likelihood:                -102.45
+No. Observations:                 111   AIC:                             216.9
+Df Residuals:                     105   BIC:                             233.2
+Df Model:                           5                                         
+Covariance Type:                  HC1                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      5.8511      0.293     19.936      0.000       5.276       6.426
+avexpr         0.3896      0.051      7.638      0.000       0.290       0.490
+lat_abst       0.3326      0.442      0.752      0.452      -0.535       1.200
+asia          -0.1531      0.181     -0.848      0.396      -0.507       0.201
+africa        -0.9164      0.154     -5.946      0.000      -1.218      -0.614
+other          0.3035      0.174      1.741      0.082      -0.038       0.645
+==============================================================================
+Omnibus:                        4.342   Durbin-Watson:                   1.865
+Prob(Omnibus):                  0.114   Jarque-Bera (JB):                3.936
+Skew:                          -0.457   Prob(JB):                        0.140
+Kurtosis:                       3.126   Cond. No.                         58.2
+==============================================================================
+
+Warnings:
+[1] Standard Errors are heteroscedasticity robust (HC1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are also options for clustered standard errors. A nice summary of what is available albiet on a different data set is available <a class="reference external" href="http://www.vincentgregoire.com/standard-errors-in-python/">here</a></p>
+</div>
+<div class="section" id="instrumental-variables-estimation">
+<h2>Instrumental Variables Estimation<a class="headerlink" href="#instrumental-variables-estimation" title="Permalink to this headline">¶</a></h2>
+<p>AJR discuss that the OLS regression results may suffer from endogeneity due to:</p>
+<ul class="simple">
+<li><p>richer countries may be able to afford or prefer better institutions</p></li>
+<li><p>variables that affect income may also be correlated with institutional differences</p></li>
+<li><p>the construction of the index may be biased; analysts may be biased towards seeing countries with higher income having better institutions</p></li>
+</ul>
+<p>They propose a 2SLS solution using settler mortality to instrument for institutional differences: They hypothesize that higher mortality rates of colonizers led to the establishment of institutions that were more extractive in nature (less protection against expropriation), and these institutions still persist today.</p>
+<p>Data for the IV regressions are contained in the file <code class="docutils literal notranslate"><span class="pre">maketable4.dta</span></code> from AJR’s replication files. So we will start by loading that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;data/maketable4.dta&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>shortnam</th>
+      <th>africa</th>
+      <th>lat_abst</th>
+      <th>rich4</th>
+      <th>avexpr</th>
+      <th>logpgp95</th>
+      <th>logem4</th>
+      <th>asia</th>
+      <th>loghjypl</th>
+      <th>baseco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AFG</td>
+      <td>0.0</td>
+      <td>0.366667</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.540098</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AGO</td>
+      <td>1.0</td>
+      <td>0.136667</td>
+      <td>0.0</td>
+      <td>5.363636</td>
+      <td>7.770645</td>
+      <td>5.634789</td>
+      <td>0.0</td>
+      <td>-3.411248</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ARE</td>
+      <td>0.0</td>
+      <td>0.266667</td>
+      <td>0.0</td>
+      <td>7.181818</td>
+      <td>9.804219</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARG</td>
+      <td>0.0</td>
+      <td>0.377778</td>
+      <td>0.0</td>
+      <td>6.386364</td>
+      <td>9.133459</td>
+      <td>4.232656</td>
+      <td>0.0</td>
+      <td>-0.872274</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ARM</td>
+      <td>0.0</td>
+      <td>0.444444</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>7.682482</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A scatter plot provides some evidence towards the necessary condition of a correlation between the instrument and the endogenous variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add numpy so we can get a linear prediction to add to plot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+
+<span class="c1"># Dropping NA&#39;s is required to use numpy&#39;s polyfit</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;logem4&#39;</span><span class="p">,</span> <span class="s1">&#39;avexpr&#39;</span><span class="p">])</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;shortnam&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;logem4&#39;</span><span class="p">],</span> <span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># add a linear prediction line on the fly</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;logem4&#39;</span><span class="p">]),</span>
+         <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;logem4&#39;</span><span class="p">],</span> <span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">))(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;logem4&#39;</span><span class="p">])),</span>
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># add labels to points</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;logem4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">df_plot</span><span class="p">[</span><span class="s1">&#39;avexpr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log of Settler Mortality&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Expropriation Risk (Institutions)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Graphical Evidence of a First Stage Relationship&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Graphical Evidence of a First Stage Relationship&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/linear_econometrics_50_1.png" src="../../_images/linear_econometrics_50_1.png" />
+</div>
+</div>
+<p>Let’s estimate the first stage relationship for the univariate regression model.
+To do this and get results similar to AJR we will need to work on a subset of the data where <code class="docutils literal notranslate"><span class="pre">baseco</span> <span class="pre">==</span> <span class="pre">1</span></code>, essentially where there are complete data on observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;baseco ==1&#39;</span><span class="p">)</span>
+
+<span class="n">first_state_reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;avexpr ~ logem4&#39;</span><span class="p">,</span> 
+                          <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first_state_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s1">&#39;HC1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 avexpr   R-squared:                       0.270
+Model:                            OLS   Adj. R-squared:                  0.258
+Method:                 Least Squares   F-statistic:                     16.32
+Date:                Mon, 13 Sep 2021   Prob (F-statistic):           0.000150
+Time:                        12:26:10   Log-Likelihood:                -104.83
+No. Observations:                  64   AIC:                             213.7
+Df Residuals:                      62   BIC:                             218.0
+Df Model:                           1                                         
+Covariance Type:                  HC1                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      9.3414      0.704     13.264      0.000       7.961      10.722
+logem4        -0.6068      0.150     -4.040      0.000      -0.901      -0.312
+==============================================================================
+Omnibus:                        0.035   Durbin-Watson:                   2.003
+Prob(Omnibus):                  0.983   Jarque-Bera (JB):                0.172
+Skew:                           0.045   Prob(JB):                        0.918
+Kurtosis:                       2.763   Cond. No.                         19.4
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the first stage seems OK with a t-state &gt; 3 (approx F &gt; 10).</p>
+<p>Let’s do an IV2SLS estimation.
+<code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> does not have the functionality to do IV regression, so we’ll need a new package – <code class="docutils literal notranslate"><span class="pre">linearmodels</span></code>.
+We’ll only borrow the <code class="docutils literal notranslate"><span class="pre">IV2SLS</span></code> function from the <code class="docutils literal notranslate"><span class="pre">iv</span></code> module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">linearmodels.iv</span> <span class="kn">import</span> <span class="n">IV2SLS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iv_regression</span> <span class="o">=</span> <span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;logpgp95 ~ 1 + [avexpr ~ logem4]&#39;</span><span class="p">,</span> 
+                                      <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/lachlan/anaconda3/lib/python3.7/site-packages/linearmodels/iv/data.py:25: FutureWarning: is_categorical is deprecated and will be removed in a future version.  Use is_categorical_dtype instead
+  if is_categorical(s):
+</pre></div>
+</div>
+</div>
+</div>
+<p>Somewhat differently from <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, the <code class="docutils literal notranslate"><span class="pre">summary</span></code> which prints out the STATA-esque regression output is an <strong>attribute</strong> of the fitted model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iv_regression</span><span class="o">.</span><span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>IV-2SLS Estimation Summary</caption>
+<tr>
+  <th>Dep. Variable:</th>        <td>logpgp95</td>     <th>  R-squared:         </th> <td>0.1870</td> 
+</tr>
+<tr>
+  <th>Estimator:</th>             <td>IV-2SLS</td>     <th>  Adj. R-squared:    </th> <td>0.1739</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>        <td>64</td>        <th>  F-statistic:       </th> <td>28.754</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Mon, Sep 13 2021</td> <th>  P-value (F-stat)   </th> <td>0.0000</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>12:26:20</td>     <th>  Distribution:      </th> <td>chi2(1)</td>
+</tr>
+<tr>
+  <th>Cov. Estimator:</th>        <td>robust</td>      <th>                     </th>    <td></td>    
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>                     </th>    <td></td>    
+</tr>
+</table>
+<table class="simpletable">
+<caption>Parameter Estimates</caption>
+<tr>
+      <td></td>      <th>Parameter</th> <th>Std. Err.</th> <th>T-stat</th> <th>P-value</th> <th>Lower CI</th> <th>Upper CI</th>
+</tr>
+<tr>
+  <th>Intercept</th>  <td>1.9097</td>    <td>1.1740</td>   <td>1.6267</td> <td>0.1038</td>   <td>-0.3912</td>  <td>4.2106</td> 
+</tr>
+<tr>
+  <th>avexpr</th>     <td>0.9443</td>    <td>0.1761</td>   <td>5.3623</td> <td>0.0000</td>   <td>0.5991</td>   <td>1.2894</td> 
+</tr>
+</table><br/><br/>Endogenous: avexpr<br/>Instruments: logem4<br/>Robust Covariance (Heteroskedastic)<br/>Debiased: False</div></div>
+</div>
+<p>Unfortunately there is no way to currently get the outputs from a regression estimated via <code class="docutils literal notranslate"><span class="pre">linearmodels</span></code> into a regression table!</p>
+<div class="section" id="final-challenge">
+<h3>Final Challenge<a class="headerlink" href="#final-challenge" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Estimate the IV model for the regression that includes ‘asia’, ‘africa’ and ‘other’ as exogenous explanatory variables</p></li>
+<li><p>Use a robust Hausman test to conduct a formal test for endogeneity. Was the IV strategy appropriate based on this test result?</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/linear_econometrics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../pandas/08-aggregation_grouping.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Aggregate Functions and Group Statistics</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Lachlan Deer and Julian Langer<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
