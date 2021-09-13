@@ -3,3 +3,6 @@ notebook
 matplotlib
 numpy
 scipy
+pandas
+statsmodels
+linearmodels
