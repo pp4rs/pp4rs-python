@@ -39,3 +39,4 @@ parts:
       - file: notebooks/pandas/06-missing_data.ipynb
       - file: notebooks/pandas/07-hierarchical_indexing.ipynb
       - file: notebooks/pandas/08-aggregation_grouping.ipynb
+    - file: notebooks/linear_econometrics/linear_econometrics.ipynb
