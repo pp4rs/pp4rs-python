@@ -22,7 +22,7 @@ search_result_2.group()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1677/549355169.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2366/549355169.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0msearch_result_2[0m[0;34m.[0m[0mgroup[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mAttributeError[0m: 'NoneType' object has no attribute 'group'

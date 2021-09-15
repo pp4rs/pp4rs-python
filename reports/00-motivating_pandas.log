@@ -20,7 +20,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 pd.<TAB>
 ------------------
 
-[0;36m  File [0;32m"/tmp/ipykernel_1972/2747507604.py"[0;36m, line [0;32m1[0m
+[0;36m  File [0;32m"/tmp/ipykernel_2654/2747507604.py"[0;36m, line [0;32m1[0m
 [0;31m    pd.<TAB>[0m
 [0m       ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax

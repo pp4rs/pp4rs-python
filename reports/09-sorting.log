@@ -20,7 +20,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 we can sort along a column too
 ------------------
 
-[0;36m  File [0;32m"/tmp/ipykernel_1952/1178170317.py"[0;36m, line [0;32m1[0m
+[0;36m  File [0;32m"/tmp/ipykernel_2635/1178170317.py"[0;36m, line [0;32m1[0m
 [0;31m    we can sort along a column too[0m
 [0m       ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax
