@@ -4,3 +4,4 @@ _build/**
 *.npy
 notebooks/basics/xkcd*
 notebooks/basics/*.csv
+*.tex
