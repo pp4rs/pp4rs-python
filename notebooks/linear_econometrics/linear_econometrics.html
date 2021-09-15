@@ -53,7 +53,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Aggregate Functions and Group Statistics" href="../pandas/08-aggregation_grouping.html" />
+    <link rel="next" title="Optimization with Scipy" href="../optimization/placeholder.html" />
+    <link rel="prev" title="Plotting with Matplotlib" href="../matplotlib/placeholder.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -247,9 +248,19 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../matplotlib/placeholder.html">
+   Plotting with Matplotlib
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Linear Econometric Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optimization/placeholder.html">
+   Optimization with Scipy
   </a>
  </li>
 </ul>
@@ -674,7 +685,7 @@ Dep. Variable:               logpgp95   R-squared:                       0.611
 Model:                            OLS   Adj. R-squared:                  0.608
 Method:                 Least Squares   F-statistic:                     171.4
 Date:                Wed, 15 Sep 2021   Prob (F-statistic):           4.16e-24
-Time:                        12:37:12   Log-Likelihood:                -119.71
+Time:                        12:38:13   Log-Likelihood:                -119.71
 No. Observations:                 111   AIC:                             243.4
 Df Residuals:                     109   BIC:                             248.8
 Df Model:                           1                                         
@@ -720,7 +731,7 @@ To do this, we’ll need to drop missing data from our observations because the 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd35af81760&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f906a229a60&gt;
 </pre></div>
 </div>
 <img alt="../../_images/linear_econometrics_21_1.png" src="../../_images/linear_econometrics_21_1.png" />
@@ -794,7 +805,7 @@ Dep. Variable:               logpgp95   R-squared:                       0.611
 Model:                            OLS   Adj. R-squared:                  0.608
 Method:                 Least Squares   F-statistic:                     171.4
 Date:                Wed, 15 Sep 2021   Prob (F-statistic):           4.16e-24
-Time:                        12:37:12   Log-Likelihood:                -119.71
+Time:                        12:38:13   Log-Likelihood:                -119.71
 No. Observations:                 111   AIC:                             243.4
 Df Residuals:                     109   BIC:                             248.8
 Df Model:                           1                                         
@@ -854,7 +865,7 @@ Dep. Variable:               logpgp95   R-squared:                       0.623
 Model:                            OLS   Adj. R-squared:                  0.616
 Method:                 Least Squares   F-statistic:                     89.05
 Date:                Wed, 15 Sep 2021   Prob (F-statistic):           1.42e-23
-Time:                        12:37:12   Log-Likelihood:                -118.09
+Time:                        12:38:13   Log-Likelihood:                -118.09
 No. Observations:                 111   AIC:                             242.2
 Df Residuals:                     108   BIC:                             250.3
 Df Model:                           2                                         
@@ -975,7 +986,7 @@ Standard errors in parentheses.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2402</span><span class="o">/</span><span class="mf">307859961.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2403</span><span class="o">/</span><span class="mf">307859961.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lagrange multiplier statistic&#39;</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">,</span> 
 <span class="g g-Whitespace">      </span><span class="mi">2</span>         <span class="s1">&#39;f-value&#39;</span><span class="p">,</span> <span class="s1">&#39;f p-value&#39;</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">test</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">het_breushpagan</span><span class="p">(</span><span class="n">results3</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">results3</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog</span><span class="p">)</span>
@@ -1340,14 +1351,23 @@ We’ll only borrow the <code class="docutils literal notranslate"><span class="
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../pandas/08-aggregation_grouping.html" title="previous page">
+        <a class="left-prev" href="../matplotlib/placeholder.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Aggregate Functions and Group Statistics</p>
+                <p class="prevnext-title">Plotting with Matplotlib</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="../optimization/placeholder.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Optimization with Scipy</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

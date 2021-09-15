@@ -22,7 +22,7 @@ ind[1] = 70
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2673/770004720.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2778/770004720.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mind[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;34m=[0m [0;36m70[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/opt/hostedtoolcache/Python/3.8.11/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py[0m in [0;36m__setitem__[0;34m(self, key, value)[0m
